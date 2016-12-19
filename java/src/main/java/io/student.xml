@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<student id="1" group="1">
+		<name>张三</name>
+		<sex>男</sex>
+		<age>18</age>
+	</student>
+	<student id="2" group="1">
+		<name>yahier</name>
+		<sex>男</sex>
+		<age>18</age>
+	</student>
+	<student id="3" group="2">
+		<name>soso</name>
+		<sex>女</sex>
+		<age>18</age>
+	</student>
+</root>

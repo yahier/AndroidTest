@@ -9,8 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/no_title" >
         <activity
-            android:name=".test.GuaRound"
-            android:label="@string/title_activity_main" >
+            android:name=".test.GuaRound">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

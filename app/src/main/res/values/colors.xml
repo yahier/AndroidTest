@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="bartitle">#616266</color>
+    <color name="blue_bg">#004268</color>
+    <color name="black">#000000</color>
+    <color name="gray">#C0C0C0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="glass">#00000000</color>
+    <color name="red">#FF0000</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="bg">#ddd</color>
+    <color name="transparent">#00000000</color>
+    
+    
+    
+
 </resources>

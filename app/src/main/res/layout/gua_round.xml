@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xmlns:tools="http://schemas.android.com/tools" -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gua_bg" >
+
+    <!-- topBanner结束 -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+
+        <ImageView
+            android:id="@+id/gua_round"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gua_icon_round" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gua_icon_round2" />
+
+        <ImageView
+            android:id="@+id/gua_round_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/gua_btn_click_selector" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/gua_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/gua_icon_help" />
+
+</RelativeLayout>

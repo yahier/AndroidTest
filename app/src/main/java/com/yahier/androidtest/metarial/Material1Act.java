@@ -10,6 +10,8 @@ import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 16/12/30.
+ *
+ * note:   https://developer.android.google.cn/training/material/shadows-clipping.html
  */
 
 public class Material1Act extends Activity {

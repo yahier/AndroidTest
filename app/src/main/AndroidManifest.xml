@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/no_title" >
         <activity
-            android:name=".com.example.andriod_test.MainActivity">
+            android:name=".metarial.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +19,10 @@
         <activity android:name=".ver.tab.LoveAsk" />
         <activity android:name=".ver.tab.LoveHelp" />
         <activity android:name=".ver.tab.LoveHeart" />
+
+        <!-- material -->
+
+
     </application>
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />

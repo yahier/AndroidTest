@@ -7,7 +7,7 @@
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/no_title" >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".metarial.MainAct">
             <intent-filter>
@@ -21,7 +21,7 @@
         <activity android:name=".ver.tab.LoveHeart" />
 
         <!-- material -->
-
+        <activity android:name=".metarial.Material1Act" />
 
     </application>
 

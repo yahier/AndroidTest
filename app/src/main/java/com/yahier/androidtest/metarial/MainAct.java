@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.ver.tab.LoveAsk;
 import com.yahier.androidtest.ver.tab.LoveHeart;
@@ -61,8 +64,8 @@ public class MainAct extends Activity {
         map = new HashMap<>();
         datas = new ArrayList<>();
         map.put("小二", Material1Act.class);
-        map.put("小si", LoveHeart.class);
-
+        map.put("recycle", RecycleAct.class);
+        map.put("cardview", CardViewAct.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 
@@ -73,4 +76,6 @@ public class MainAct extends Activity {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datas);
         listView.setAdapter(adapter);
     }
+
+
 }

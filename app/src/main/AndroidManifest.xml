@@ -9,6 +9,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+            android:label="material测试"
             android:name=".metarial.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,8 @@
 
         <!-- material -->
         <activity android:name=".metarial.Material1Act" />
+        <activity android:name=".metarial.RecycleAct" />
+        <activity android:name=".metarial.CardViewAct" />
 
     </application>
 

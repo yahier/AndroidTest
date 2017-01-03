@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
-import com.yahier.androidtest.ver.tab.LoveAsk;
-import com.yahier.androidtest.ver.tab.LoveHeart;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -2,7 +2,6 @@ package com.yahier.androidtest.com.example.andriod_test;
 
 
 import com.yahier.androidtest.R;
-import com.yahier.androidtest.ver.tab.LoveAsk;
 
 
 import android.app.Activity;
@@ -39,8 +38,8 @@ public class MainActivity extends Activity {
         findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), LoveAsk.class);
-                startActivity(intent);
+               // Intent intent = new Intent(view.getContext(), LoveAsk.class);
+               // startActivity(intent);
             }
         });
     }

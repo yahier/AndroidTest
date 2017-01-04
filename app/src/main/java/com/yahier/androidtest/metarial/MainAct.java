@@ -4,18 +4,15 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.content.provider.TestCPActivity;
+import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.ServiceActivity;
 
 import java.util.ArrayList;
@@ -68,6 +65,8 @@ public class MainAct extends Activity {
         map.put("cardview", CardViewAct.class);
         map.put("service", ServiceActivity.class);
         map.put("ContentProvider", TestCPActivity.class);
+        map.put("SynchonizedTest", SynchonizedTest.class);
+
         Set<String> names = map.keySet();
         datas.addAll(names);
 

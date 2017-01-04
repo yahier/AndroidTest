@@ -1,6 +1,5 @@
 package com.yahier.androidtest.com.example.andriod_test;
 
-import java.io.File;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,12 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
-
 import com.yahier.androidtest.R;
 
+
+/**
+ * 测试回收
+ */
 public class May521 extends Activity {
 	TextView text;
-	private static final String LOG_TAG = "ScreenCapReceiver";
+	private static final String LOG_TAG = "May521";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.content.provider.TestCPActivity;
+import com.yahier.androidtest.service.ServiceActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -64,6 +66,8 @@ public class MainAct extends Activity {
         map.put("小二", Material1Act.class);
         map.put("recycle", RecycleAct.class);
         map.put("cardview", CardViewAct.class);
+        map.put("service", ServiceActivity.class);
+        map.put("ContentProvider", TestCPActivity.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

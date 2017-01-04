@@ -14,7 +14,7 @@ import com.yahier.androidtest.R;
  * Created by yahier on 17/1/4.
  */
 
-public class aActivity extends Activity implements View.OnClickListener {
+public class ServiceActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

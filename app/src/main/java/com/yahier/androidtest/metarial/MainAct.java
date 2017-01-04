@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.ServiceActivity;
@@ -65,8 +66,8 @@ public class MainAct extends Activity {
         map.put("cardview", CardViewAct.class);
         map.put("service", ServiceActivity.class);
         map.put("ContentProvider", TestCPActivity.class);
-        map.put("SynchonizedTest", SynchonizedTest.class);
-
+        map.put("Synchonized", SynchonizedTest.class);
+        map.put("反射", ReflectTest.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

@@ -37,7 +37,7 @@
         <activity android:name=".service.AccessServiceAct" />
 
         <activity android:name=".multipleThreads.SynchonizedTest" />
-
+        <activity android:name=".multipleThreads.OperateUiThreadAct" />
         <activity android:name=".common.ReflectTest" />
         <!--view测试 -->
         <activity

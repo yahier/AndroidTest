@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
+import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
@@ -72,7 +73,7 @@ public class MainAct extends Activity {
         map.put("反射", ReflectTest.class);
         map.put("messenger", ActivityMessenger.class);
         map.put("AccessbilityService", AccessServiceAct.class);
-
+        map.put("子线程操作UI", OperateUiThreadAct.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

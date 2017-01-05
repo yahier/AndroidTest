@@ -8,6 +8,6 @@ import android.util.Log;
 
 public class Common {
     private void go(){
-        Log.e("Common","go");
+        Log.e("Common","private go方法被调用");
     }
 }

@@ -14,6 +14,8 @@ import com.yahier.androidtest.R;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
+import com.yahier.androidtest.service.AccessServiceAct;
+import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
 
 import java.util.ArrayList;
@@ -68,6 +70,9 @@ public class MainAct extends Activity {
         map.put("ContentProvider", TestCPActivity.class);
         map.put("Synchonized", SynchonizedTest.class);
         map.put("反射", ReflectTest.class);
+        map.put("messenger", ActivityMessenger.class);
+        map.put("AccessbilityService", AccessServiceAct.class);
+
         Set<String> names = map.keySet();
         datas.addAll(names);
 

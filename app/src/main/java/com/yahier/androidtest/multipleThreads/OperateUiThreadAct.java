@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.Button;
 
 import com.yahier.androidtest.R;
@@ -23,9 +24,19 @@ public class OperateUiThreadAct extends Activity {
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
         btn3 = (Button) findViewById(R.id.btn3);
-        test1();
         test2();
-        test3();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                test3();
+                test4();
+            }
+        });
+
+
+        //在这里调用test1 也是可以成功的
+        test1();
     }
 
 
@@ -33,9 +44,10 @@ public class OperateUiThreadAct extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                btn1.setText("你好啊 1号");
+                btn1.setText("早上好 1号");
                 Button btn4 = (Button) findViewById(R.id.btn4);
                 btn4.setText("会崩溃吗");
+
             }
         }).start();
     }
@@ -82,5 +94,20 @@ public class OperateUiThreadAct extends Activity {
                 });
             }
         }.start();
+    }
+
+    void test4() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                btn1.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Button btn4 = (Button) findViewById(R.id.btn4);
+                        btn4.setText("test4");
+                    }
+                });
+            }
+        }).start();
     }
 }

@@ -44,6 +44,10 @@
             android:name=".viewtest.SwipeRefreshLayoutTest"
             android:label="SwipeRefreshLayout" />
 
+        <activity
+            android:name=".viewtest.CanvasTest"
+            android:label="CanvasTest" />
+
         <service android:name=".service.OneService"/>
         <service android:name=".service.MessengerService"/>
 

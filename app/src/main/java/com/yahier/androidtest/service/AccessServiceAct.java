@@ -3,6 +3,7 @@ package com.yahier.androidtest.service;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,19 +14,25 @@ import com.yahier.androidtest.R;
  */
 
 public class AccessServiceAct extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act);
-        Button btn = (Button)findViewById(R.id.btn1);
-        btn.setText("启动AccessbilityService");
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //android.accessibilityservice.AccessibilityService
-                Intent intent = new Intent("android.accessibilityservice.AccessibilityService");
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_qhb);
+
+        Intent intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+        startActivity(intent);
+    }
+
+    public void start(View v) {
+        if (MyAccessibilityService.ALL) {
+            MyAccessibilityService.ALL = false;
+            ((Button) v).setText("对话内监控+关");
+        } else {
+            MyAccessibilityService.ALL = true;
+            ((Button) v).setText("对话内监控+开");
+        }
+        ;
+
     }
 }

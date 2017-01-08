@@ -4,5 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="access_description">微信6.3.32抢红包插件,可以在对话内强红包,可开启关闭本功能,默认关闭</string>
+    <string name="access_service_label">yahier微信6.3.32版自动抢红包</string>
 
 </resources>

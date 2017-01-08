@@ -1,5 +1,11 @@
 package com.yahier.androidtest.service;
 
+
+/**
+ * Created by yahier on 17/1/4.
+ */
+
+
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
@@ -15,11 +21,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by yahier on 17/1/4.
- */
 
 public class MyAccessibilityService extends AccessibilityService {
+
     public static boolean ALL = false;
     private List<AccessibilityNodeInfo> parents;
     private boolean auto = false;
@@ -34,6 +38,8 @@ public class MyAccessibilityService extends AccessibilityService {
     //唤醒屏幕相关
     private PowerManager pm;
     private PowerManager.WakeLock wl = null;
+    private String TAG = "MyAccessibilityService";
+
     @Override
     protected void onServiceConnected() {
         super.onServiceConnected();
@@ -44,26 +50,28 @@ public class MyAccessibilityService extends AccessibilityService {
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
         int eventType = event.getEventType();
+        Log.e(TAG, "eventType:" + eventType);
         if (auto)
-            Log.e("AAAAAAAA", "有事件" + eventType);
+            Log.e(TAG, "有事件" + eventType);
         switch (eventType) {
-            //当通知栏发生改变时
-            case 2048:
+            //当窗口内容改变发生改变时
+            case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
                 pubclassName = event.getClassName().toString();
 
-                Log.e("AAAAAAAA", "有2048事件" + pubclassName + auto);
+                Log.e(TAG, "窗口内容改变:" + pubclassName + " " + auto);
 
                 if (!auto && pubclassName.equals("android.widget.TextView") && ALL) {
-                    Log.e("AAAAAAAA", "有2048事件被识别" + auto + pubclassName);
+                    Log.e(TAG, "有2048事件被识别" + auto + pubclassName);
                     getLastPacket(1);
                 }
                 if (auto && WXMAIN) {
                     getLastPacket();
                     auto = false;
                 }
-
                 break;
+            //当通知栏状态发生改变时
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
+                Log.e(TAG, "通知状态改变");
                 List<CharSequence> texts = event.getText();
                 if (!texts.isEmpty()) {
                     for (CharSequence text : texts) {
@@ -77,7 +85,7 @@ public class MyAccessibilityService extends AccessibilityService {
                                     auto = true;
                                     wakeAndUnlock2(true);
                                     pendingIntent.send();
-                                    Log.e("AAAAAAAA", "进入微信" + auto + event.getClassName().toString());
+                                    Log.e(TAG, "进入微信" + auto + event.getClassName().toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -88,23 +96,24 @@ public class MyAccessibilityService extends AccessibilityService {
                 break;
             //当窗口的状态发生改变时
             case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
+                Log.e(TAG, "window状态改变");
                 String className = event.getClassName().toString();
                 if (className.equals("com.tencent.mm.ui.LauncherUI")) {
                     //点击最后一个红包
-                    Log.e("AAAAAAAA", "点击红包");
+                    Log.e(TAG, "点击红包");
                     if (auto)
                         getLastPacket();
                     auto = false;
                     WXMAIN = true;
                 } else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI")) {
                     //开红包
-                    Log.e("AAAAAAAA", "开红包");
+                    Log.e(TAG, "开红包");
                     click("com.tencent.mm:id/bdh");
                     auto = false;
                     WXMAIN = false;
                 } else if (className.equals("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyDetailUI")) {
                     //退出红包
-                    Log.e("AAAAAAAA", "退出红包");
+                    Log.e(TAG, "退出红包");
                     click("com.tencent.mm:id/gq");
                     WXMAIN = false;
 
@@ -131,7 +140,7 @@ public class MyAccessibilityService extends AccessibilityService {
 
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         recycle(rootNode);
-        Log.e("AAAAAAAA", "当前页面红包数老方法" + parents.size());
+        Log.e(TAG, "当前页面红包数老方法" + parents.size());
         if (parents.size() > 0) {
             parents.get(parents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
             lastbagnum = parents.size();
@@ -140,13 +149,12 @@ public class MyAccessibilityService extends AccessibilityService {
     }
 
     private void getLastPacket(int c) {
-
-        Log.e("AAAAAAAA", "新方法" + parents.size());
+        Log.e(TAG, "新方法" + parents.size());
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         recycle(rootNode);
-        Log.e("AAAAAAAA", "last++" + lastbagnum + "当前页面红包数" + parents.size());
+        Log.e(TAG, "last++" + lastbagnum + "当前页面红包数" + parents.size());
         if (parents.size() > 0 && WXMAIN) {
-            Log.e("AAAAAAAA", "页面大于O且在微信界面");
+            Log.e(TAG, "页面大于O且在微信界面");
             if (lastbagnum < parents.size())
                 parents.get(parents.size() - 1).performAction(AccessibilityNodeInfo.ACTION_CLICK);
             lastbagnum = parents.size();
@@ -184,12 +192,11 @@ public class MyAccessibilityService extends AccessibilityService {
 
         }
     }
-    private void wakeAndUnlock2(boolean b)
-    {
-        if(b)
-        {
+
+    private void wakeAndUnlock2(boolean b) {
+        if (b) {
             //获取电源管理器对象
-            pm=(PowerManager) getSystemService(Context.POWER_SERVICE);
+            pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
             //获取PowerManager.WakeLock对象，后面的参数|表示同时传入两个值，最后的是调试用的Tag
             wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright");
@@ -198,16 +205,15 @@ public class MyAccessibilityService extends AccessibilityService {
             wl.acquire();
 
             //得到键盘锁管理器对象
-            km= (KeyguardManager)getSystemService(Context.KEYGUARD_SERVICE);
+            km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
             kl = km.newKeyguardLock("unLock");
 
             //解锁
             kl.disableKeyguard();
-        }
-        else
-        {
+        } else {
             //锁屏
             kl.reenableKeyguard();
+
             //释放wakeLock，关灯
             wl.release();
         }

@@ -8,6 +8,7 @@
 
     <!-- your theme inherits from the material theme -->
     <style name="AppTheme" parent="android:Theme.Material">
+        <item name= "android:windowIsTranslucent" >true </item>
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <!--<item name="android:colorPrimary">#f00</item>-->

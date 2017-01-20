@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.bitmap.ViewToBitmapAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
@@ -18,6 +19,7 @@ import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
+import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
@@ -78,6 +80,8 @@ public class MainAct extends Activity {
         map.put("子线程操作UI", OperateUiThreadAct.class);
         map.put("CanvasTest", CanvasTest.class);
         map.put("SwipeBack", SwipeBackMainActivity.class);
+        map.put("DrawerTest", DrawerLayoutActTest.class);
+        map.put("View转换成bitmap", ViewToBitmapAct.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

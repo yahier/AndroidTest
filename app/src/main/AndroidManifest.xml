@@ -70,6 +70,11 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".data.LogTest"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
         <service
             android:label="@string/access_service_label"
             android:name=".service.MyAccessibilityService"

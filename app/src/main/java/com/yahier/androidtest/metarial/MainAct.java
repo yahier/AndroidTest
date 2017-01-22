@@ -14,6 +14,7 @@ import com.yahier.androidtest.R;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
+import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.AccessServiceAct;
@@ -82,6 +83,7 @@ public class MainAct extends Activity {
         map.put("SwipeBack", SwipeBackMainActivity.class);
         map.put("DrawerTest", DrawerLayoutActTest.class);
         map.put("View转换成bitmap", ViewToBitmapAct.class);
+        map.put("本地记录Log", LogTest.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

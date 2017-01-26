@@ -6,17 +6,22 @@ import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * 读写的顺序不能更改。
+ */
 public class DataIo {
-	static String path = "d://dataio.txt";
+	static String path = ObjIO.filePath;
 
 	public static void main(String args[]) {
 		try {
 			FileOutputStream fos = new FileOutputStream(path);
 			DataOutputStream out_data = new DataOutputStream(fos);
 			out_data.writeInt(100);
-			out_data.writeInt(10012);
-			out_data.writeLong(123456);
+			out_data.writeInt(12);
+			out_data.writeLong(986736783);
 			out_data.writeUTF("yahier is doign what");
+			out_data.flush();
+			fos.flush();
 			
 		} catch (IOException e) {
 			System.out.println("write..."+e.getMessage());
@@ -24,15 +29,14 @@ public class DataIo {
 		try {
 			FileInputStream fis = new FileInputStream(path);
 			DataInputStream in_data = new DataInputStream(fis);
-			System.out.println(":.." + in_data.readUTF());
-			System.out.println(":" + in_data.readInt());//
-			System.out.println(":" + in_data.readInt());// 
-			System.out.println(":" + in_data.readLong()); 
-			
+			System.out.println(in_data.readInt());
+			System.out.println(in_data.readInt());
+			System.out.println(in_data.readLong());
+			System.out.println(in_data.readUTF());
+
 		} catch (IOException e) {
 			System.out.println(e.getStackTrace());
 		}
-		System.out.println(123);
 	}
 
 }

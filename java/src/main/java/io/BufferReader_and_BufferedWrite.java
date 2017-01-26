@@ -9,10 +9,10 @@ import java.io.IOException;
 
 public class BufferReader_and_BufferedWrite {
 	public static void main(String args[]) {
-		File file = new File("D://Student.txt");
+		File file = new File(ObjIO.filePath);
 		String content[] = { "erty", "dfghj", "rtyui", "ertyu" };
 		try {
-			//д��ȥ
+			//д�
 			FileWriter outOne = new FileWriter(file);
 			BufferedWriter outTwo = new BufferedWriter(outOne);
 			for (int k = 0; k < content.length; k++) {
@@ -29,7 +29,7 @@ public class BufferReader_and_BufferedWrite {
 			int i = 0;
 			while ((s = inTwo.readLine()) != null) {
 				i++;
-				System.out.println("..." + i + ":" + s);
+				System.out.println( i + ":" + s);
 			}
 			inOne.close();
 			inTwo.close();

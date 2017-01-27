@@ -20,6 +20,7 @@ import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
+import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.viewtest.CanvasTest;
@@ -84,6 +85,7 @@ public class MainAct extends Activity {
         map.put("DrawerTest", DrawerLayoutActTest.class);
         map.put("View转换成bitmap", ViewToBitmapAct.class);
         map.put("本地记录Log", LogTest.class);
+        map.put("WindowTest", WindowTest.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

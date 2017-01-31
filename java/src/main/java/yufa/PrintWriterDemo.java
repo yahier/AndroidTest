@@ -18,9 +18,13 @@ import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.io.File;
 
+import io.ObjIO;
+
 public class PrintWriterDemo {
+	final static String filePath = ObjIO.filePath;
 
 	public static void main(String[] args) {
+		testFileWriter();
 		testFileReader();
 	}
 
@@ -32,7 +36,7 @@ public class PrintWriterDemo {
 		float score = 32.5f;
 		char sex = '男';
 		try {
-			pw = new PrintWriter(new FileWriter(new File("d:\\file.txt")), true);
+			pw = new PrintWriter(new FileWriter(new File(filePath)), true);
 			pw.printf("姓名：%s;年龄：%d;性别：%c;分数：%5.2f;", name, age, sex, score);
 			pw.println();
 			pw.println("多多指教");
@@ -47,8 +51,8 @@ public class PrintWriterDemo {
 
 	static void testFileWriter() {
 		try {
-			FileWriter f = new FileWriter("d://11.txt");
-			f.write("2234567");
+			FileWriter f = new FileWriter(filePath);
+			f.write("2234567\n");
 			f.write("sd收到的");
 			f.close();
 		} catch (IOException e) {
@@ -60,7 +64,7 @@ public class PrintWriterDemo {
 	
 	static void testFileReader(){
 		try {
-			BufferedReader b =new BufferedReader( new FileReader("d://file.txt"));
+			BufferedReader b =new BufferedReader( new FileReader(filePath));
 			try {
 				String con;
 				while((con=b.readLine())!=null){

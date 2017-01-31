@@ -1,6 +1,5 @@
 package array;
 
-//java���� �㷨 ��11��   �ߵ�����
 import java.util.Arrays;
 
 public class ReverseArray {
@@ -25,13 +24,11 @@ public class ReverseArray {
 
 	void reverse(int[] a) {
 		for (int i = 0; i < a.length / 2; i++) {
-			// ������ֵ
 			exchange(i);
 		}
 		// System.out.println(Arrays.toString(a));
 	}
 
-	// ������ֵ ������Ч �ı䲻�������ֵ
 	void exchange(int index) {
 		int tem = data[index];
 		data[index] = data[data.length - 1 - index];

@@ -17,15 +17,15 @@ public class MyMap {
 	/** 测试HashMap */
 	static void test() {
 		HashMap map = new HashMap(10);
-		map.put("1", "1");
-		map.put("2", "2");
-		map.put("3", "3");
-		map.put("4", "4");
+		map.put("1", "11");
+		map.put("2", "12");
+		map.put("3", "13");
+		map.put("4", "14");
 
 		Set<?> set = map.keySet();
 		Iterator it = set.iterator();
 		while (it.hasNext()) {
-			System.out.println(it.next());
+			System.out.println("test:"+it.next());
 		}
 
 		System.out.println();
@@ -42,23 +42,25 @@ public class MyMap {
 		Set<?> set = map.keySet();
 		Iterator it = set.iterator();
 		while (it.hasNext()) {
-			System.out.println(it.next());
+			System.out.println("test2:"+it.next());
 		}
+		System.out.println();
 
 	}
 
-	/** 测试TreeMap */
+	/**
+	 * 测试TreeMap.会自动根据key排序
+	 */
 	static void test3() {
 		Map map = new TreeMap();
 		map.put("Q", "Level Q");
 		map.put("4", "Level 2");
 		map.put("3", "Level 3");
 		map.put("F", "Level F");
-		//map = ((TreeMap)map).subMap("4", "M");
 		Iterator it = map.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry e = (Map.Entry) it.next();
-			System.out.println("Key: " + e.getKey());
+			System.out.println("test3 Key: " + e.getKey());
 
 		}
 	}

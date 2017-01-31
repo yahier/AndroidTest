@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-//测试下 数组控制
+//测试下 数组复制
 public class Copy {
 	int[] a = { 1, 2, 3, 4, 5 };
 
@@ -21,7 +21,7 @@ public class Copy {
 
 	public void test() {
 		int[] b = new int[5];
-		System.arraycopy(a, 2, b, 2, 3);
+		System.arraycopy(a, 1, b, 2, 3);
 
 		for (int i = 0; i < b.length; i++) {
 			System.out.println(b[i]);

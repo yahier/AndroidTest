@@ -20,6 +20,8 @@ public class Two implements Sky {
 				System.out.println(i);
 			}
 		}
+
+		System.out.println("");
 	}
 	
 	

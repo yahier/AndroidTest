@@ -3,10 +3,6 @@ package core;
 import java.util.EventObject;
 
 public class RunPerformEvent extends EventObject {
-
-    /**
-     * –Ú¡–ªØ∞Ê±æ∫≈
-     */
     private static final long serialVersionUID = 1L;
     
     private Object objsource;
@@ -14,7 +10,6 @@ public class RunPerformEvent extends EventObject {
     
     public RunPerformEvent(Object source,Object message) {
         super(source);
-        // TODO Auto-generated constructor stub
         this.objsource = source;
         this.message = message;
     }

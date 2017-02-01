@@ -3,7 +3,7 @@ package core;
 import java.nio.IntBuffer;
 
 
-/**≤‚ ‘IntBuffer   */
+/**test IntBuffer   */
 public class MyIntBuffer {
 
 	private IntBuffer intBuf = null;

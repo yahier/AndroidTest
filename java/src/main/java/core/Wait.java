@@ -1,58 +1,72 @@
 package core;
 
 import java.util.concurrent.TimeUnit;
-//ƒ£ƒ‚Wait()”Înotify()µƒ
 
+/**
+ * test wait notify„ÄÇ
+ */
 class MyObject implements Runnable {
-	private Monitor monitor;
+    private Monitor monitor;
 
-	public MyObject(Monitor monitor) {
-		this.monitor = monitor;
-	}
+    public MyObject(Monitor monitor) {
+        this.monitor = monitor;
+    }
 
-	public void run() {
-		try {
-			System.out.println("object wait 3");
-			TimeUnit.SECONDS.sleep(3);
-			System.out.println("i'm going.");
-			monitor.gotMessage();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+    public void run() {
+        try {
+            System.out.println("object wait 3");
+            TimeUnit.SECONDS.sleep(4);
+            System.out.println("ÂºÄÂßãÊÅ¢Â§ç i'm going.");
+            monitor.invoke();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 class Monitor implements Runnable {
-	private volatile boolean go = false;
+    private volatile boolean go = false;
 
-	public synchronized void gotMessage() throws InterruptedException {
-		go = true;
-		notify();//Õ®÷™±æœﬂ≥ÃªΩ–—¿¥£ø
-	}
+    public void run() {
+        try {
+            watching();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-	public synchronized void watching() throws InterruptedException {
-		while (go == false) {
-			System.out.println("111  monitor wating()");
-			wait();
-		}
+    public synchronized void invoke() throws InterruptedException {
+        go = true;
+        notify();
+    }
 
-		System.out.println("He has gone.");
-	}
-
-	public void run() {
-		try {
-			watching();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+    public synchronized void watching() throws InterruptedException {
+        //while(go==false)
+        if (go == false) {
+            System.out.println("111  monitor wating()");
+            wait();
+        }
+        System.out.println("He has gone.");
+    }
 }
 
 public class Wait {
-	public static void main(String[] args) {
-		Monitor monitor = new Monitor();
-		MyObject o = new MyObject(monitor);
-		new Thread(o).start();
-		new Thread(monitor).start();
-	}
+    public static void main(String[] args) {
+        Monitor monitor = new Monitor();
+        new Thread(monitor).start();
+        //Âî§ÈÜíÊñπÊ≥ï1
+        try {
+            System.out.println("object sleep");
+            TimeUnit.SECONDS.sleep(4);
+            System.out.println("ÂºÄÂßãÊÅ¢Â§ç");
+            monitor.invoke();
+            //monitor.notify();//notify‰πüÈúÄË¶ÅÂíåwaitÂêå‰∏Ä‰∏™Á∫øÁ®ã
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //Âî§ÈÜíÊñπÊ≥ï2
+        MyObject o = new MyObject(monitor);
+       new Thread(o).start();
+    }
 }

@@ -1,9 +1,8 @@
-package core;
+package reflect;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-// 简单的反射demo  调用无参数的private方法
 public class Reflect_T {
 
 	public static void main(String[] args) {
@@ -34,8 +33,7 @@ public class Reflect_T {
 	}
 
 	/**
-	 * 调用别的类的方法
-	 * 
+	 *
 	 * @throws SecurityException
 	 * @throws NoSuchMethodException
 	 * @throws ClassNotFoundException

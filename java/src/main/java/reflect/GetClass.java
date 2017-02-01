@@ -8,10 +8,8 @@ public class GetClass {
 	}
 	
 	void geClass() throws ClassNotFoundException{
-		//第一种获取方法，直接了当
-		//Class clazz1 = String.class;
+		//Class clazz1 = Stri
 				
-		//第二种获取方法，对实体类运用方法
 		String str = "just do it";
 		Class cla2 = str.getClass();
 		Method[] methods=cla2.getDeclaredMethods();
@@ -19,7 +17,6 @@ public class GetClass {
 			System.out.println(s.getName());
 		}
 				
-		//第三种获取方法，直接传递一个类名，字符串形式
 		Class cla3 = Class.forName("java.lang.String");
 	}
 

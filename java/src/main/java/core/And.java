@@ -12,9 +12,6 @@ public class And {
 	static int[] array = new int[5];
 
 	public static void main(String[] args) {
-		// new And().ya();
-		// new And().aa();
-		// System.out.println(0.05+0.01);
 		list.add(true);
 		list.add(true);
 		list.add(true);
@@ -30,7 +27,6 @@ public class And {
 		And.testStr(s);
 		System.out.println("s=" + s); // 实参s引用没变，值也不变
 
-		//
 		int a = 1;
 		new And().testParameter(a);
 		System.out.println("3 " + a);
@@ -51,7 +47,6 @@ public class And {
 		list.add(true);
 		list.add(true);
 
-		// && �ж�·����
 		for (int i = 0; i < 10; i++) {
 			if (list.size() > i && list.get(i)) {
 				System.out.println(i);
@@ -66,7 +61,6 @@ public class And {
 			System.out.println(456);
 	}
 
-	// continue�������ѭ��
 	void aa() {
 		int sum = 0;
 		for (int i = 0; i < 10; i++) {

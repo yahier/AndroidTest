@@ -1,46 +1,47 @@
 package core;
 
+/**
+ * æµ‹è¯•å—
+ */
 public class Kuai {
-	static int a = 1;
+    static int a = 1;
 
-	public static void main(String[] args) {
-		System.out.println("ÎÒÊÇmain");
-		Kuai kuai = new Kuai();
-		// String[] a = {"1","2","3"};
-		Integer[] b = { 1, 2, 3 };
-		kuai.ya(b);
-	}
+    public static void main(String[] args) {
+        Kuai kuai = new Kuai();
+        Integer[] b = {1, 2, 3};
+        kuai.test();
+    }
 
-	void test() {
-		{
-			System.out.println(a);
-		}
-		{
-			System.out.println(++a);
-		}
-		{
-			System.out.println(123);
-		}
+    void test() {
+        {
+            System.out.println(a);
+        }
+        {
+            System.out.println(++a);
+        }
+        {
+            System.out.println(123);
+        }
 
-	}
+    }
 
-	static {
-		a++;
-		System.out.println("ÎÒÊÇ¾²Ì¬´úÂë¿é");
-	}
+    static {
+        a++;
+        System.out.println("static");
+    }
 
-	String to(String... strings) {
-		String str = strings[2];
-		System.out.println(str);
-		return str;
-	}
+    String to(String... strings) {
+        String str = strings[2];
+        System.out.println(str);
+        return str;
+    }
 
-	Integer ya(Integer... a) {
-		try {
-			System.out.println(a[0]);
-		} finally {
-            
-		}
-		return a[0];
-	}
+    Integer ya(Integer... a) {
+        try {
+            System.out.println(a[0]);
+        } finally {
+
+        }
+        return a[0];
+    }
 }

@@ -1,4 +1,4 @@
-package grammar;
+package grammer;
 
 /**
  * 枚举类型  擦   忘了

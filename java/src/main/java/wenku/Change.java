@@ -8,28 +8,25 @@ import java.io.InputStreamReader;
 public class Change {
 
 	/**
-	 * 将十位数 转换成二位数 输出
-	 * 
-	 * @param args
+	 *
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		change16(132);
 
 	}
 
-	static void chan(int a) {// 十进制转二进制的
+	static void chan(int a) {
 		boolean[] wo = new boolean[8];
 		int in = 0;
 		while (a > 0) {
 			if (a % 2 == 1)
-				wo[in++] = true;// 为true的表示这个位上 是1
+				wo[in++] = true;//
 			else
-				wo[in++] = false;// 表示是0
+				wo[in++] = false;//
 			a = a / 2;
 		}
 
-		System.out.print("a对应的二进制数是： ");
+		System.out.print("chan..");
 		for (int i = wo.length - 1; i >= 0; i--) {
 			if (wo[i] == true)
 				System.out.print(1);
@@ -38,9 +35,9 @@ public class Change {
 		}
 	}
 
-	static void change16(int a) {// 十进制转换成16进制
-		int q = a / 16;// 表示前面的
-		int g = a % 16;// 得到个位的数哈
+	static void change16(int a) {
+		int q = a / 16;
+		int g = a % 16;
 		String ge = null;
 		switch (g) {
 		case 10:
@@ -64,17 +61,17 @@ public class Change {
 
 		}
 
-		String he = new Integer(q).toString().concat(ge);//怎么冒出空指针异常呢
+		String he = new Integer(q).toString().concat(ge);//锟斤拷么冒锟斤拷锟斤拷指锟斤拷锟届常锟斤拷
 		System.out.println(he);
 
 	}
 
-	static void get() {// 二进制转十进制的
+	static void get() {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 
 		try {
-			System.out.println("请输入8位2进制数字");
+			System.out.println("get...");
 			String line = reader.readLine();
 			int sum = 0;
 			int sum1 = 0;
@@ -88,7 +85,7 @@ public class Change {
 					sum1 += sum;
 				}
 			}
-			System.out.println("十进制的结果是" + sum1);
+			System.out.println("sum1:" + sum1);
 		} catch (IOException e) {
 			System.out.println(e.toString());
 

@@ -1,16 +1,17 @@
 package interview;
 
+/**
+ * 测试父类 子类 static和构造函数的执行顺序
+ */
 public class People extends Monkey {
 	public static void main(String[] args) {
-		// Monkey monkey = new People();
-
-		// float f = Float.valueOf("2000.");
-		// System.out.println(f);
+		//打印顺序是 3 1 4 2
+		 //Monkey monkey = new People();
 
 		System.out.println("1 " + get("1222"));
-		System.out.println("2 " + get("1222.1"));
-		System.out.println("3 " + get("1222.1111"));
-		System.out.println("4 " + get("1222."));
+		//System.out.println("2 " + get("1222.1"));
+		//System.out.println("3 " + get("1222.1111"));
+		//System.out.println("4 " + get("1222."));
 
 	}
 

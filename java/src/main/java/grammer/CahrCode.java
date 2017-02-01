@@ -1,8 +1,6 @@
-package yufa;
+package grammer;
 
-import java.io.IOException;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 
 public class CahrCode {
     public static void main(String[] args) {

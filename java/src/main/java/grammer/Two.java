@@ -1,6 +1,6 @@
-package yufa;
+package grammer;
 
-import yufa.MyActivity.Sky;
+import grammer.MyActivity.Sky;
 
 public class Two implements Sky {
 	public static void main(String[] args) {

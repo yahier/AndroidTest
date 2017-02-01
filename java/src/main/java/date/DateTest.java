@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class A {
+public class DateTest {
 	public static void main(String[] args) {
 		sa();
 	}

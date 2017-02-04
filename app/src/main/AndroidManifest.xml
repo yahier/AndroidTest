@@ -67,6 +67,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".view.act.ViewLocationAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".bitmap.ViewToBitmapAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />

@@ -1,5 +1,8 @@
 package thread;
 
+/**
+ * 测试线程优先级，只有大概的总结。不能严格依靠线程来制定优先级
+ */
 public class TestPriority {
 	
 	public static void main(String[] args) {
@@ -9,7 +12,7 @@ public class TestPriority {
 				
 				@Override
 				public void run() {
-					System.out.println("run "+j);
+					System.out.println("run1 "+j);
 					try {
 						Thread.sleep(5000);
 					} catch (InterruptedException e) {

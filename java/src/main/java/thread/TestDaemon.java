@@ -2,50 +2,54 @@ package thread;
 
 /**
  * 用户线程结束后，守护线程会自动退出
- *
  */
 public class TestDaemon {
-	public static void main(String[] args) {
-		TestDaemon test = new TestDaemon();
+    public static void main(String[] args) {
+        TestDaemon test = new TestDaemon();
 
-		for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
+            MyThread thread = test.new MyThread(i);
+            if (i == 1) {
+                //看效果的话,直接打开或者注释这一句就可以了。
+                thread.setDaemon(true);
+            }
+            thread.start();
+        }
 
-			MyThread thread = test.new MyThread(i);
+    }
 
-			if (i == 1) {
-				thread.setDaemon(true);
-			}
-			thread.start();
-		}
+    class MyThread extends Thread {
+        int index;
 
-	}
+        public MyThread(int index) {
+            this.index = index;
 
-	class MyThread extends Thread {
-		int index;
+        }
 
-		public MyThread(int index) {
-			this.index = index;
+        @Override
+        public void run() {
+            System.out.println("run index:" + index);
+            while (index == 1) {
+                try {
+                    Thread.sleep(500);
+                    System.out.println("index:" + index);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
 
-		}
+        }
 
-		@Override
-		public void run() {
-			if (index == 1) {
-				while (true) {
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					System.out.println(index);
-				}
-			}else{
-				System.out.println(index);
-			}
+    }
 
-		}
 
-	}
+    class H implements Runnable {
 
+        @Override
+        public void run() {
+            System.out.println("H run");
+
+
+        }
+    }
 }

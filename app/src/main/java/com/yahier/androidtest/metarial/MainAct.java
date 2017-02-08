@@ -23,6 +23,7 @@ import com.yahier.androidtest.service.ServiceActivity;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
+import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
 import java.util.ArrayList;
@@ -86,6 +87,7 @@ public class MainAct extends Activity {
         map.put("View转换成bitmap", ViewToBitmapAct.class);
         map.put("本地记录Log", LogTest.class);
         map.put("WindowTest", WindowTest.class);
+        map.put("View位置摆放", ViewLocationAct.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
 

@@ -30,12 +30,13 @@ public class ViewLocation extends LinearLayout {
         TextView textView = new TextView(getContext());
         textView.setText("祝你前程似锦");
         textView.setBackgroundResource(R.color.blue);
-        textView.layout(200, 200, 900, 900);//此方法没有效果
-        textView.forceLayout();
+        //no work
+        //textView.layout(200, 200, 900, 900);
+        //textView.forceLayout();
 
-
-        //textView.setWidth(800);
-        //textView.setHeight(200);
+        //works
+        textView.setWidth(1000);
+        textView.setHeight(400);
 
         Layout layout = textView.getLayout();
         addView(textView);

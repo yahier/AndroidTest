@@ -17,6 +17,8 @@ import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
+import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
+import com.yahier.androidtest.multipleThreads.TestIntentServiceAct;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
@@ -88,9 +90,10 @@ public class MainAct extends Activity {
         map.put("本地记录Log", LogTest.class);
         map.put("WindowTest", WindowTest.class);
         map.put("View位置摆放", ViewLocationAct.class);
+        map.put("HandlerThread", TestHandlerThreadAct.class);
+        map.put("TestIntentService", TestIntentServiceAct.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
-
     }
 
 

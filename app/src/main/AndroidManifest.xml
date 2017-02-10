@@ -51,6 +51,7 @@
 
         <service android:name=".service.OneService"/>
         <service android:name=".service.MessengerService"/>
+        <service android:name=".service.MyIntentService"/>
 
         <activity
             android:name=".view.act.SwipeBackMainActivity"
@@ -68,6 +69,16 @@
 
         <activity
             android:name=".view.act.ViewLocationAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".multipleThreads.TestHandlerThreadAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".multipleThreads.TestIntentServiceAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
 

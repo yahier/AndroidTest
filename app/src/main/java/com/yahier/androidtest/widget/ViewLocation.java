@@ -28,11 +28,14 @@ public class ViewLocation extends LinearLayout {
 
     void initViews() {
         TextView textView = new TextView(getContext());
-        textView.setText("祝你前程似锦");
+        textView.setText("祝你前程似锦哈");
         textView.setBackgroundResource(R.color.blue);
+        //layout方法的调用 一般在viewgroup方法中的onLayout方法中调用子类的。也可以查看开发鉴赏一书的相关内容
         //no work
         //textView.layout(200, 200, 900, 900);
         //textView.forceLayout();
+        //textView.requestLayout();
+
 
         //works
         textView.setWidth(1000);

@@ -33,7 +33,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
-        android:text="3"
         tools:context=".MainActivity" />
 
 
@@ -44,6 +43,5 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
-        android:text="4"
         tools:context=".MainActivity" />
 </LinearLayout>

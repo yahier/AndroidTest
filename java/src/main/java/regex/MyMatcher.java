@@ -1,4 +1,4 @@
-package pattern;
+package regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,10 +10,10 @@ public final class MyMatcher {
 	}
 
 	static void tongji() {
-		String content = "ÎÒÃÇ¶¼ÊÇab¼Ò¾ÔµÄBEYOND,f4ÊÇwhat .520";
-		Pattern ch = Pattern.compile("[\u4e00-\u9fa5]");//Í³¼ÆÖÐÎÄ
-		//Pattern en = Pattern.compile("[a-zA-Z]");//Í³¼Æ´óÐ¡Ð´
-		//Pattern no = Pattern.compile("[\\d]");//Í³¼ÆÊý×Ö
+		String content = "ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½abï¿½Ò¾Ôµï¿½BEYOND,f4ï¿½ï¿½what .520";
+		Pattern ch = Pattern.compile("[\u4e00-\u9fa5]");//Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//Pattern en = Pattern.compile("[a-zA-Z]");//Í³ï¿½Æ´ï¿½Ð¡Ð´
+		//Pattern no = Pattern.compile("[\\d]");//Í³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Matcher m = ch.matcher(content);
 		int count =0 ;
 		while(m.find()){
@@ -24,13 +24,13 @@ public final class MyMatcher {
 	}
 
 	/**
-	 * ÑéÖ¤ÓÊ¼þµØÖ·
+	 * ï¿½ï¿½Ö¤ï¿½Ê¼ï¿½ï¿½ï¿½Ö·
 	 */
 	static void isEmail() {
 		String regex = "\\w{1,}@\\w{1,}\56\\w{1,}";
 		String str1 = "yahier@sina.com";
 		if (str1.matches(regex)) {
-			System.out.println(str1 + "ÊÇÒ»¸öEmailµØÖ·");
+			System.out.println(str1 + "ï¿½ï¿½Ò»ï¿½ï¿½Emailï¿½ï¿½Ö·");
 		}
 	}
 
@@ -43,7 +43,7 @@ public final class MyMatcher {
 	}
 
 	/**
-	 * ²¿·ÖÆ¥Åä ¾Í·µ»Øtrue
+	 * ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ ï¿½Í·ï¿½ï¿½ï¿½true
 	 * 
 	 * @param str
 	 * @return
@@ -51,8 +51,8 @@ public final class MyMatcher {
 	static boolean IsPartMatch(String str) {
 		Pattern p = Pattern.compile("[a-z]");
 		Matcher m = p.matcher(str);
-		System.out.println("×îÖÕÄÚÈÝÊÇ    " + m.replaceAll("..."));
-		// Æ¥ÅäÔÚÈÎÒâÎ»ÖÃ strÖÐÓÐÈÎºÎ×Ö¶ÎÂú×ãÌõ¼þ¶¼·µ»Øtrue
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    " + m.replaceAll("..."));
+		// Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ strï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½true
 
 		boolean b = m.find();
 		System.out.println("isMatch..." + b);
@@ -69,7 +69,7 @@ public final class MyMatcher {
 	}
 
 	/**
-	 * Æ¥ÅäÊ×¸ö×Ö·û
+	 * Æ¥ï¿½ï¿½ï¿½×¸ï¿½ï¿½Ö·ï¿½
 	 * 
 	 * @param str
 	 * @return
@@ -77,14 +77,14 @@ public final class MyMatcher {
 	static boolean IsFirstMatch(String str) {
 		Pattern p = Pattern.compile("[a-z]");
 		Matcher m = p.matcher(str);
-		// Æ¥Åästr×îÇ°ÃæµÄÒ»Î»£¿
+		// Æ¥ï¿½ï¿½strï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ò»Î»ï¿½ï¿½
 		boolean b = m.lookingAt();
 		System.out.println("b is " + b);
 		return b;
 	}
 
 	/**
-	 * ´Ë·½·¨»ìÂÒ ÔÝÊ±²»±»ÓÃµ½
+	 * ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½
 	 * 
 	 * @param str
 	 */
@@ -98,7 +98,7 @@ public final class MyMatcher {
 			System.out.println(i);
 			i++;
 		}
-		// ´Ó½ØÈ¡µã ½«ºóÃæµÄ×Ö·û½ÖÉÏ
+		// ï¿½Ó½ï¿½È¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
 		m.appendTail(sb);
 		String s = sb.toString();
 		System.out.println(s);

@@ -1,4 +1,4 @@
-package design;
+package pattern;
 
 /**
  * 似乎是之前写的适配器模式,但实现的部分写错了。

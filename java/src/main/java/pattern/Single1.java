@@ -1,4 +1,4 @@
-package design;
+package pattern;
 
 public class Single1 {
 	public static void main(String[] args) {

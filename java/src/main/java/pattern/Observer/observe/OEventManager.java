@@ -1,6 +1,5 @@
-package design.Observer.observe;
+package pattern.Observer.observe;
 
-import java.util.EventObject;
 import java.util.Observable;
 import java.util.Observer;
 

@@ -1,4 +1,4 @@
-package pattern;
+package regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,25 +6,25 @@ import java.util.regex.Pattern;
 public class MyReplace {
 	public static void main(String args[]) {
 		replace("");
-		testReplace("yahier is Ðì×ÓÍú");
+		testReplace("yahier is ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	}
 
 	/**
-	 * string·½·¨µÄÌæ´ú Ê§°ÜÁË
+	 * stringï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ê§ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param str
 	 */
 	static void testReplace(String str) {
-		str.replace("ya", "Ðì×ÓÍú");
+		str.replace("ya", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		System.out.println(str);
 	}
 
 	/**
-	 * ÓÃÌæ´ú×Ö·û ·Ç³£Ç¿´ó
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ ï¿½Ç³ï¿½Ç¿ï¿½ï¿½
 	 */
 	static void replace(String replace) {
-		String a = "love23next234csdn3423javaeyeÎÒÃÇ....>//";
+		String a = "love23next234csdn3423javaeyeï¿½ï¿½ï¿½ï¿½....>//";
 		String regEx = "[^0-9]";
 		String chi = "[^\u4e00-\u9fa5]";
 		Pattern p = Pattern.compile(regEx);
@@ -33,7 +33,7 @@ public class MyReplace {
 	}
 
 	/**
-	 * Ò²ÊÇÌæ»»
+	 * Ò²ï¿½ï¿½ï¿½æ»»
 	 * 
 	 * @param str
 	 * @param replacemant
@@ -47,7 +47,7 @@ public class MyReplace {
 	}
 
 	/**
-	 * Ìæ»»Ê×¸ö·ûºÅpatternµÄ×Ö·û replaceFirst("y   Ê²Ã´°¡    a", "ÌìºÓ");·µ»Ø ÌìºÓ Ê²Ã´°¡ a
+	 * ï¿½æ»»ï¿½×¸ï¿½ï¿½ï¿½ï¿½ï¿½patternï¿½ï¿½ï¿½Ö·ï¿½ replaceFirst("y   Ê²Ã´ï¿½ï¿½    a", "ï¿½ï¿½ï¿½");ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ê²Ã´ï¿½ï¿½ a
 	 * 
 	 * @param str
 	 * @param replacemant

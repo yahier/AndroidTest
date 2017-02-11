@@ -1,4 +1,4 @@
-package pattern;
+package regex;
 
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -6,16 +6,16 @@ import java.util.regex.Pattern;
 
 public class Mypattern {
 	static Pattern p = Pattern.compile("[a-z]|[A-Z]");
-	//String as = "sddv.<>.ddfÎÒ¡£ÊÔÊÔ¡¢£¿";
+	//String as = "sddv.<>.ddfï¿½Ò¡ï¿½ï¿½ï¿½ï¿½Ô¡ï¿½ï¿½ï¿½";
 
 	public static void main(String[] args) {
-		split("yayÄãÊÇÎÒµÄyayayayYAYA");// [,,ÄãÊÇÎÒµÄ]
+		split("yayï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½yayayayYAYA");// [,,ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½]
 		//regxChinese();
 	}
 
 	static void split(String str) {
 		String[] strs = p.split(str);
-		System.out.println("³¤¶È  ÊÇ   "+strs.length);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½   "+strs.length);
 		System.out.println(Arrays.toString(strs));
 		
 		System.out.println(strs[0]);
@@ -32,12 +32,12 @@ public class Mypattern {
 
 	public static void regxChinese() {
 		//Pattern pattern = Pattern.compile("[\u4e00-\u9fa5]");
-		String s = "TITLE³ĞÔËÈÕÆÚ" ;    //¼ÙÉès = TITLE³ĞÔËÈÕÆÚ
+		String s = "TITLEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ;    //ï¿½ï¿½ï¿½ï¿½s = TITLEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	      Pattern p = Pattern.compile("(?<=TITLE)([\u4e00-\u9fa5] )");       
 	       Matcher m = p.matcher(s);    
-	      while(m.find()){    //ÅĞ¶ÏÊÇ·ñÆ¥Åä     
+	      while(m.find()){    //ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½Æ¥ï¿½ï¿½     
 	    	  System.out.println("2344");
-	           System.out.println(m.group());    //Æ¥Åä³É¹¦£¬Êä³ö¸ÃÖĞÎÄ×Ö·û     
+	           System.out.println(m.group());    //Æ¥ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½     
 	       } 
 	}
 }

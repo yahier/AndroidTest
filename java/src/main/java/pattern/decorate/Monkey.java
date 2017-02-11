@@ -1,4 +1,4 @@
-package design.decorate;
+package pattern.decorate;
 
 /**
  * Created by yahier on 17/1/26.

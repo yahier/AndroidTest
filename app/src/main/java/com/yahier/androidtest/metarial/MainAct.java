@@ -23,6 +23,7 @@ import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
 import com.yahier.androidtest.test.WindowTest;
+import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
@@ -92,6 +93,7 @@ public class MainAct extends Activity {
         map.put("View位置摆放", ViewLocationAct.class);
         map.put("HandlerThread", TestHandlerThreadAct.class);
         map.put("TestIntentService", TestIntentServiceAct.class);
+        map.put("ViewTest", CommonViewTest.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
     }

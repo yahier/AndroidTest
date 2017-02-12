@@ -5,13 +5,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/2/11.
- *
  */
 
 public class CommonViewTest extends Activity implements View.OnClickListener {
@@ -25,11 +25,14 @@ public class CommonViewTest extends Activity implements View.OnClickListener {
 
         btn1 = (Button) findViewById(R.id.btn1);
         btn1.setText("空属性动画里 调用scrollTo");
+
         btn2 = (Button) findViewById(R.id.btn2);
+        btn2.setText("使用MarginLayoutParams更改一些属性");
         Button btn3 = (Button) findViewById(R.id.btn3);
         Button btn4 = (Button) findViewById(R.id.btn4);
 
         btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
 
 
     }
@@ -41,6 +44,7 @@ public class CommonViewTest extends Activity implements View.OnClickListener {
                 showAnimator();
                 break;
             case R.id.btn2:
+                updateLayoutParams();
                 break;
             case R.id.btn3:
                 break;
@@ -64,5 +68,15 @@ public class CommonViewTest extends Activity implements View.OnClickListener {
         });
 
         animator.start();
+    }
+
+    void updateLayoutParams() {
+        // MarginLayoutParams继承了LayoutParams
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) btn2.getLayoutParams();
+        Log.e(tag, params.width + "");
+        params.height = btn2.getHeight() - 18;
+        params.leftMargin += 100;
+        //btn2.requestLayout();
+        btn2.setLayoutParams(params);//内部也调用了requestLayout
     }
 }

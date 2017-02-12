@@ -13,4 +13,6 @@ public class ViewDragHelperAct extends Activity {
         super.onCreate(savedInstanceState);
 
     }
+
+
 }

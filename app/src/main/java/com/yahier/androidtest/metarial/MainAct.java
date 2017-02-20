@@ -22,6 +22,7 @@ import com.yahier.androidtest.multipleThreads.TestIntentServiceAct;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
+import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
@@ -94,6 +95,7 @@ public class MainAct extends Activity {
         map.put("HandlerThread", TestHandlerThreadAct.class);
         map.put("TestIntentService", TestIntentServiceAct.class);
         map.put("ViewTest", CommonViewTest.class);
+        map.put("HtmlTest", HtmlAllTestActivity.class);
         Set<String> names = map.keySet();
         datas.addAll(names);
     }

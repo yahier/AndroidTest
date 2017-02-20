@@ -98,6 +98,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".test.HtmlAllTestActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".test.WindowTest" />
         <service
             android:label="@string/access_service_label"

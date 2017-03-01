@@ -70,7 +70,6 @@ public class Copy {
 
 		@Override
 		public int compareTo(Object another) {
-			// TODO Auto-generated method stub
 			return 0;
 		}
 	}

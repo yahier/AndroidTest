@@ -18,7 +18,6 @@ public class MyFile {
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -50,7 +49,6 @@ public class MyFile {
 
 			@Override
 			public boolean accept(File dir, String filename) {
-				// TODO Auto-generated method stub
 				System.out.println(123);
 				return false;
 			}

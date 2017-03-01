@@ -40,7 +40,6 @@ public class ByteArrayStream {
         try {
             dos.writeUTF(s);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         byte[] buf = bout.toByteArray();// 获取内存缓冲区中的数据

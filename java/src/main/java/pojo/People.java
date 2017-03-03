@@ -17,18 +17,18 @@ public class People {
             this.gender = gender;
         }
 
-        public int getCode(){
+        public int getCode() {
             return gender;
         }
     }
 
-    Gender gender;
+    int gender;
 
-    public void setGender(Gender genger) {
+    public void setGender(int genger) {
         this.gender = genger;
     }
 
-    public Gender getGender(){
+    public int getGender() {
         return gender;
     }
 

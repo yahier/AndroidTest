@@ -22,11 +22,15 @@ public class EnumTest {
         p.setName("soso");
         //第一种写法竟然没通过,就说明哪里出问题了。
         //p.setGender(People.Gender.valueOf("yahier"));
-        p.setGender(People.Gender.BOY);
+        p.setGender(1);
 
-        People.Gender gender = p.getGender();
-        System.out.println("yahier:" + gender.getCode());
-        System.out.println("yahier:" + gender.ordinal());
+        int gender = p.getGender();
+        switch(gender){
+            //case People.Gender.BOY:
+               // break;
+        }
+
+
 
         // TODO
 

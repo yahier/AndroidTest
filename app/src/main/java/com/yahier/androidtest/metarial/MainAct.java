@@ -33,6 +33,7 @@ import com.yahier.androidtest.viewtest.CanvasTest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -43,7 +44,7 @@ import java.util.Set;
 public class MainAct extends Activity {
     ListView listView;
     List<String> datas;
-    HashMap<String, Class> map;
+    LinkedHashMap<String, Class> map;
     MainAct mAct;
 
     @Override
@@ -73,7 +74,7 @@ public class MainAct extends Activity {
 
 
     void setData() {
-        map = new HashMap<>();
+        map = new LinkedHashMap<>();
         datas = new ArrayList<>();
         map.put("小二", Material1Act.class);
         map.put("recycle", RecycleAct.class);

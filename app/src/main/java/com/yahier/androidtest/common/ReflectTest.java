@@ -46,7 +46,7 @@ public class ReflectTest extends Activity implements View.OnClickListener{
             Method m = null;//方法名 与 ...
             m = c.getDeclaredMethod("go", new Class<?>[] {});
             m.setAccessible(true);//突破修饰符限制  private
-            m.invoke(c.newInstance(), new Class<?>[] {});
+            m.invoke(c.newInstance(), new Object[] {});
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }catch (NoSuchMethodException e) {

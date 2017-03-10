@@ -1,10 +1,15 @@
 package com.yahier.androidtest.metarial;
 
 import android.app.Activity;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
@@ -28,13 +33,34 @@ public class RecycleAct extends Activity {
 
     void initRecycleView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        //去掉此之后，查看删除是否还有动画效果
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //加上间隔线。这个操作还有更多强大的功能
+        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                super.onDraw(c, parent, state);
+                Paint paint = new Paint();
+                paint.setColor(Color.BLUE);
+
+                int childCount = parent.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View child = parent.getChildAt(i);
+                    c.drawLine(child.getLeft(), child.getBottom(), child.getRight(), child.getBottom(), paint);
+                }
+
+            }
+        });
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
 
-        // use a linear layout manager
+        //分别是线性layout和瀑布流layout
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
@@ -45,16 +71,21 @@ public class RecycleAct extends Activity {
             @Override
             public void run() {
                 deleteHead(myDataset);
+                //配合DefaultItemAnimator就有动画效果了
+                mAdapter.notifyItemRemoved(0);
                 mAdapter.notifyDataSetChanged();
             }
         }, 4000);
     }
+
 
     void deleteHead(String[] myDataset) {
         for (int i = 0; i < myDataset.length - 1; i++) {
             myDataset[i] = myDataset[i + 1];
         }
         myDataset[myDataset.length - 1] = null;
+
+
     }
 
 

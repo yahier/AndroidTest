@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,16 +43,48 @@ public class RecycleAct extends Activity {
             @Override
             public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
                 super.onDraw(c, parent, state);
+//                Paint paint = new Paint();
+//                paint.setColor(Color.BLUE);
+//
+//                int childCount = parent.getChildCount();
+//                for (int i = 0; i < childCount; i++) {
+//                    View child = parent.getChildAt(i);
+//                    int leftPosition = (int) child.getX();//getX()也是可以啦
+//                    int rightPosition = leftPosition + child.getWidth();
+//                    c.drawLine(leftPosition, child.getBottom(), rightPosition, child.getBottom(), paint);
+//                }
+
+            }
+
+
+            /**
+             * onDraw方法先于drawChildren
+             * onDrawOver在drawChildren之后，一般我们选择复写其中一个即可。
+             */
+            @Override
+            public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                super.onDraw(c, parent, state);
                 Paint paint = new Paint();
                 paint.setColor(Color.BLUE);
 
                 int childCount = parent.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View child = parent.getChildAt(i);
-                    c.drawLine(child.getLeft(), child.getBottom(), child.getRight(), child.getBottom(), paint);
+                    int leftPosition = (int) child.getX();//getX()也是可以啦
+                    int rightPosition = leftPosition + child.getWidth();
+                    c.drawLine(leftPosition, child.getBottom(), rightPosition, child.getBottom(), paint);
                 }
 
             }
+
+
+            //getItemOffsets 可以通过outRect.set()为每个Item设置一定的偏移量，主要用于绘制Decorator。
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+            }
+
+
         });
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -59,7 +92,7 @@ public class RecycleAct extends Activity {
 
         //分别是线性layout和瀑布流layout
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -73,7 +106,6 @@ public class RecycleAct extends Activity {
                 deleteHead(myDataset);
                 //配合DefaultItemAnimator就有动画效果了
                 mAdapter.notifyItemRemoved(0);
-                mAdapter.notifyDataSetChanged();
             }
         }, 4000);
     }

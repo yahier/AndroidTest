@@ -22,6 +22,7 @@ import com.yahier.androidtest.multipleThreads.TestIntentServiceAct;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
+import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
@@ -76,6 +77,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("glide加载图片 测试", GlideTestAct.class);
         map.put("小二", Material1Act.class);
         map.put("recycle", RecycleAct.class);
         map.put("cardview", CardViewAct.class);

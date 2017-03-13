@@ -9,6 +9,11 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
+    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
+
     <application
         android:name=".common.MyApp"
         android:icon="@drawable/ic_launcher"
@@ -62,6 +67,12 @@
             android:name=".view.act.SwipeBackSecondActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".test.GlideTestAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".view.act.DrawerLayoutActTest"
             android:configChanges="orientation|keyboardHidden|navigation"

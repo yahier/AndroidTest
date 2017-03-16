@@ -9,10 +9,8 @@ public class AudiCarFactory extends AudiFactory {
     public <T extends AudiCar> T createAudiCar(Class<T> clz) {
         AudiCar car = null;
         try {
-            //以下2选1
-
             car = (AudiCar) Class.forName(clz.getName()).newInstance();
-            //return (T) AudiQ3.class.newInstance();
+            //return (T) AudiQ3.class.newInstance(); 这样也可以返回对象
         } catch (Exception e) {
             e.printStackTrace();
         }

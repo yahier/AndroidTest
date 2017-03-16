@@ -5,9 +5,9 @@ package pattern.decorate;
  *
  */
 
-public class Animal {
+public class Animal implements IEat {
 
     public void eat() {
-        System.out.println("animal eat");
+        System.out.println("animal吃食物");
     }
 }

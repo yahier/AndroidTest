@@ -4,23 +4,23 @@ package pattern.decorate;
  * Created by yahier on 17/1/26.
  */
 
-public class People extends Animal {
+public class People  implements IEat {
 
-    private Animal animal;
+    private IEat eat;
 
-    public People(Animal animal) {
-        this.animal = animal;
+    public People(IEat eat) {
+        this.eat = eat;
     }
 
 
     public void eat() {
-        this.animal.eat();
-        think();
+        this.eat.eat();
+        eatRice();
     }
 
 
-    public void think() {
-        System.out.println("people think");
+    public void eatRice() {
+        System.out.println("people吃米饭");
     }
 
 }

@@ -4,10 +4,15 @@ package pattern.decorate;
  * Created by yahier on 17/1/26.
  */
 
-public class Monkey extends Animal {
+public class Monkey implements IEat {
+    public IEat eat;
+
+    public Monkey(IEat eat) {
+        this.eat = eat;
+    }
 
     public void eat() {
-        super.eat();
+        eat.eat();
         this.eatBanana();
     }
 

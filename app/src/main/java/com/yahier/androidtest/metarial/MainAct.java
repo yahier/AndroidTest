@@ -28,6 +28,7 @@ import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
+import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
@@ -79,6 +80,7 @@ public class MainAct extends Activity {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
         map.put("加载超大图", LargeImageViewActivity.class);
+        map.put("自定义ViewPager显示卷图", ParallaxVpTestActivity.class);
         map.put("glide加载图片 测试", GlideTestAct.class);
         map.put("小二", Material1Act.class);
         map.put("recycle", RecycleAct.class);

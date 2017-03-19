@@ -115,6 +115,7 @@
 
         <activity android:name=".test.WindowTest" />
         <activity android:name=".bitmap.LargeImageViewActivity" />
+        <activity android:name=".view.act.ParallaxVpTestActivity" />
 
         <service
             android:name=".service.MyAccessibilityService"

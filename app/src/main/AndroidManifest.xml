@@ -7,10 +7,10 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
     <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
 
@@ -54,9 +54,9 @@
             android:name=".viewtest.CanvasTest"
             android:label="CanvasTest" />
 
-        <service android:name=".service.OneService"/>
-        <service android:name=".service.MessengerService"/>
-        <service android:name=".service.MyIntentService"/>
+        <service android:name=".service.OneService" />
+        <service android:name=".service.MessengerService" />
+        <service android:name=".service.MyIntentService" />
 
         <activity
             android:name=".view.act.SwipeBackMainActivity"
@@ -113,13 +113,14 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".test.WindowTest" />
+        <activity android:name=".test.WindowTest" />
+        <activity android:name=".bitmap.LargeImageViewActivity" />
+
         <service
-            android:label="@string/access_service_label"
             android:name=".service.MyAccessibilityService"
             android:enabled="true"
             android:exported="true"
+            android:label="@string/access_service_label"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -130,7 +131,6 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
     </application>
-
 
 
 </manifest>

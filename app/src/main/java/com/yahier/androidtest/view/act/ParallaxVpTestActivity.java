@@ -10,8 +10,6 @@ import com.yahier.androidtest.R;
 import com.yahier.androidtest.widget.SimpleFragment;
 
 public class ParallaxVpTestActivity extends AppCompatActivity {
-
-
     private ViewPager mViewPager;
     private int mTabCount = 3;
 

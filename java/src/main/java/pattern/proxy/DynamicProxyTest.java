@@ -21,8 +21,6 @@ public class DynamicProxyTest {
                 classes2, invocationHandler);
 
         System.out.println(userServiceProxy.getName(1));
-
-        System.out.println(userServiceProxy.getAge(1));
     }
 
 

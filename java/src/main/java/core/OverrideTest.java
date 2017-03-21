@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by yahier on 17/3/2.
- * 需要重载的equals和hashCode方法都相等,才算是同一个对象。
+ * Created by yahier on 17/3/2.   point
+ * 需要重载的equals和hashCode方法都相等,才算是同一个对象。  point
  */
 
 public class OverrideTest {

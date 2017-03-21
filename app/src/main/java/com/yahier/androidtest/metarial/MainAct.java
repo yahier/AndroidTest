@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
+import com.yahier.androidtest.classload.LoaderAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
@@ -79,6 +80,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("调通dex的方法", LoaderAct.class);
         map.put("加载超大图", LargeImageViewActivity.class);
         map.put("自定义ViewPager显示卷图", ParallaxVpTestActivity.class);
         map.put("glide加载图片 测试", GlideTestAct.class);

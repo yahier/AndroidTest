@@ -26,6 +26,7 @@ import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
 import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
+import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
@@ -80,6 +81,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("测试通知 类似微博效果", TestNotificationAct.class);
         map.put("调通dex的方法", LoaderAct.class);
         map.put("加载超大图", LargeImageViewActivity.class);
         map.put("自定义ViewPager显示卷图", ParallaxVpTestActivity.class);

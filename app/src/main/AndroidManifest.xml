@@ -114,6 +114,7 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".test.WindowTest" />
+        <activity android:name=".test.TestNotificationAct" />
         <activity android:name=".classload.LoaderAct" />
         <activity android:name=".bitmap.LargeImageViewActivity" />
         <activity android:name=".view.act.ParallaxVpTestActivity" />

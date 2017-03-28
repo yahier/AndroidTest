@@ -66,7 +66,7 @@ public class Wait {
         }
 
         //唤醒方法2
-        MyObject o = new MyObject(monitor);
-       new Thread(o).start();
+        //MyObject o = new MyObject(monitor);
+        //new Thread(o).start();
     }
 }

@@ -7,7 +7,7 @@ public class Sort1 {
 	
 	public static void main(String[] args) {
 		Sort1 s= new Sort1();
-		s.bubble2(a);
+		s.bubble(a);
 		
 	}
 	

@@ -7,20 +7,17 @@ package pojo;
 public class People {
 
 
+    public People(){
+
+    }
+    public People(String name, String pwd, int age) {
+        this.name = name;
+        this.pwd = pwd;
+        this.age = age;
+    }
+
     int age;
 
-    public enum Gender {
-        BOY(1), GIRL(2);
-        private int gender;
-
-        private Gender(int gender) {
-            this.gender = gender;
-        }
-
-        public int getCode() {
-            return gender;
-        }
-    }
 
     int gender;
 
@@ -33,6 +30,7 @@ public class People {
     }
 
     String name;
+    String pwd;
 
 
     public int getAge() {
@@ -49,5 +47,13 @@ public class People {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getPwd() {
+        return pwd;
     }
 }

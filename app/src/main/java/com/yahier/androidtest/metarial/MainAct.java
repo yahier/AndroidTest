@@ -25,6 +25,7 @@ import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
 import com.yahier.androidtest.test.GlideTestAct;
+import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WindowTest;
@@ -81,6 +82,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("测试Handler接收信息", HandlerTest.class);
         map.put("测试通知 类似微博效果", TestNotificationAct.class);
         map.put("调通dex的方法", LoaderAct.class);
         map.put("加载超大图", LargeImageViewActivity.class);

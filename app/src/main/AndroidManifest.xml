@@ -51,6 +51,9 @@
             android:label="SwipeRefreshLayout" />
 
         <activity
+            android:name=".test.HandlerTest"
+            android:label="CanvasTest" />
+        <activity
             android:name=".viewtest.CanvasTest"
             android:label="CanvasTest" />
 

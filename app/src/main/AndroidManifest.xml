@@ -118,12 +118,19 @@
 
         <activity android:name=".test.WindowTest" />
         <activity android:name=".test.TestNotificationAct" />
+        <activity android:name=".test.BroadCastActTest" />
         <activity
             android:name=".test.ConfigChangesActTest"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".classload.LoaderAct" />
         <activity android:name=".bitmap.LargeImageViewActivity" />
         <activity android:name=".view.act.ParallaxVpTestActivity" />
+
+        <receiver android:name=".test.MyBraodCastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".service.MyAccessibilityService"

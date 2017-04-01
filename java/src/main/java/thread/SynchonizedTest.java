@@ -7,11 +7,12 @@ import myutil.Log;
  */
 
 public class SynchonizedTest {
-    static SynchonizedTest t;
+    static String t = "";
+    static String yaya = "yaya";
 
     public final static void main(String[] args) {
         SynchonizedTest test = new SynchonizedTest();
-        t = new SynchonizedTest();
+        //t = new SynchonizedTest();
         test.test2();
     }
 
@@ -20,13 +21,13 @@ public class SynchonizedTest {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                one();
+                two();
             }
         }).start();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                two();
+                three();
             }
         }).start();
     }
@@ -41,9 +42,8 @@ public class SynchonizedTest {
             e.printStackTrace();
         }
         Log.e("SynchonizedTest", "one结束");
-
-
     }
+
 
     void two() {
         synchronized (t) {
@@ -58,5 +58,19 @@ public class SynchonizedTest {
 
     }
 
+
+    //如果也有t代替yaya来锁定，three就可以和two同时执行了
+    void three() {
+        synchronized (yaya) {
+            Log.e("SynchonizedTest", "three");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.e("SynchonizedTest", "three结束");
+        }
+
+    }
 
 }

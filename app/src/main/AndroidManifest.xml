@@ -119,6 +119,7 @@
         <activity android:name=".test.WindowTest" />
         <activity android:name=".test.TestNotificationAct" />
         <activity android:name=".test.BroadCastActTest" />
+        <activity android:name=".view.act.MyLayoutAct" />
         <activity
             android:name=".test.ConfigChangesActTest"
             android:configChanges="orientation|screenSize" />

@@ -35,6 +35,7 @@ import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.MyLayoutAct;
 import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
+import com.yahier.androidtest.view.act.SurfaceViewTestAct;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
@@ -85,6 +86,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("SurfaceView测试", SurfaceViewTestAct.class);
         map.put("自定义layout", MyLayoutAct.class);
         map.put("测试广播", BroadCastActTest.class);
         map.put("测试ConfigChanges", ConfigChangesActTest.class);

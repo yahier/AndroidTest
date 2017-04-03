@@ -7,10 +7,11 @@
 
 
     <com.yahier.androidtest.widget.MyLayout
-        android:background="#ccc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1">>
+        android:layout_weight="1"
+        android:background="#ccc"
+        android:paddingLeft="20dp">>
 
         <Button
             android:layout_width="wrap_content"
@@ -19,9 +20,9 @@
             android:text="勇敢一点" />
 
         <Button
-            android:layout_marginTop="10dp"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:background="#3f00"
             android:padding="30dp"
             android:text="1" />
@@ -41,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="#ddd"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp">
 
         <Button
             android:layout_width="wrap_content"
@@ -50,9 +52,9 @@
             android:text="勇敢一点" />
 
         <Button
-            android:layout_marginTop="10dp"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="10dp"
             android:background="#3f00"
             android:padding="30dp"
             android:text="1" />

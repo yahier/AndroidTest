@@ -25,6 +25,8 @@ public class MyLayout extends ViewGroup {
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */
+    int paddingLeft;
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -34,6 +36,9 @@ public class MyLayout extends ViewGroup {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        paddingLeft = getPaddingLeft();
+
+
         //开始处理wrap_content,如果一个子元素都没有，就设置为0
         if (getChildCount() == 0) {
             setMeasuredDimension(0, 0);
@@ -53,7 +58,7 @@ public class MyLayout extends ViewGroup {
             View childOne = getChildAt(0);
             int childHeight = childOne.getMeasuredHeight();
             Log.e("onMeasure", "childHeight:" + childHeight);
-            setMeasuredDimension(widthSize, childHeight * getChildCount());
+            setMeasuredDimension(paddingLeft + widthSize, childHeight * getChildCount());
         }
     }
 
@@ -65,7 +70,7 @@ public class MyLayout extends ViewGroup {
         int childCount = getChildCount();
         int heightSum = 0;
 
-        l = 0;
+        l = paddingLeft;
         for (int i = 0; i < childCount; i++) {
             View child = getChildAt(i);
             //计算margin距离

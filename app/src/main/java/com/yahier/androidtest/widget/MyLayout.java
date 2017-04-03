@@ -18,10 +18,43 @@ public class MyLayout extends ViewGroup {
         super(context, attrs);
     }
 
+
+    /**
+     * wrap_content对应at_most.另外的match_parent和具体值都是EXACTLY
+     *
+     * @param widthMeasureSpec
+     * @param heightMeasureSpec
+     */
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         measureChildren(widthMeasureSpec, heightMeasureSpec);
+//        //加上以下就是为了适配wrap_content
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        //开始处理wrap_content,如果一个子元素都没有，就设置为0
+        if (getChildCount() == 0) {
+            setMeasuredDimension(0, 0);
+        } else if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
+            //ViewGroup，宽，高都是wrap_content，根据我们的需求，宽度是子控件的宽度，高度则是所有子控件的总和
+            View childOne = getChildAt(0);
+            int childWidth = childOne.getMeasuredWidth();
+            int childHeight = childOne.getMeasuredHeight();
+            setMeasuredDimension(childWidth, childHeight * getChildCount());
+        } else if (widthMode == MeasureSpec.AT_MOST) {
+            //ViewGroup的宽度为wrap_content,则高度不需要管，宽度还是自控件的宽度
+            View childOne = getChildAt(0);
+            int childWidth = childOne.getMeasuredWidth();
+            setMeasuredDimension(childWidth, heightSize);
+        } else if (heightMode == MeasureSpec.AT_MOST) {
+            //ViewGroup的高度为wrap_content,则宽度不需要管，高度为子View的高度和
+            View childOne = getChildAt(0);
+            int childHeight = childOne.getMeasuredHeight();
+            Log.e("onMeasure", "childHeight:" + childHeight);
+            setMeasuredDimension(widthSize, childHeight * getChildCount());
+        }
     }
 
 
@@ -41,11 +74,9 @@ public class MyLayout extends ViewGroup {
             Log.e(TAG, "width2:" + child.getWidth());
             Log.e(TAG, "width3:" + child.getMeasuredWidth());
 
-
-            //尝试重叠摆放
+            //垂直排放
             child.layout(l, marginTop + t + heightSum, l + child.getMeasuredWidth(), marginTop + t + child.getMeasuredHeight() + heightSum);
-            heightSum = child.getMeasuredHeight();
-
+            heightSum = heightSum + child.getMeasuredHeight();
 
         }
 

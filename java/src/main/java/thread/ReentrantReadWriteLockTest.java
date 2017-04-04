@@ -26,9 +26,8 @@ public class ReentrantReadWriteLockTest {
         writeLock = reentrantReadWriteLock.writeLock();
 
 
-        //20:54，相比较 重入锁需要27:51
         ExecutorService service = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < 20; i++) {
             final int j = i;
             service.submit(new Callable() {
                 @Override
@@ -67,7 +66,7 @@ public class ReentrantReadWriteLockTest {
     public static void handleWrite(int index) {
         try {
             writeLock.lock();
-            Thread.sleep(1);
+            Thread.sleep(1000);
             value = index;
         } catch (InterruptedException e) {
             e.printStackTrace();

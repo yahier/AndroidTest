@@ -1,6 +1,9 @@
 package com.yahier.androidtest.widget;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -87,6 +90,14 @@ public class MyLayout extends ViewGroup {
 
     }
 
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        Log.e(TAG, "dispatchDraw");
+        //Paint paint = new Paint();
+        //paint.setColor(Color.BLUE);
+        //canvas.drawLine(0,0,100,100,paint);
+    }
 
     //必须重写。才到转换成功
     @Override

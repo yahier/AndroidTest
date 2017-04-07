@@ -1,5 +1,6 @@
 package io;
 
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,6 +22,18 @@ public class ObjIO {
         ObjIO o = new ObjIO();
         o.save();
         o.get();
+    }
+
+
+    //测试完成。起码在编译时，是可以相互的做对方的构造参数的
+    void gogo() {
+        try {
+            ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(new File(filePath)));
+            DataOutputStream dataOut = new DataOutputStream(obj);
+            ObjectOutputStream obj2 = new ObjectOutputStream(dataOut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     void save() {

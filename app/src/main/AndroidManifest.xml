@@ -30,8 +30,13 @@
         </activity>
 
         <!-- material -->
-        <activity android:name=".metarial.Material1Act" />
-        <activity android:name=".metarial.RecycleAct" />
+        <activity
+            android:launchMode="singleTask"
+            android:name=".metarial.Material1Act"
+            android:process="com.yahier.androidtest.remote" />
+        <activity
+            android:name=".metarial.RecycleAct"
+            android:process=":remote" />
         <activity android:name=".metarial.CardViewAct" />
 
 

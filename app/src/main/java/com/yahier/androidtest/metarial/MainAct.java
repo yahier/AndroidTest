@@ -86,6 +86,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("左侧滑动", SwipeBackMainActivity.class);
         map.put("自定义layout", MyLayoutAct.class);
         map.put("自定义View", ViewLocationAct.class);
         map.put("SurfaceView测试", SurfaceViewTestAct.class);

@@ -86,8 +86,9 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
-        map.put("SurfaceView测试", SurfaceViewTestAct.class);
         map.put("自定义layout", MyLayoutAct.class);
+        map.put("自定义View", ViewLocationAct.class);
+        map.put("SurfaceView测试", SurfaceViewTestAct.class);
         map.put("测试广播", BroadCastActTest.class);
         map.put("测试ConfigChanges", ConfigChangesActTest.class);
         map.put("测试Handler处理", HandlerTest.class);
@@ -112,7 +113,6 @@ public class MainAct extends Activity {
         map.put("View转换成bitmap", ViewToBitmapAct.class);
         map.put("本地记录Log", LogTest.class);
         map.put("WindowTest", WindowTest.class);
-        map.put("View位置摆放", ViewLocationAct.class);
         map.put("HandlerThread", TestHandlerThreadAct.class);
         map.put("TestIntentService", TestIntentServiceAct.class);
         map.put("ViewTest", CommonViewTest.class);

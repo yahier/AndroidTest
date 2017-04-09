@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.bitmap.ChooseImgTestAct;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
 import com.yahier.androidtest.classload.LoaderAct;
@@ -86,6 +87,7 @@ public class MainAct extends Activity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("选图测试", ChooseImgTestAct.class);
         map.put("左侧滑动", SwipeBackMainActivity.class);
         map.put("自定义layout", MyLayoutAct.class);
         map.put("自定义View", ViewLocationAct.class);

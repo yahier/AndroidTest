@@ -21,7 +21,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".metarial.MainAct"
-            android:label="yahier测试">
+            android:label="yahier测试"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,8 +32,8 @@
 
         <!-- material -->
         <activity
-            android:launchMode="singleTask"
             android:name=".metarial.Material1Act"
+            android:launchMode="singleTask"
             android:process="com.yahier.androidtest.remote" />
         <activity
             android:name=".metarial.RecycleAct"
@@ -68,6 +69,11 @@
 
         <activity
             android:name=".view.act.SwipeBackMainActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".bitmap.ChooseImgTestAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
 

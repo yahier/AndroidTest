@@ -25,16 +25,17 @@ public class EnumTest {
         p.setGender(1);
 
         int gender = p.getGender();
+        //例子中 switch中的条件也是enum.case才是enum
         switch(gender){
-            //case People.Gender.BOY:
-               // break;
+            //case People.GenderStatus.Boy:
+            //    break;
         }
 
 
 
-        // TODO
-
 
 
     }
+
+
 }

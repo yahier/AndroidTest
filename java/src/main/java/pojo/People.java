@@ -7,9 +7,10 @@ package pojo;
 public class People {
 
 
-    public People(){
+    public People() {
 
     }
+
     public People(String name, String pwd, int age) {
         this.name = name;
         this.pwd = pwd;
@@ -55,5 +56,28 @@ public class People {
 
     public String getPwd() {
         return pwd;
+    }
+
+    //4月9日 新增
+    public enum GenderStatus {
+        Boy(1,"男生"),
+        Girl(2,"女生");
+        int code;
+        String msg;
+
+        GenderStatus(int code, String msg) {
+            this.code = code;
+            this.msg = msg;
+        }
+
+
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
     }
 }

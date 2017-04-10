@@ -3,11 +3,15 @@ package com.yahier.androidtest.metarial;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.yahier.androidtest.R;
@@ -52,7 +56,8 @@ import java.util.Set;
  * Created by yahier on 16/12/30.
  */
 
-public class MainAct extends Activity {
+public class MainAct extends AppCompatActivity {
+
     ListView listView;
     List<String> datas;
     LinkedHashMap<String, Class> map;
@@ -61,9 +66,12 @@ public class MainAct extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.material_main_act);
+        //setContentView(R.layout.material_main_act);
+        ViewDataBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
         mAct = this;
-        listView = (ListView) findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.list_view);
+        //引用失败
+        //Button btn = bind.tv;
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

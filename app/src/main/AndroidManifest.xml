@@ -51,6 +51,10 @@
         <activity android:name=".multipleThreads.SynchonizedTest" />
         <activity android:name=".multipleThreads.OperateUiThreadAct" />
         <activity android:name=".common.ReflectTest" />
+        <activity android:name=".test.DrawableAct" />
+        <activity
+            android:name=".view.act.DrawableStyleAct"
+            android:theme="@style/logo" />
         <!--view测试 -->
         <activity
             android:name=".viewtest.SwipeRefreshLayoutTest"

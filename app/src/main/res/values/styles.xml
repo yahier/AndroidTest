@@ -13,7 +13,7 @@
 
     <!-- your theme inherits from the material theme -->
     <style name="AppTheme_old" parent="android:Theme.Material">
-        <item name= "android:windowIsTranslucent" >true </item>
+        <item name="android:windowIsTranslucent">true</item>
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <!--<item name="android:colorPrimary">#f00</item>-->
@@ -23,4 +23,8 @@
         <!--<item name="android:colorAccent">#f00</item>-->
     </style>
 
+
+    <style name="logo" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/logo</item>
+    </style>
 </resources>

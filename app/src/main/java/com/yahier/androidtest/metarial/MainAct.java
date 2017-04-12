@@ -31,12 +31,14 @@ import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
 import com.yahier.androidtest.test.BroadCastActTest;
 import com.yahier.androidtest.test.ConfigChangesActTest;
+import com.yahier.androidtest.test.DrawableAct;
 import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
+import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.MyLayoutAct;
 import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
@@ -95,6 +97,9 @@ public class MainAct extends AppCompatActivity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("drawable style效果", DrawableStyleAct.class);
+        map.put("drawable效果  包括BitmapShader.", DrawableAct.class);
+        map.put("选图测试", ChooseImgTestAct.class);
         map.put("选图测试", ChooseImgTestAct.class);
         map.put("左侧滑动", SwipeBackMainActivity.class);
         map.put("自定义layout", MyLayoutAct.class);

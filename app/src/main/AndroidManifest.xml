@@ -132,6 +132,7 @@
             android:screenOrientation="portrait" />
 
         <activity android:name=".test.WindowTest" />
+        <activity android:name=".view.act.MotionEventAct" />
         <activity android:name=".test.TestNotificationAct" />
         <activity android:name=".test.BroadCastActTest" />
         <activity android:name=".view.act.MyLayoutAct" />

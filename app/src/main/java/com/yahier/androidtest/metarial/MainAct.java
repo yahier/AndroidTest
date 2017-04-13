@@ -40,6 +40,7 @@ import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
+import com.yahier.androidtest.view.act.MotionEventAct;
 import com.yahier.androidtest.view.act.MyLayoutAct;
 import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
 import com.yahier.androidtest.view.act.SurfaceViewTestAct;
@@ -97,6 +98,7 @@ public class MainAct extends AppCompatActivity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("事件分发测试", MotionEventAct.class);
         map.put("drawable style效果", DrawableStyleAct.class);
         map.put("drawable效果  包括BitmapShader.", DrawableAct.class);
         map.put("选图测试", ChooseImgTestAct.class);

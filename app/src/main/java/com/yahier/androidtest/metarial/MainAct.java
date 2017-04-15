@@ -98,6 +98,7 @@ public class MainAct extends AppCompatActivity {
     void setData() {
         map = new LinkedHashMap<>();
         datas = new ArrayList<>();
+        map.put("矢量动画", VectorSVNAct.class);
         map.put("事件分发测试", MotionEventAct.class);
         map.put("drawable style效果", DrawableStyleAct.class);
         map.put("drawable效果  包括BitmapShader.", DrawableAct.class);

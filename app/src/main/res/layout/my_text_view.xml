@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lin"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
 
 
     <TextView
@@ -10,6 +13,18 @@
         android:layout_height="wrap_content"
         android:elevation="5dp"
         android:text="next"
+        android:textColor="#333"
         android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:paddingLeft="15dp"
+        android:text="wertyu"
+        android:textColor="#666"
+        android:textSize="16dp"
+        android:visibility="visible" />
 
 </LinearLayout>

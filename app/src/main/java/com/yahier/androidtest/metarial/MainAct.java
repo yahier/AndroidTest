@@ -5,8 +5,16 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.transition.Explode;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
@@ -61,7 +71,7 @@ import java.util.Set;
 
 public class MainAct extends AppCompatActivity {
 
-    ListView listView;
+    RecyclerView mRecyclerView;
     List<String> datas;
     LinkedHashMap<String, Class> map;
     MainAct mAct;
@@ -72,26 +82,65 @@ public class MainAct extends AppCompatActivity {
         //setContentView(R.layout.material_main_act);
         ViewDataBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
         mAct = this;
-        listView = (ListView) findViewById(R.id.list_view);
-        //引用失败
-        //Button btn = bind.tv;
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Collection<Class> e = map.values();
-                Class[] classes = new Class[e.size()];
+        mRecyclerView = (RecyclerView) findViewById(R.id.list_view);
 
-                getWindow().setExitTransition(new Explode());
-                Intent intent = new Intent(mAct, e.toArray(classes)[i]);
-                startActivity(intent,
-                        ActivityOptions
-                                .makeSceneTransitionAnimation(mAct).toBundle());
+
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //加上间隔线。这个操作还有更多强大的功能
+        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                super.onDraw(c, parent, state);
 
             }
-        });
 
+
+            /**
+             * onDraw方法先于drawChildren
+             * onDrawOver在drawChildren之后，一般我们选择复写其中一个即可。
+             */
+            @Override
+            public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                super.onDraw(c, parent, state);
+                Paint paint = new Paint();
+                paint.setColor(Color.parseColor("#dddddd"));
+
+                int childCount = parent.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View child = parent.getChildAt(i);
+                    int leftPosition = (int) child.getX();//getX()也是可以啦
+                    int rightPosition = leftPosition + child.getWidth();
+                    c.drawLine(leftPosition, child.getBottom(), rightPosition, child.getBottom(), paint);
+                }
+
+            }
+
+
+            //getItemOffsets 可以通过outRect.set()为每个Item设置一定的偏移量，主要用于绘制Decorator。
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+            }
+
+
+        });
+        //引用失败
+        //Button btn = bind.tv;
+//        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//
+//            }
+//        });
+
+        mRecyclerView.setHasFixedSize(false);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         setData();
         show();
+
     }
 
 
@@ -142,8 +191,23 @@ public class MainAct extends AppCompatActivity {
 
 
     void show() {
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datas);
-        listView.setAdapter(adapter);
+        final MainRecycleAdapter mAdapter = new MainRecycleAdapter(datas);
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnItemClick(new MainRecycleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClck(int i) {
+
+                Collection<Class> e = map.values();
+                Class[] classes = new Class[e.size()];
+
+                getWindow().setExitTransition(new Explode());
+                Intent intent = new Intent(mAct, e.toArray(classes)[i]);
+                startActivity(intent,
+                        ActivityOptions
+                                .makeSceneTransitionAnimation(mAct).toBundle());
+            }
+        });
     }
 
 

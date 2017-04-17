@@ -8,6 +8,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/4/2.
@@ -97,6 +100,18 @@ public class MyLayout extends ViewGroup {
         //Paint paint = new Paint();
         //paint.setColor(Color.BLUE);
         //canvas.drawLine(0,0,100,100,paint);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        findViewById(R.id.btn1).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "勇敢一点", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     //必须重写。才到转换成功

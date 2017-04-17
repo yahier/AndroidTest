@@ -1,13 +1,16 @@
 package com.yahier.androidtest.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.metarial.MainItem;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -15,10 +18,8 @@ import java.util.List;
  */
 
 public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.ViewHolder> {
-    private List<String> titles;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
         public TextView mTextView;
         public TextView tvDes;
         public View lin;
@@ -33,15 +34,16 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
     }
 
 
-    public MainRecycleAdapter(List<String> titles) {
-        this.titles = titles;
+    MainItem[] itemArray = null;
+
+    public MainRecycleAdapter(MainItem[] itemArray) {
+        this.itemArray = itemArray;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
     public MainRecycleAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                             int viewType) {
-        // create a new view
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.my_text_view, parent, false);
 
@@ -49,11 +51,18 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.mTextView.setText(titles.get(position));
-        holder.tvDes.setText(titles.get(position));
+
+        MainItem item = itemArray[position];
+
+        holder.mTextView.setText(item.getTitle());
+        if (TextUtils.isEmpty(item.getDes())) {
+            holder.tvDes.setVisibility(View.GONE);
+        } else {
+            holder.tvDes.setVisibility(View.VISIBLE);
+            holder.tvDes.setText(item.getDes());
+        }
 
         holder.lin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +75,7 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
 
     @Override
     public int getItemCount() {
-        return titles.size();
+        return itemArray.length;
     }
 
 

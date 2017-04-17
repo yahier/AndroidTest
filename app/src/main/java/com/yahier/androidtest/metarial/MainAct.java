@@ -73,7 +73,7 @@ public class MainAct extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     List<String> datas;
-    LinkedHashMap<String, Class> map;
+    LinkedHashMap<String, MainItem> map2;
     MainAct mAct;
 
     @Override
@@ -145,64 +145,58 @@ public class MainAct extends AppCompatActivity {
 
 
     void setData() {
-        map = new LinkedHashMap<>();
-        datas = new ArrayList<>();
-        map.put("矢量动画", VectorSVNAct.class);
-        map.put("事件分发测试", MotionEventAct.class);
-        map.put("drawable style效果", DrawableStyleAct.class);
-        map.put("drawable效果  包括BitmapShader.", DrawableAct.class);
-        map.put("选图测试", ChooseImgTestAct.class);
-        map.put("选图测试", ChooseImgTestAct.class);
-        map.put("左侧滑动", SwipeBackMainActivity.class);
-        map.put("自定义layout", MyLayoutAct.class);
-        map.put("自定义View", ViewLocationAct.class);
-        map.put("SurfaceView测试", SurfaceViewTestAct.class);
-        map.put("测试广播", BroadCastActTest.class);
-        map.put("测试ConfigChanges", ConfigChangesActTest.class);
-        map.put("测试Handler处理", HandlerTest.class);
-        map.put("测试通知 类似微博效果", TestNotificationAct.class);
-        map.put("调通dex的方法", LoaderAct.class);
-        map.put("加载超大图", LargeImageViewActivity.class);
-        map.put("自定义ViewPager显示卷图", ParallaxVpTestActivity.class);
-        map.put("glide加载图片 测试", GlideTestAct.class);
-        map.put("小二", Material1Act.class);
-        map.put("recycle", RecycleAct.class);
-        map.put("cardview", CardViewAct.class);
-        map.put("service", ServiceActivity.class);
-        map.put("ContentProvider", TestCPActivity.class);
-        map.put("Synchonized", SynchonizedTest.class);
-        map.put("反射", ReflectTest.class);
-        map.put("messenger", ActivityMessenger.class);
-        map.put("AccessbilityService", AccessServiceAct.class);
-        map.put("子线程操作UI", OperateUiThreadAct.class);
-        map.put("CanvasTest", CanvasTest.class);
-        map.put("SwipeBack", SwipeBackMainActivity.class);
-        map.put("DrawerTest", DrawerLayoutActTest.class);
-        map.put("View转换成bitmap", ViewToBitmapAct.class);
-        map.put("本地记录Log", LogTest.class);
-        map.put("WindowTest", WindowTest.class);
-        map.put("HandlerThread", TestHandlerThreadAct.class);
-        map.put("TestIntentService", TestIntentServiceAct.class);
-        map.put("ViewTest", CommonViewTest.class);
-        map.put("HtmlTest", HtmlAllTestActivity.class);
-        Set<String> names = map.keySet();
-        datas.addAll(names);
+        map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
+        map2.put("2", new MainItem("事件分发测试", MotionEventAct.class));
+        map2.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
+        map2.put("4", new MainItem("drawable效果  包括BitmapShader", "详细解说一下", DrawableAct.class));
+        map2.put("5", new MainItem("选图测试", "详细解说一下", ChooseImgTestAct.class));
+        map2.put("6", new MainItem("左侧滑动", "详细解说一下", SwipeBackMainActivity.class));
+        map2.put("7", new MainItem("自定义layout", "详细解说一下", MyLayoutAct.class));
+        map2.put("8", new MainItem("自定义View", "详细解说一下", ViewLocationAct.class));
+        map2.put("9", new MainItem("SurfaceView测试", "详细解说一下", SurfaceViewTestAct.class));
+        map2.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
+        map2.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));
+        map2.put("12", new MainItem("测试Handler处理", "详细解说一下", HandlerTest.class));
+        map2.put("13", new MainItem("测试通知 类似微博效果", "详细解说一下", TestNotificationAct.class));
+        map2.put("14", new MainItem("调通dex的方法", "详细解说一下", LoaderAct.class));
+        map2.put("15", new MainItem("加载超大图", "详细解说一下", LargeImageViewActivity.class));
+        map2.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));
+        map2.put("17", new MainItem("glide加载图片 测试", "详细解说一下", GlideTestAct.class));
+        map2.put("18", new MainItem("小二", "详细解说一下", Material1Act.class));
+        map2.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
+        map2.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
+        map2.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));
+        map2.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
+        map2.put("23", new MainItem("Synchonized", "详细解说一下", SynchonizedTest.class));
+        map2.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));
+        map2.put("25", new MainItem("messenger", "详细解说一下", ActivityMessenger.class));
+        map2.put("26", new MainItem("AccessbilityService", "详细解说一下", AccessServiceAct.class));
+        map2.put("27", new MainItem("子线程操作UI", "详细解说一下", OperateUiThreadAct.class));
+        map2.put("28", new MainItem("CanvasTest", "详细解说一下", CanvasTest.class));
+        map2.put("29", new MainItem("SwipeBack", "详细解说一下", SwipeBackMainActivity.class));
+        map2.put("30", new MainItem("DrawerTest", "详细解说一下", DrawerLayoutActTest.class));
+        map2.put("31", new MainItem("View转换成bitmap", "详细解说一下", ViewToBitmapAct.class));
+        map2.put("32", new MainItem("本地记录Log", "", LogTest.class));
+        map2.put("33", new MainItem("WindowTest", "", WindowTest.class));
+        map2.put("34", new MainItem("HandlerThread", "详细解说一下", TestHandlerThreadAct.class));
+        map2.put("35", new MainItem("TestIntentService", "详细解说一下", TestIntentServiceAct.class));
+        map2.put("36", new MainItem("ViewTest", "", CommonViewTest.class));
+        map2.put("37", new MainItem("HtmlTest", "", HtmlAllTestActivity.class));
     }
 
 
     void show() {
-        final MainRecycleAdapter mAdapter = new MainRecycleAdapter(datas);
+        final Collection<MainItem> items = map2.values();
+        final MainItem[] itemArray = new MainItem[items.size()];
+        items.toArray(itemArray);
+        final MainRecycleAdapter mAdapter = new MainRecycleAdapter(itemArray);
         mRecyclerView.setAdapter(mAdapter);
-
         mAdapter.setOnItemClick(new MainRecycleAdapter.OnItemClickListener() {
             @Override
             public void onItemClck(int i) {
-
-                Collection<Class> e = map.values();
-                Class[] classes = new Class[e.size()];
-
                 getWindow().setExitTransition(new Explode());
-                Intent intent = new Intent(mAct, e.toArray(classes)[i]);
+                Intent intent = new Intent(mAct, itemArray[i].getmAct());
                 startActivity(intent,
                         ActivityOptions
                                 .makeSceneTransitionAnimation(mAct).toBundle());

@@ -56,6 +56,7 @@ public class TouchView extends View {
                 left = event.getX();
                 top = event.getY();
                 mScroller.startScroll(0, 0, 100, 100,2000);
+                new WorkerThread().start();
                 break;
         }
 
@@ -76,6 +77,16 @@ public class TouchView extends View {
         Log.e(tag, "computeScroll");
         if (mScroller.computeScrollOffset()) {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            postInvalidate();
+        }
+    }
+
+    class WorkerThread extends Thread{
+        @Override
+        public void run() {
+            //调用mScroller.startScrolll没问题，但invalidate崩溃了
+            // mScroller.startScroll(0, 0, 100, 100,2000);
+            //invalidate();
             postInvalidate();
         }
     }

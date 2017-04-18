@@ -4,6 +4,7 @@
     android:viewportHeight="64"
     android:viewportWidth="64">
     <group>
+        <!--从右下方的点 开始向左画的-->
         <path
             android:name="star"
             android:fillColor="#22e171"

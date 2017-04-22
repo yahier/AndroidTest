@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,20 +10,33 @@
         android:id="@+id/my_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="20dp"
+        android:elevation="30dp"
         android:text="next"
         android:textColor="@color/black"
         android:textSize="20dp" />
 
 
     <TextView
+        android:id="@+id/tv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/myrect"
-        android:elevation="5dp"
+        android:elevation="0dp"
         android:text="忘记时间"
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/myrect"
+        android:elevation="0dp"
+        android:text="孙悟空"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+</FrameLayout>

@@ -47,6 +47,7 @@ import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WindowTest;
+import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
@@ -140,7 +141,12 @@ public class MainAct extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         setData();
         show();
+        otherTest();
 
+    }
+
+    void otherTest(){
+        ArrayMapSparseArrayUtil.main(null);
     }
 
 
@@ -163,7 +169,7 @@ public class MainAct extends AppCompatActivity {
         map2.put("15", new MainItem("加载超大图", "详细解说一下", LargeImageViewActivity.class));
         map2.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));
         map2.put("17", new MainItem("glide加载图片 测试", "详细解说一下", GlideTestAct.class));
-        map2.put("18", new MainItem("小二", "详细解说一下", Material1Act.class));
+        map2.put("18", new MainItem("material小特性", "translationZ  elevation", Material1Act.class));
         map2.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
         map2.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
         map2.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));

@@ -179,7 +179,7 @@ public class MainAct extends AppCompatActivity {
         map2.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
         map2.put("23", new MainItem("Synchonized", "详细解说一下", SynchonizedTest.class));
         map2.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));
-        map2.put("25", new MainItem("messenger", "详细解说一下", ActivityMessenger.class));
+        map2.put("25", new MainItem("messenger", "msgFromClient.replyTo = mMessenger", ActivityMessenger.class));
         map2.put("26", new MainItem("AccessbilityService", "详细解说一下", AccessServiceAct.class));
         map2.put("27", new MainItem("子线程操作UI", "详细解说一下", OperateUiThreadAct.class));
         map2.put("28", new MainItem("CanvasTest", "详细解说一下", CanvasTest.class));

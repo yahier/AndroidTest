@@ -85,6 +85,10 @@
             android:name=".view.act.SwipeBackSecondActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.act.CustomRoungImgAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".test.GlideTestAct"

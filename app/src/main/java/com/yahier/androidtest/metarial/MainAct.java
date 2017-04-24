@@ -49,6 +49,7 @@ import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
+import com.yahier.androidtest.view.act.CustomRoungImgAct;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.MotionEventAct;
@@ -145,13 +146,14 @@ public class MainAct extends AppCompatActivity {
 
     }
 
-    void otherTest(){
+    void otherTest() {
         ArrayMapSparseArrayUtil.main(null);
     }
 
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+
         map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
         map2.put("2", new MainItem("事件分发测试", MotionEventAct.class));
         map2.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
@@ -160,6 +162,7 @@ public class MainAct extends AppCompatActivity {
         map2.put("6", new MainItem("左侧滑动", "详细解说一下", SwipeBackMainActivity.class));
         map2.put("7", new MainItem("自定义layout", "详细解说一下", MyLayoutAct.class));
         map2.put("8", new MainItem("自定义View", "详细解说一下", ViewLocationAct.class));
+        map2.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));
         map2.put("9", new MainItem("SurfaceView测试", "详细解说一下", SurfaceViewTestAct.class));
         map2.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
         map2.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));

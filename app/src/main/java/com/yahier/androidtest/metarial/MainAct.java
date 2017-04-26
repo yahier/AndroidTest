@@ -46,6 +46,7 @@ import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.TestNotificationAct;
+import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
@@ -153,7 +154,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
-
+        map2.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
         map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
         map2.put("2", new MainItem("事件分发测试", MotionEventAct.class));
         map2.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));

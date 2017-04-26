@@ -77,6 +77,11 @@
             android:screenOrientation="portrait" />
 
         <activity
+            android:name=".test.WebViewAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".bitmap.ChooseImgTestAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />

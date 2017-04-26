@@ -72,9 +72,15 @@ public class WebViewAct extends Activity implements View.OnClickListener {
         });
 
 
-
         //代理host
         //mWeb.getSettings().setUserAgentString(settings.getUserAgentString() + ";STBL");
+    }
+
+
+    //测试webview直接打开下载地址。
+    void testOpenLink() {
+        String downloadUrl = "http://download.ydstatic.com/notewebsite/downloads/YoudaoNote.dmg";
+        mWeb.loadUrl(downloadUrl);
     }
 
 
@@ -85,6 +91,7 @@ public class WebViewAct extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn1:
                 mWeb.loadUrl("javascript:testAlert()");
+                testOpenLink();
                 break;
             case R.id.btn2:
                 mWeb.loadUrl("javascript:show('234')");

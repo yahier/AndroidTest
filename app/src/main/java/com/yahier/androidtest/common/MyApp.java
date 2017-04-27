@@ -5,6 +5,8 @@ import android.util.Log;
 
 import com.squareup.leakcanary.LeakCanary;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by yahier on 17/1/27.
  */
@@ -16,6 +18,8 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
         Log.e(TAG, "onCreate");
         app = this;
         LeakCanary.install(this);

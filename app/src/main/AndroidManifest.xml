@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yahier.androidtest"
     android:versionCode="1"
     android:versionName="1.0">
@@ -174,6 +175,12 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
         </service>
+
+        <!--<service-->
+            <!--android:name="cn.jpush.android.service.PushService"-->
+            <!--android:process=":multiprocess"-->
+            <!--tools:node="replace">-->
+        <!--</service>-->
     </application>
 
 

@@ -16,12 +16,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.transition.Explode;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.yahier.androidtest.App;
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
@@ -29,6 +31,7 @@ import com.yahier.androidtest.bitmap.ChooseImgTestAct;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
 import com.yahier.androidtest.classload.LoaderAct;
+import com.yahier.androidtest.common.MyApp;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
@@ -149,6 +152,14 @@ public class MainAct extends AppCompatActivity {
 
     void otherTest() {
         ArrayMapSparseArrayUtil.main(null);
+        testApp();
+
+    }
+
+    //空指针 妥妥的
+    void testApp() {
+        String str = MyApp.getContext().getString(R.string.hello_world);
+        Log.e("testApp", str);
     }
 
 

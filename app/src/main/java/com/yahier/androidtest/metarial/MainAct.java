@@ -48,6 +48,7 @@ import com.yahier.androidtest.test.DrawableAct;
 import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
+import com.yahier.androidtest.test.JavaUpperAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
@@ -165,6 +166,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map2.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
         map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
         map2.put("2", new MainItem("事件分发测试", MotionEventAct.class));

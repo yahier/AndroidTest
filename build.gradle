@@ -18,6 +18,53 @@ allprojects {
     }
 }
 
+ext {
+    applicationId = "com.yahier.androidtest"
+    compileSdkVersion = 25
+    buildToolsVersion = "25.0.0"
+    minSdkVersion = 21
+    targetSdkVersion = 25
+    versionCode = 1
+    versionName = "1.0"
+    javaVersion = JavaVersion.VERSION_1_8
+    storeFile = "csair-android-key"
+    storePassword = ""
+    keyAlias = ""
+    keyPassword = ""
+    abiFilters = "armeabi"
+    resConfigs = ["en", "zh"]
+
+    useMTA = false
+    useTalkingData = false
+    useTingYun = false
+
+    isLBSDebug = false
+    isNotificationDebug = false
+    isPayDebug = false
+    isSocialDebug = false
+    isStatusDebug = false
+
+    if (System.properties['APP_VERSION']) {
+        def appVersion = System.properties['APP_VERSION'] as String
+        def lastIndexOfDot = appVersion.lastIndexOf(".");
+        versionName = appVersion.substring(0, lastIndexOfDot)
+        versionCode = appVersion.substring(lastIndexOfDot + 1) as int
+    }
+    if (System.properties['NEW_VERSION']) {
+        def appVersion = System.properties['NEW_VERSION'] as String
+        def lastIndexOfDot = appVersion.lastIndexOf(".");
+        versionName = appVersion.substring(0, lastIndexOfDot)
+        versionCode = appVersion.substring(lastIndexOfDot + 1) as int
+    }
+    if (System.properties['Apk_Type']) {
+        def apkType = System.properties['Apk_Type'] as String
+        if ("resguardRelease" == apkType) {
+            useMTA = true
+            useTalkingData = true
+            useTingYun = true
+        }
+    }
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

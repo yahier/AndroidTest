@@ -67,6 +67,9 @@
             android:name=".test.HandlerTest"
             android:label="CanvasTest" />
         <activity
+            android:name=".test.JavaUpperAct"
+            android:label="SwipeRefreshLayout" />
+        <activity
             android:name=".viewtest.CanvasTest"
             android:label="CanvasTest" />
 

@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.yahier.androidtest.App;
+import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
@@ -166,6 +167,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         map2.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map2.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
         map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));

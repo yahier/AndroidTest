@@ -60,7 +60,10 @@
         <!-- binding开始-->
         <activity android:name=".databinding.Test1Act" />
         <activity android:name=".databinding.Test2Act" />
-
+        <activity android:name=".databinding.Test3Act" />
+        <activity android:name=".databinding.Test4Act" />
+        <activity android:name=".databinding.Test5Act" />
+        <activity android:name=".databinding.Test6Act" />
 
         <activity
             android:name=".view.act.DrawableStyleAct"

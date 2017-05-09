@@ -39,6 +39,10 @@ import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.databinding.MaterialMainActBinding;
 import com.yahier.androidtest.databinding.Test1Act;
 import com.yahier.androidtest.databinding.Test2Act;
+import com.yahier.androidtest.databinding.Test3Act;
+import com.yahier.androidtest.databinding.Test4Act;
+import com.yahier.androidtest.databinding.Test5Act;
+import com.yahier.androidtest.databinding.Test6Act;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -164,6 +168,10 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
+        map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
+        map2.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
+        map2.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
         map2.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
         map2.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
 

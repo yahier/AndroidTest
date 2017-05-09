@@ -55,6 +55,13 @@
         <activity android:name=".multipleThreads.OperateUiThreadAct" />
         <activity android:name=".common.ReflectTest" />
         <activity android:name=".test.DrawableAct" />
+
+
+        <!-- binding开始-->
+        <activity android:name=".databinding.Test1Act" />
+        <activity android:name=".databinding.Test2Act" />
+
+
         <activity
             android:name=".view.act.DrawableStyleAct"
             android:theme="@style/logo" />

@@ -37,6 +37,8 @@ import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.databinding.MaterialMainActBinding;
+import com.yahier.androidtest.databinding.Test1Act;
+import com.yahier.androidtest.databinding.Test2Act;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -162,6 +164,9 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
+        map2.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
+
         map2.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         map2.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map2.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));

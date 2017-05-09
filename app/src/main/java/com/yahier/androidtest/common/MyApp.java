@@ -18,9 +18,10 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e(TAG, "onCreate");
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
-        Log.e(TAG, "onCreate");
+        Log.e(TAG, "极光初始化完成");
         app = this;
         LeakCanary.install(this);
     }

@@ -36,6 +36,7 @@ import com.yahier.androidtest.common.MyApp;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
+import com.yahier.androidtest.databinding.MaterialMainActBinding;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -88,7 +89,7 @@ public class MainAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.material_main_act);
-        ViewDataBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
+        MaterialMainActBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
         mAct = this;
         mRecyclerView = (RecyclerView) findViewById(R.id.list_view);
 
@@ -134,14 +135,8 @@ public class MainAct extends AppCompatActivity {
 
         });
         //引用失败
-        //Button btn = bind.tv;
-//        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//
-//            }
-//        });
+        Button btn = bind.tv;
+        btn.setText("yahier的现实");
 
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);

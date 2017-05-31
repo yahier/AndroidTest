@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -50,6 +51,7 @@ import com.yahier.androidtest.multipleThreads.TestIntentServiceAct;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
+import com.yahier.androidtest.test.AppLinkTestAct;
 import com.yahier.androidtest.test.BroadCastActTest;
 import com.yahier.androidtest.test.ConfigChangesActTest;
 import com.yahier.androidtest.test.DrawableAct;
@@ -149,7 +151,8 @@ public class MainAct extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         setData();
         show();
-        otherTest();
+        //otherTest();
+        //testLink();
 
     }
 
@@ -165,9 +168,17 @@ public class MainAct extends AppCompatActivity {
         Log.e("testApp", str);
     }
 
+    //跳转yaya:
+    private void testLink() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("yaya://www.baidu.com"));
+        startActivity(intent);
+
+    }
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("48", new MainItem("link测试", "", AppLinkTestAct.class));
         map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
         map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
         map2.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));

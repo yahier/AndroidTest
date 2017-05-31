@@ -7,6 +7,10 @@
 
         <import type="java.lang.String" />
 
+        <variable
+            name="users"
+            type="android.databinding.ObservableList&lt;com.yahier.androidtest.databinding.UserObservable&gt;"/>
+
         <!--<variable-->
             <!--name="list"-->
             <!--type="ArrayList&lt;String"/>-->
@@ -25,12 +29,20 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical">
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0px"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="vertical"-->
+            <!--app:entries="@{users}" />-->
 
         <!--<TextView-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="56dp"-->
-            <!--android:text="@{list[0]}" />-->
+            <!--android:text="@{users.get(0)" />-->
         <!--&lt;!&ndash;List集合既可以和数组一样通过索引获取值list[index]方式，也可以调用API&ndash;&gt;-->
         <!--<TextView-->
             <!--android:layout_width="match_parent"-->

@@ -38,7 +38,7 @@ public class ArrayMapSparseArrayUtil {
         map.append(1, "海飞");
         map.append(4, "soso");
         map.append(5, "花");
-        Log.e(TAG, "testSparseArray size:" + map.size());
+        //Log.e(TAG, "testSparseArray size:" + map.size());
         Log.e(TAG, map.valueAt(0));
     }
 }

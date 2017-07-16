@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="horizontal">
+
+
+    <com.yahier.androidtest.widget.MyLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#ccc"
+        android:paddingLeft="20dp">>
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:background="#50f0"
+            android:text="勇敢一点" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="#3f00"
+            android:padding="30dp"
+            android:text="1" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#30f0"
+            android:padding="30dp"
+            android:text="2" />
+
+    </com.yahier.androidtest.widget.MyLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#ddd"
+        android:orientation="vertical"
+        android:paddingLeft="20dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:background="#50f0"
+            android:text="勇敢一点" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="#3f00"
+            android:padding="30dp"
+            android:text="1" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#30f0"
+            android:padding="30dp"
+            android:text="2" />
+    </LinearLayout>
+</LinearLayout>

@@ -6,17 +6,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.yahier.androidtest.R;
 
-
+/**
+ * activity发送message给service。service接着又把message发送回来。
+ * Messager的构造函数里，也可以用IBinder.可以用Handler,
+ */
 public class ActivityMessenger extends Activity {
     /**
      * 向Service发送Message的Messenger对象
@@ -45,21 +50,25 @@ public class ActivityMessenger extends Activity {
     public void sayHello() {
         if (!mBound)
             return;
-        // 向Service发送一个Message
-        Message msg = Message
-                .obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
+        Message msgFromClient = Message.obtain(handler, MessengerService.MSG_SAY_HELLO, 0, 108);
+        msgFromClient.replyTo = mMessenger;
+        //往服务端发送消息
         try {
-            messenger.send(msg);
+            messenger.send(msgFromClient);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
 
+    Button btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        findViewById(R.id.button).setOnClickListener(new OnClickListener() {
+
+        btn = (Button) findViewById(R.id.button);
+        btn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
@@ -72,9 +81,37 @@ public class ActivityMessenger extends Activity {
     protected void onStart() {
         super.onStart();
         // 绑定Service
-        bindService(new Intent(this, MessengerService.class), mConnection,
-                Context.BIND_AUTO_CREATE);
+        bindService(new Intent(this, MessengerService.class), mConnection, Context.BIND_AUTO_CREATE);
     }
+
+
+    //service发送的消息会回到这里，但并不会回到Handler.
+    private Messenger mMessenger = new Messenger(new Handler() {
+        @Override
+        public void handleMessage(Message msgFromServer) {
+            switch (msgFromServer.what) {
+                case MessengerService.MSG_SAY_HELLO:
+                    btn.setText(btn.getText() + "messenger:" + msgFromServer.arg2);
+                    break;
+            }
+            super.handleMessage(msgFromServer);
+        }
+    });
+
+
+    //没有起效
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msgFromServer) {
+            btn.setText(btn.getText() + "意外:" + msgFromServer.arg2);
+            switch (msgFromServer.what) {
+                case MessengerService.MSG_SAY_HELLO:
+                    btn.setText(btn.getText() + "handler:" + msgFromServer.arg2);
+                    break;
+            }
+            return false;
+        }
+    });
 
     @Override
     protected void onStop() {

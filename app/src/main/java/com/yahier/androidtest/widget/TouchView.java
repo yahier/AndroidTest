@@ -44,15 +44,24 @@ public class TouchView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            left = event.getX();
-            top = event.getY();
-            //invalidate((int) left, (int) top, 100, 100);
-            invalidate();
-            System.out.println("down");
-            mScroller.startScroll(0, 0, 400, 400);
+        int action = event.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_MOVE:
+                left = event.getX();
+                top = event.getY();
+                invalidate();
+                break;
+            case MotionEvent.ACTION_UP:
+                left = event.getX();
+                top = event.getY();
+                mScroller.startScroll(0, 0, 100, 100,2000);
+                new WorkerThread().start();
+                break;
         }
-        return super.onTouchEvent(event);
+
+        return true;
+        //return super.onTouchEvent(event);
     }
 
     @Override
@@ -60,8 +69,7 @@ public class TouchView extends View {
         super.onDraw(canvas);
         Log.e(tag, "left:" + left);
         canvas.drawBitmap(bitmap, left, top, paint);
-        canvas.save();
-        System.out.println("draw.");
+        //canvas.save();
     }
 
     @Override
@@ -69,6 +77,16 @@ public class TouchView extends View {
         Log.e(tag, "computeScroll");
         if (mScroller.computeScrollOffset()) {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            postInvalidate();
+        }
+    }
+
+    class WorkerThread extends Thread{
+        @Override
+        public void run() {
+            //调用mScroller.startScrolll没问题，但invalidate崩溃了
+            // mScroller.startScroll(0, 0, 100, 100,2000);
+            //invalidate();
             postInvalidate();
         }
     }

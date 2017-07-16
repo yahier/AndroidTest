@@ -1,0 +1,28 @@
+<com.yahier.androidtest.widget.TouchLinear xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <com.yahier.androidtest.widget.Touch2Linear
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="50dp"
+        android:background="#ddd"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/padding_medium"
+            android:text="go"
+            tools:context=".MainActivity" />
+    </com.yahier.androidtest.widget.Touch2Linear>
+
+
+</com.yahier.androidtest.widget.TouchLinear>

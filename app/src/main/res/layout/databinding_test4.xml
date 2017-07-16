@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><!--布局以layout作为根布局-->
+<layout>
+
+    <data>
+
+        <import type="com.yahier.androidtest.databinding.User" />
+
+        <variable
+            name="user3"
+            type="User" />
+
+        <variable
+            name="user4"
+            type="User" />
+
+    </data>
+    <!--我们需要展示的布局-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="www.zhang.com.databinding.MainActivity">
+
+        <Button
+            android:id="@+id/main_btn7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user3.text}" />
+
+        <Button
+            android:id="@+id/main_btn8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user4.text}" />
+
+    </LinearLayout>
+</layout>

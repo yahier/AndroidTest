@@ -9,4 +9,8 @@ public class Log {
     public static void e(String tag, String content) {
         System.out.println(tag + ":" + content);
     }
+
+    public static void e(String tag, boolean content) {
+        System.out.println(tag + ":" + content);
+    }
 }

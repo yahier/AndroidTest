@@ -9,6 +9,6 @@ public class SwipeBackSecondActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_qhb);
+		setContentView(R.layout.act);
 	}
 }

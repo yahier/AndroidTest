@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script type="text/javascript">
+function show(jsondata){
+     var item = document.getElementById("result2");
+     item.innerHTML="bingo";
+}
+
+function testAlert(){
+     alert('alert from js');
+}
+    </script>
+</head>
+
+<body onload="javascript:stbl.share('halo')">
+
+<table border="0" width="100%" id="result2" cellspacing="0">
+    <tr>
+        <td width="20%">编号</td>
+        <td width="40%" align="center">姓名</td>
+        <td align="center">电话</td>
+    </tr>
+</table>
+<a href="javascript:window.location.reload()">刷新</a><br>
+<a href="javascript:yahier.test2()">调用app的方法</a><br>
+<a href="javascript:yahier.test('海飞')">调用app带参的方法</a><br>
+</body>
+</html>
+

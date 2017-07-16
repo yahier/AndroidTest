@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><!--布局以layout作为根布局-->
+<layout>
+
+
+    <data>
+
+        <!--绑定基本数据类型及String-->
+        <!--name:   和java代码中的对象是类似的，名字自定义-->
+        <!--type:   和java代码中的类型是一致的-->
+        <variable
+            name="content"
+            type="String" />
+
+        <variable
+            name="enabled"
+            type="boolean" />
+
+        <!--绑定Model数据2中形式，一中是导入该类型的，一种指定类型的全称，和java一样-->
+        <!--  方式一 -->
+        <!-- 有些奇怪的是，有的时候写user会编译报错。必须User-->
+        <variable
+            name="user"
+            type="com.yahier.androidtest.databinding.User" />
+        <!--  方式二 -->
+        <!--<import type="www.zhang.com.databinding.User" />-->
+        <!--<variable-->
+        <!--name="user"-->
+        <!--type="User" />-->
+
+    </data>
+    <!--我们需要展示的布局-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--绑定基本数据类型及String的使用是通过   @{数据类型的对象}  通过对应数据类型的控制显示-->
+        <Button
+            android:id="@+id/main_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.text}" />
+
+        <Button
+            android:id="@+id/main_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="@{enabled}"
+            android:text="@{content}" />
+    </LinearLayout>
+</layout>

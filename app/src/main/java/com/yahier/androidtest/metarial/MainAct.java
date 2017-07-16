@@ -37,6 +37,7 @@ import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
 import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
+import com.yahier.androidtest.vo.TimerRecode;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -75,7 +76,7 @@ public class MainAct extends Activity {
 
             }
         });
-
+        TimerRecode.clear();
         setData();
         show();
     }

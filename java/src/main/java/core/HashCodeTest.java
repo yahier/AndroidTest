@@ -1,8 +1,10 @@
 package core;
 
+import java.util.HashMap;
+
 /**
  * Created by yahier on 17/2/8.
- * 对于普通对象 == 和 equal 是相同的,比较对象引用.hashcode也是一样的。（对象的内部地址转换成一个整数来实现的。）
+ * 对于普通对象, == 和 equal 是相同的,比较对象引用.hashcode也是一样的。（对象的内部地址转换成一个整数来实现的。）
  * 对于String。hashcode是内容有关,如果equal为true,hashcode一定是true,反之不一定
  */
 
@@ -46,12 +48,19 @@ public class HashCodeTest {
     static void compareStrHash() {
         String str4 = "hgebcijedg";
         String str5 = "gdejicbegh";
+        String str6 = "hgebcijedg";
         //比较str4和str5
         if (str4.hashCode() == str5.hashCode()) {
             System.out.println("str 4 5的hashcode相等");
         } else {
-            System.out.println("str 4 5的hashcode相等");
+            System.out.println("str 4 5的hashcode不等");
         }
+
+        HashMap<String,String> map = new HashMap<>();
+        map.put(str4,"yahier");
+        System.out.println("value1:"+map.get(str4));
+        System.out.println("value2:"+map.get(str5));
+        System.out.println("value2:"+map.get(str6));
     }
 
     static void compareObj() {

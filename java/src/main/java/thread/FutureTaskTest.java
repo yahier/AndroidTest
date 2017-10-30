@@ -41,7 +41,7 @@ public class FutureTaskTest {
         }
     }
 
-    static void ThreadExecute() {
+    private static void ThreadExecute() {
         new Thread(task).start();
         System.out.println("ThreadExecute 请求完毕");
         try {
@@ -49,23 +49,15 @@ public class FutureTaskTest {
             //task.cancel(true);
             System.out.println("准备拿结果");//会等待结果
 
-            for (int i = 0; i < 4; i++) {
-                if (task.isDone()) {
-                    System.out.println("完成了");
-                } else {
-                    System.out.println("没完成，稍后再来");
-                    Thread.sleep(1000);
-                }
-
+            while (!task.isDone()) {
+                System.out.println("没完成，稍后再来");
+                Thread.sleep(1000);
             }
 
             if (!task.isCancelled())
                 System.out.println("数据:" + task.get());//会等待结果
 
-            System.out.println("拿到结果之后");//会等待结果
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
     }

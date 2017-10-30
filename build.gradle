@@ -68,3 +68,12 @@ ext {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//测试运行独立的yahier.gradle文件  运行时 ./gradlew hello.
+apply from: "yahier.gradle"
+
+
+//这样也可以运行
+//task hello {
+//    println 'Hello,yahier'
+//}

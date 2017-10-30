@@ -1,0 +1,25 @@
+task hello {
+    println 'I am bingo on 10.21 晚上.'
+}
+
+//怎么以下两个文件，运行的都没有效果呢
+//这是网上的原文件
+task chVer1(type: Copy) { // 指定Type为Copy任务
+    println '.......11111......'
+    from "src/main/manifest/AndroidManifestCopy.xml"  // 复制src/main/manifest/目录下的AndroidManifest.xml
+    into 'src/main'  // 复制到指定目标目录
+    rename { String fileName -> //在复制时重命名文件
+        fileName = "AndroidManifest.xml" // 重命名
+    }
+
+}
+
+task chVer2(type: Copy) { // 指定Type为Copy任务
+    println '.......222222......'
+    from "src/main/AndroidManifest.xml"  // 复制src/main/manifest/目录下的AndroidManifest.xml
+    into 'src/main'  // 复制到指定目标目录
+    rename { String fileName -> //在复制时重命名文件
+        fileName = "AndroidManifestCoped.xml" // 重命名
+    }
+
+}

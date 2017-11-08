@@ -44,6 +44,7 @@ import com.yahier.androidtest.databinding.Test3Act;
 import com.yahier.androidtest.databinding.Test4Act;
 import com.yahier.androidtest.databinding.Test5Act;
 import com.yahier.androidtest.databinding.Test6Act;
+import com.yahier.androidtest.kotlin.Main2Activity;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -178,6 +179,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("49", new MainItem("kotlin", "", Main2Activity.class));
         map2.put("48", new MainItem("link测试", "", AppLinkTestAct.class));
         map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
         map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));

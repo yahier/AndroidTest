@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yahier.androidtest"
     android:versionCode="1"
     android:versionName="1.0">
-
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -11,11 +11,10 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
-    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>-->
 
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
     <application
         android:name=".App"
         android:icon="@drawable/ic_launcher"
@@ -42,48 +41,42 @@
             android:name=".metarial.RecycleAct"
             android:process=":remote" />
         <activity android:name=".metarial.CardViewAct" />
-
-
         <activity android:name=".bitmap.MatrixTest" />
         <activity android:name=".bitmap.PorterDuffTest" />
         <activity android:name=".content.provider.TestCPActivity" />
         <activity android:name=".service.ServiceActivity" />
         <activity android:name=".service.ActivityMessenger" />
         <activity android:name=".service.AccessServiceAct" />
-
         <activity android:name=".multipleThreads.SynchonizedTest" />
         <activity android:name=".multipleThreads.OperateUiThreadAct" />
         <activity android:name=".common.ReflectTest" />
         <activity android:name=".test.DrawableAct" />
 
-
-        <!-- binding开始-->
+        <!-- binding开始 -->
         <activity android:name=".databinding.Test1Act" />
         <activity android:name=".databinding.Test2Act" />
         <activity android:name=".databinding.Test3Act" />
         <activity android:name=".databinding.Test4Act" />
         <activity android:name=".databinding.Test5Act" />
         <activity android:name=".databinding.Test6Act" />
-
         <activity
             android:name=".view.act.DrawableStyleAct"
             android:theme="@style/logo" />
-        <!--view测试 -->
+        <!-- view测试 -->
         <activity
             android:name=".viewtest.SwipeRefreshLayoutTest"
             android:label="SwipeRefreshLayout" />
-
         <activity
             android:name=".test.HandlerTest"
             android:label="CanvasTest" />
         <activity
             android:name=".test.JavaUpperAct"
             android:label="SwipeRefreshLayout" />
-
         <activity
             android:name=".test.AppLinkTestAct"
             android:label="AppLinkTestAct">
-            <!--以下的申明可以起到什么作用呢。根据以前经验，是在webview时有效果  -->
+
+            <!-- 以下的申明可以起到什么作用呢。根据以前经验，是在webview时有效果 -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -96,7 +89,6 @@
                 <data android:host="www.baidu.com" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:label="MainActivity" />
@@ -112,17 +104,14 @@
             android:name=".view.act.SwipeBackMainActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".test.WebViewAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".bitmap.ChooseImgTestAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.act.SwipeBackSecondActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
@@ -131,52 +120,42 @@
             android:name=".view.act.CustomRoungImgAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".test.GlideTestAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.act.DrawerLayoutActTest"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.act.ViewLocationAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".multipleThreads.TestHandlerThreadAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".multipleThreads.TestIntentServiceAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".bitmap.ViewToBitmapAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".data.LogTest"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".view.act.CommonViewTest"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".test.HtmlAllTestActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
-
         <activity android:name=".test.WindowTest" />
         <activity android:name=".metarial.VectorSVNAct" />
         <activity android:name=".view.act.MotionEventAct" />
@@ -213,12 +192,12 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!--<service-->
-        <!--android:name="cn.jpush.android.service.PushService"-->
-        <!--android:process=":multiprocess"-->
-        <!--tools:node="replace">-->
-        <!--</service>-->
+        <!-- <service -->
+        <!-- android:name="cn.jpush.android.service.PushService" -->
+        <!-- android:process=":multiprocess" -->
+        <!-- tools:node="replace"> -->
+        <!-- </service> -->
+        <activity android:name=".kotlin.Main2Activity"/>
     </application>
-
 
 </manifest>

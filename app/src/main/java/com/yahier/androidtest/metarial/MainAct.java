@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.yahier.androidtest.App;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MyAdapter;
@@ -178,7 +179,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
-        map2.put("48", new MainItem("link测试", "", AppLinkTestAct.class));
+        map2.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
         map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
         map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
         map2.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
@@ -240,13 +241,17 @@ public class MainAct extends AppCompatActivity {
             @Override
             public void onItemClck(int i) {
                 getWindow().setExitTransition(new Explode());
-                Intent intent = new Intent(mAct, itemArray[i].getmAct());
-                startActivity(intent,
-                        ActivityOptions
-                                .makeSceneTransitionAnimation(mAct).toBundle());
+                //Intent intent = new Intent(mAct, itemArray[i].getmAct());
+                //startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(mAct).toBundle());
+                testRoute();
             }
         });
     }
+
+    void testRoute(){
+        ARouter.getInstance().build("/cn/bookings/tickets_service/ticket_booking/index.shtml").navigation();
+    }
+
 
 
 }

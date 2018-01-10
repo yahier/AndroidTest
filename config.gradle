@@ -1,0 +1,13 @@
+apply from: "config.gradle"
+
+ext {
+    android = [
+            compileSdkVersion: 25,
+            buildToolsVersion: "25.0.0",
+            minSdkVersion    : 21,
+            targetSdkVersion : 25,
+    ]
+    dependencies = [
+            design: 'com.android.support:design:23.2.1'
+    ]
+}

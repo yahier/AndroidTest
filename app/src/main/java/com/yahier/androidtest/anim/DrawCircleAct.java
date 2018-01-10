@@ -1,5 +1,6 @@
 package com.yahier.androidtest.anim;
 
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -24,9 +25,14 @@ public class DrawCircleAct extends AppCompatActivity {
         setContentView(R.layout.anim_circle_act);
 
         img = (ImageView) findViewById(R.id.img);
+       img =  (ImageView) findViewById(R.id.img);
         testCircleDrawable();
     }
 
+    void test2(){
+        //PackageManager packageManager = getPackageManager();
+        //packageManager.setComponentEnabledSetting(receiver...);
+    }
 
     void testCircleDrawable() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),

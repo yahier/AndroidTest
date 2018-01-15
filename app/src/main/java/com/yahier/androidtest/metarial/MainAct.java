@@ -1,10 +1,8 @@
 package com.yahier.androidtest.metarial;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,19 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.yahier.androidtest.App;
 import com.yahier.androidtest.MainActivity;
-import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
@@ -63,6 +55,7 @@ import com.yahier.androidtest.test.JavaUpperAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
+import com.yahier.androidtest.ui.test.ToorFitColorAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.CustomRoungImgAct;
@@ -76,12 +69,9 @@ import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by yahier on 16/12/30.
@@ -179,6 +169,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
+        map2.put("49", new MainItem("测试状态栏适配变色", "", ToorFitColorAct.class));
         map2.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
         map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
         map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
@@ -241,17 +232,15 @@ public class MainAct extends AppCompatActivity {
             @Override
             public void onItemClck(int i) {
                 getWindow().setExitTransition(new Explode());
-                //Intent intent = new Intent(mAct, itemArray[i].getmAct());
-                //startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(mAct).toBundle());
-                testRoute();
+                Intent intent = new Intent(mAct, itemArray[i].getmAct());
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mAct).toBundle());
             }
         });
     }
 
-    void testRoute(){
+    void testRoute() {
         ARouter.getInstance().build("/cn/bookings/tickets_service/ticket_booking/index.shtml").navigation();
     }
-
 
 
 }

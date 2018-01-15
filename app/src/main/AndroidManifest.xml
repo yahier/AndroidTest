@@ -169,6 +169,7 @@
         <activity android:name=".bitmap.LargeImageViewActivity" />
         <activity android:name=".view.act.ParallaxVpTestActivity" />
         <activity android:name=".view.act.SurfaceViewTestAct" />
+        <activity android:name=".ui.test.ToorFitColorAct" />
 
         <receiver android:name=".test.MyBraodCastReceiver">
             <intent-filter>

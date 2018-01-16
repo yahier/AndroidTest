@@ -18,7 +18,7 @@ import com.yahier.androidtest.R;
  * 测试状态栏随图片变色(类名写的有偏差)
  */
 
-public class ToorFitColorAct extends AppCompatActivity {
+public class StatusBarFitColorAct extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -27,4 +27,21 @@
     <style name="logo" parent="@android:style/Theme.Holo.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/logo</item>
     </style>
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 状态栏和标题栏颜色-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item> -->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!-- 标题颜色-->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <!-- 溢出菜单图标颜色-->
+        <!--<item name="colorControlNormal">@android:color/white</item>-->
+        <!-- 左边箭头 -->
+        <!--<item name="drawerArrowStyle">@style/DrawerArrowStyle</item>-->
+        <!-- 溢出菜单文字颜色-->
+        <!--<item name="textAppearanceLargePopupMenu">@style/OverflowMenuTextAppearance</item>-->
+        <!-- 菜单项点击selector-->
+        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_dark</item>
+
+    </style>
 </resources>

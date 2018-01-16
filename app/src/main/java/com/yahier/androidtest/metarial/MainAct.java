@@ -55,9 +55,10 @@ import com.yahier.androidtest.test.JavaUpperAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
-import com.yahier.androidtest.ui.test.ToorFitColorAct;
+import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
+import com.yahier.androidtest.view.act.ConstraintLayoutTest;
 import com.yahier.androidtest.view.act.CustomRoungImgAct;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
@@ -169,7 +170,9 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         map2 = new LinkedHashMap<String, MainItem>();
-        map2.put("49", new MainItem("测试状态栏适配变色", "", ToorFitColorAct.class));
+        map2.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
+        map2.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));
+        map2.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
         map2.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
         map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
         map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));

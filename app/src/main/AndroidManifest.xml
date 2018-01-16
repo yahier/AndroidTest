@@ -169,7 +169,11 @@
         <activity android:name=".bitmap.LargeImageViewActivity" />
         <activity android:name=".view.act.ParallaxVpTestActivity" />
         <activity android:name=".view.act.SurfaceViewTestAct" />
-        <activity android:name=".ui.test.ToorFitColorAct" />
+        <activity android:name=".ui.test.StatusBarFitColorAct" />
+        <activity android:name=".view.act.ConstraintLayoutTest" />
+        <activity
+            android:name=".metarial.CollapsingToolbarLayoutTest"
+            android:theme="@style/AppBaseTheme" />
 
         <receiver android:name=".test.MyBraodCastReceiver">
             <intent-filter>
@@ -198,7 +202,7 @@
         <!-- android:process=":multiprocess" -->
         <!-- tools:node="replace"> -->
         <!-- </service> -->
-        <activity android:name=".kotlin.Main2Activity"/>
+        <activity android:name=".kotlin.Main2Activity" />
     </application>
 
 </manifest>

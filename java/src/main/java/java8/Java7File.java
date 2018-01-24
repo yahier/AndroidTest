@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,17 +27,19 @@ public class Java7File {
     //测试Files对文件的读写
     static void test1() {
         try {
+            //读文件
             byte[] data = Files.readAllBytes(Paths.get(filePath));
             println("test1", new String(data));
 
+            //按行读取文件
             List<String> list = Files.readAllLines(Paths.get(filePath));
             list.forEach(System.out::println);
 
-            //测试写入
+            //写入
             Files.write(Paths.get(filePath2), "如何面对，曾一起走过的日期".getBytes());
             //按行写入
-            //List<String> cons = new ArrayList<>();
-            //Files.write(Paths.get(filePath2), cons);
+            List<String> cons = new ArrayList<>();
+            Files.write(Paths.get(filePath2), cons);
             //追加内容
             Files.write(Paths.get(filePath2), "\n现在剩下我独行，如何让心声一一讲你知".getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {

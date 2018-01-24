@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 /**
  * Created by yahier on 2018/1/23.
@@ -21,6 +22,8 @@ public class Java7 {
             e.printStackTrace();
         }
 
+        test3();
+        test4(null);
     }
 
     //catch多个异常  测试反射异常
@@ -43,6 +46,17 @@ public class Java7 {
         }
     }
 
+    static void test3() {
+        int a = Integer.parseInt("+1");
+        int b = Integer.parseInt("-1");
+        println("test3", "a," + a + " b," + b);
+    }
+
+    //requireNonNull
+    static void test4(City city) {
+        City mcity = Objects.requireNonNull(city, "city must not null");
+        println("test4", mcity.cityName);
+    }
 
     static void println(String tag, String value) {
         System.out.println(tag + "," + value);

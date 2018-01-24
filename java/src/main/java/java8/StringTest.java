@@ -131,14 +131,14 @@ public class StringTest {
         Matcher matcher = pattern.matcher(value);
         if (matcher.matches()) {
             String result = matcher.group();
-            println("test6", result);
+            println("test6", result);//2008-12-31
         }
 
         Pattern pattern2 = Pattern.compile("(?<year>\\d{4})-(?<date>\\d{2}-(?<day>\\d\\d))");
         Matcher matcher2 = pattern2.matcher(value);
         if (matcher2.matches()) {
             String result = matcher2.group("year");
-            println("test6", result);
+            println("test6", result);//2008
         }
 
         //厉害了

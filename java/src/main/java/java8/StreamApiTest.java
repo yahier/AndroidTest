@@ -38,6 +38,8 @@ public class StreamApiTest {
         test8();
         test9();
         test10();
+        test11();
+        test12();
     }
 
     static void test1() {
@@ -145,13 +147,11 @@ public class StreamApiTest {
     static void test9() {
         Stream<String> stream = list.stream();
         List<String> list1 = stream.collect(Collectors.toList());
-        Set<String> set = stream.peek(v -> {
-        }).collect(Collectors.toSet());
+        Set<String> set = list.stream().collect(Collectors.toSet());
         System.out.println("test9-1," + list1.size() + ":" + set.size());//set还是会过滤的
 
         //joining方法的参数是分隔符，可选
-        String result = stream.peek(v -> {
-        }).collect(Collectors.joining(","));
+        String result = list.stream().collect(Collectors.joining(","));
         System.out.println("test9-2," + result);
     }
 
@@ -165,6 +165,35 @@ public class StreamApiTest {
         IntStream intStream2 = IntStream.range(1, 100);
 
         Stream<Integer> stream = intStream1.boxed();//将原始流转换成对象流
+    }
+
+
+    //parallel并行 需要确保 并行操作都是线程安全的  以下方法没有测试出效果
+    static void test11() {
+        int[] arrays = new int[12];
+        list.parallelStream().forEach(v -> {
+            if (v.length() < 12) arrays[v.length()]++;
+        });
+        System.out.println("test11," + Arrays.toString(arrays));
+    }
+
+    //流不会收集自己的数据
+    static void test12() {
+        Stream<String> stream = list.stream();
+        list.add("新加的一个");
+        println("test12", stream);//stream中包含了上面 新加的一个
+
+        //ConcurrentModificationException 不能在流中操作数据源
+        try {
+            Stream<String> stream2 = list.stream();
+            stream2.forEach(v -> {
+                if (v.length() > 3) {
+                    list.add("在流操作中新加了一个");
+                }
+            });
+        } catch (Exception e) {
+            System.out.println("test12," + "Exception:" + e.getMessage());
+        }
     }
 
 

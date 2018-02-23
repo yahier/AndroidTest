@@ -80,4 +80,16 @@ public class People {
             return msg;
         }
     }
+
+//    @Override
+//    public int hashCode() {
+//        System.out.println("People hashCode...");
+//        return 1023433;
+//    }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        System.out.println("People equals...");
+//        return true;
+//    }
 }

@@ -1,4 +1,4 @@
-package maplist;
+package collection;
 
 
 import java.util.ArrayList;

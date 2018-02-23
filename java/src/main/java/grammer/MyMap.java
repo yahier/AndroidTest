@@ -7,20 +7,24 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import pojo.People;
+
 public class MyMap {
 	public static void main(String[] args) {
 		test();
-		test2();
-		test3();
+		//test2();
+		//test3();
 	}
 
 	/** 测试HashMap */
 	static void test() {
 		HashMap map = new HashMap(10);
-		map.put("1", "11");
+		People people = new People();
+		People people2 = new People();
+		map.put(people, "11");
 		map.put("2", "12");
 		map.put("3", "13");
-		map.put("4", "14");
+		map.put(people2, "14");
 
 		Set<?> set = map.keySet();
 		Iterator it = set.iterator();
@@ -60,7 +64,7 @@ public class MyMap {
 		Iterator it = map.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry e = (Map.Entry) it.next();
-			System.out.println("test3 Key: " + e.getKey());
+			System.out.println("test3 Key: " + e.getKey()+"-"+e.getValue());
 
 		}
 	}

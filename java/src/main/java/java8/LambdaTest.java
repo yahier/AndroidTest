@@ -80,5 +80,10 @@ public class LambdaTest {
         run.run();
     }
 
+    static void test7(){
+        Object obj = "yhier";
+       // boolean yahier = Predicate.isEqual("");
+    }
+
 }
 

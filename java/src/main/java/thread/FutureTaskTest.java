@@ -3,17 +3,15 @@ package thread;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
+ * 也算是另一种的Future模式
  * Created by yahier on 17/3/6.
  */
 
 public class FutureTaskTest {
-    static FutureTask<String> task = new FutureTask<String>(new RealData(("a")));
+    static FutureTask<String> task = new FutureTask<>(new RealData(("a")));
 
     public final static void main(String[] args) {
         ThreadExecute();

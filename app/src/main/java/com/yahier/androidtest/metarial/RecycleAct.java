@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,9 +21,12 @@ import java.util.List;
 
 /**
  * Created by yahier on 16/12/30.
+ * 测试RecyclerView的动画，和DiffUtil功能
  */
 
 public class RecycleAct extends Activity {
+    private MyAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +36,9 @@ public class RecycleAct extends Activity {
 
     RecyclerView mRecyclerView;
 
-    void initRecycleView() {
+    private void initRecycleView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
-        //去掉此之后，查看删除是否还有动画效果
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
         //加上间隔线。这个操作还有更多强大的功能
         mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
@@ -97,26 +98,47 @@ public class RecycleAct extends Activity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        final String[] myDataset = {"我不知道玩什么这样", "动起来", "为新的力量喝彩", "每一秒都期待", "东周列国志", "左转 周天子啊", "战国后期,秦国愈加强大,其它为了过了对抗秦国,", "开始用各种手段网络天下人才", "食客或者门客开始兴起", "后世开始有记录战国四公子的事情了", "信陵君窃符救赵,春申君", "曾一起走过的日子"};
-        final MyAdapter mAdapter = new MyAdapter(myDataset);
+        List<String> datas = new ArrayList<>();
+        datas.add("我不知道为什么这样");
+        datas.add("动起来");
+        datas.add("为新的力量喝彩");
+        datas.add("每一秒都期待");
+        datas.add("东周列国志");
+        datas.add("网罗门客");
+
+        mAdapter = new MyAdapter(datas);
         mRecyclerView.setAdapter(mAdapter);
-        getWindow().getDecorView().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                deleteHead(myDataset);
-                //配合DefaultItemAnimator就有动画效果了
-                mAdapter.notifyItemRemoved(0);
-            }
-        }, 4000);
+
+        //这里的动画都只移动了内容，间隔线没有移动
+        mRecyclerView.postDelayed(() -> {
+            //配合DefaultItemAnimator就有动画效果了
+
+
+            //方案1 没有动画效果
+//            datas.remove(0);
+//            mAdapter.setData(datas);
+//            mAdapter.notifyDataSetChanged();
+
+            //方案2 有动画效果（无论有没有设置setItemAnimator）
+//            datas.remove(0);
+//            mAdapter.setData(datas);
+//            mAdapter.notifyItemRemoved(0);
+
+            //方案3 有动画 无论有没有设置setItemAnimator）
+            testDiffUtil(datas);
+        }, 2000);
     }
 
 
-    void deleteHead(String[] myDataset) {
-        for (int i = 0; i < myDataset.length - 1; i++) {
-            myDataset[i] = myDataset[i + 1];
-        }
-        myDataset[myDataset.length - 1] = null;
-
+    //测试一下DiffUtil 效果OK，暂时
+    private void testDiffUtil(List<String> mDatas) {
+        List<String> datasNew = new ArrayList<>();
+        datasNew.add("每一秒都期待");
+        datasNew.add("东周列国志");
+        datasNew.add("网罗门客");
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffCallBack(mDatas, datasNew), true);
+        diffResult.dispatchUpdatesTo(mAdapter);
+        mAdapter.setData(datasNew);
 
     }
 

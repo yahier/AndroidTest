@@ -1,10 +1,7 @@
 package com.yahier.androidtest.metarial;
 
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
-import android.transition.Explode;
-import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 

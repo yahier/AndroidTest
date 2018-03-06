@@ -8,7 +8,7 @@ public class People {
 
 
     public People() {
-
+        System.err.println("people构造函数");
     }
 
     public People(String name, String pwd, int age) {
@@ -60,8 +60,8 @@ public class People {
 
     //4月9日 新增
     public enum GenderStatus {
-        Boy(1,"男生"),
-        Girl(2,"女生");
+        Boy(1, "男生"),
+        Girl(2, "女生");
         int code;
         String msg;
 
@@ -69,7 +69,6 @@ public class People {
             this.code = code;
             this.msg = msg;
         }
-
 
 
         public int getCode() {

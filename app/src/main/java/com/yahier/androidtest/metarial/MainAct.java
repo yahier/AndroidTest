@@ -82,7 +82,7 @@ public class MainAct extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     List<String> datas;
-    LinkedHashMap<String, MainItem> map2;
+    LinkedHashMap<String, MainItem> linkedHashMap;
     MainAct mAct;
 
     @Override
@@ -169,64 +169,64 @@ public class MainAct extends AppCompatActivity {
     }
 
     void setData() {
-        map2 = new LinkedHashMap<String, MainItem>();
-        map2.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
-        map2.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));
-        map2.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
-        map2.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
-        map2.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
-        map2.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
-        map2.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
-        map2.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
-        map2.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
-        map2.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
+        linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
+        linkedHashMap.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));
+        linkedHashMap.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
+        linkedHashMap.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
+        linkedHashMap.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
+        linkedHashMap.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
+        linkedHashMap.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
+        linkedHashMap.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
+        linkedHashMap.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
+        linkedHashMap.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
 
-        map2.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
-        map2.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
-        map2.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
-        map2.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
-        map2.put("2", new MainItem("事件分发测试", MotionEventAct.class));
-        map2.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
-        map2.put("4", new MainItem("drawable效果  包括BitmapShader", "详细解说一下", DrawableAct.class));
-        map2.put("5", new MainItem("选图测试", "详细解说一下", ChooseImgTestAct.class));
-        map2.put("6", new MainItem("左侧滑动", "详细解说一下", SwipeBackMainActivity.class));
-        map2.put("7", new MainItem("自定义layout", "详细解说一下", MyLayoutAct.class));
-        map2.put("8", new MainItem("自定义View", "详细解说一下", ViewLocationAct.class));
-        map2.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));
-        map2.put("9", new MainItem("SurfaceView测试", "详细解说一下", SurfaceViewTestAct.class));
-        map2.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
-        map2.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));
-        map2.put("12", new MainItem("测试Handler处理", "详细解说一下", HandlerTest.class));
-        map2.put("13", new MainItem("测试通知 类似微博效果", "详细解说一下", TestNotificationAct.class));
-        map2.put("14", new MainItem("调通dex的方法", "详细解说一下", LoaderAct.class));
-        map2.put("15", new MainItem("加载超大图", "详细解说一下", LargeImageViewActivity.class));
-        map2.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));
-        map2.put("17", new MainItem("glide加载图片 测试", "详细解说一下", GlideTestAct.class));
-        map2.put("18", new MainItem("material小特性", "translationZ  elevation", Material1Act.class));
-        map2.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
-        map2.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
-        map2.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));
-        map2.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
-        map2.put("23", new MainItem("Synchonized", "详细解说一下", SynchonizedTest.class));
-        map2.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));
-        map2.put("25", new MainItem("messenger", "msgFromClient.replyTo = mMessenger", ActivityMessenger.class));
-        map2.put("26", new MainItem("AccessbilityService", "详细解说一下", AccessServiceAct.class));
-        map2.put("27", new MainItem("子线程操作UI", "详细解说一下", OperateUiThreadAct.class));
-        map2.put("28", new MainItem("CanvasTest", "详细解说一下", CanvasTest.class));
-        map2.put("29", new MainItem("SwipeBack", "详细解说一下", SwipeBackMainActivity.class));
-        map2.put("30", new MainItem("DrawerTest", "详细解说一下", DrawerLayoutActTest.class));
-        map2.put("31", new MainItem("View转换成bitmap", "详细解说一下", ViewToBitmapAct.class));
-        map2.put("32", new MainItem("本地记录Log", "", LogTest.class));
-        map2.put("33", new MainItem("WindowTest", "", WindowTest.class));
-        map2.put("34", new MainItem("HandlerThread", "详细解说一下", TestHandlerThreadAct.class));
-        map2.put("35", new MainItem("TestIntentService", "详细解说一下", TestIntentServiceAct.class));
-        map2.put("36", new MainItem("ViewTest", "", CommonViewTest.class));
-        map2.put("37", new MainItem("HtmlTest", "", HtmlAllTestActivity.class));
+        linkedHashMap.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
+        linkedHashMap.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
+        linkedHashMap.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
+        linkedHashMap.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
+        linkedHashMap.put("2", new MainItem("事件分发测试", MotionEventAct.class));
+        linkedHashMap.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
+        linkedHashMap.put("4", new MainItem("drawable效果  包括BitmapShader", "详细解说一下", DrawableAct.class));
+        linkedHashMap.put("5", new MainItem("选图测试", "详细解说一下", ChooseImgTestAct.class));
+        linkedHashMap.put("6", new MainItem("左侧滑动", "详细解说一下", SwipeBackMainActivity.class));
+        linkedHashMap.put("7", new MainItem("自定义layout", "详细解说一下", MyLayoutAct.class));
+        linkedHashMap.put("8", new MainItem("自定义View", "详细解说一下", ViewLocationAct.class));
+        linkedHashMap.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));
+        linkedHashMap.put("9", new MainItem("SurfaceView测试", "详细解说一下", SurfaceViewTestAct.class));
+        linkedHashMap.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
+        linkedHashMap.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));
+        linkedHashMap.put("12", new MainItem("测试Handler处理", "详细解说一下", HandlerTest.class));
+        linkedHashMap.put("13", new MainItem("测试通知 类似微博效果", "详细解说一下", TestNotificationAct.class));
+        linkedHashMap.put("14", new MainItem("调通dex的方法", "详细解说一下", LoaderAct.class));
+        linkedHashMap.put("15", new MainItem("加载超大图", "详细解说一下", LargeImageViewActivity.class));
+        linkedHashMap.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));
+        linkedHashMap.put("17", new MainItem("glide加载图片 测试", "详细解说一下", GlideTestAct.class));
+        linkedHashMap.put("18", new MainItem("material小特性", "translationZ  elevation", Material1Act.class));
+        linkedHashMap.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
+        linkedHashMap.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
+        linkedHashMap.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));
+        linkedHashMap.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
+        linkedHashMap.put("23", new MainItem("Synchonized", "详细解说一下", SynchonizedTest.class));
+        linkedHashMap.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));
+        linkedHashMap.put("25", new MainItem("messenger", "msgFromClient.replyTo = mMessenger", ActivityMessenger.class));
+        linkedHashMap.put("26", new MainItem("AccessbilityService", "详细解说一下", AccessServiceAct.class));
+        linkedHashMap.put("27", new MainItem("子线程操作UI", "详细解说一下", OperateUiThreadAct.class));
+        linkedHashMap.put("28", new MainItem("CanvasTest", "详细解说一下", CanvasTest.class));
+        linkedHashMap.put("29", new MainItem("SwipeBack", "详细解说一下", SwipeBackMainActivity.class));
+        linkedHashMap.put("30", new MainItem("DrawerTest", "详细解说一下", DrawerLayoutActTest.class));
+        linkedHashMap.put("31", new MainItem("View转换成bitmap", "详细解说一下", ViewToBitmapAct.class));
+        linkedHashMap.put("32", new MainItem("本地记录Log", "", LogTest.class));
+        linkedHashMap.put("33", new MainItem("WindowTest", "", WindowTest.class));
+        linkedHashMap.put("34", new MainItem("HandlerThread", "详细解说一下", TestHandlerThreadAct.class));
+        linkedHashMap.put("35", new MainItem("TestIntentService", "详细解说一下", TestIntentServiceAct.class));
+        linkedHashMap.put("36", new MainItem("ViewTest", "", CommonViewTest.class));
+        linkedHashMap.put("37", new MainItem("HtmlTest", "", HtmlAllTestActivity.class));
     }
 
 
     void show() {
-        final Collection<MainItem> items = map2.values();
+        final Collection<MainItem> items = linkedHashMap.values();
         final MainItem[] itemArray = new MainItem[items.size()];
         items.toArray(itemArray);
         final MainRecycleAdapter mAdapter = new MainRecycleAdapter(itemArray);

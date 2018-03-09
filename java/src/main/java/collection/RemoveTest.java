@@ -1,6 +1,9 @@
 package collection;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import pojo.People;
@@ -12,6 +15,11 @@ import pojo.People;
 public class RemoveTest {
 
     public static void main(String[] args) {
+        test2();
+
+    }
+
+    static void test1() {
         Set<People> set = new HashSet<People>();
         People p1 = new People("唐僧", "pwd1", 25);
         People p2 = new People("孙悟空", "pwd2", 26);
@@ -24,10 +32,35 @@ public class RemoveTest {
 
         set.remove(p3); //此时remove不掉，造成内存泄漏
 
-       // set.add(p3); //重新添加，居然添加成功
+        // set.add(p3); //重新添加，居然添加成功
         System.out.println("总共有:" + set.size() + " 个元素!"); //结果：总共有:4 个元素!
         for (People person : set) {
             System.out.println(person.getAge());
         }
+    }
+
+    static void test2() {
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        //这样的删除就大有问题了。
+//        for (String temp : list) {
+//            if ("1".equals(temp) || "2".equals(temp)) {
+//                list.remove(temp);
+//            }
+//        }
+
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            String temp = it.next();
+            if ("1".equals(temp) || "2".equals(temp)) {
+                it.remove();
+            }
+        }
+
+        list.removeIf(temp -> "1".equals(temp) || "2".equals(temp));
+
+        System.out.println("test2:" + list.size());
     }
 }

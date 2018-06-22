@@ -1,5 +1,6 @@
 package com.yahier.androidtest.metarial;
 
+import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -9,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yahier.androidtest.MainActivity;
+import com.yahier.androidtest.MediaPlayerTest;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
@@ -146,6 +149,8 @@ public class MainAct extends AppCompatActivity {
         otherTest();
         //testLink();
 
+        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        ActivityCompat.requestPermissions(this, permissions, 99);
     }
 
     void otherTest() {
@@ -170,6 +175,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));
         linkedHashMap.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
         linkedHashMap.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));

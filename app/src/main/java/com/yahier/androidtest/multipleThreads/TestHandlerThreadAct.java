@@ -12,6 +12,11 @@ import android.widget.Button;
 
 import com.yahier.androidtest.R;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 /**
  * Created by yahier on 17/2/10.
  * 测试HandlerThread,感觉不错
@@ -21,8 +26,8 @@ public class TestHandlerThreadAct extends Activity implements View.OnClickListen
     MyHandler mHandler;
     String tag = "TestHandlerThreadAct";
 
-    final int msg1_sleep5000 = 1;
-    final int msg1_donothing = 2;
+    final int msg1_send = 1;
+    final int msg2_read = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +36,11 @@ public class TestHandlerThreadAct extends Activity implements View.OnClickListen
 
         init();
         Button btn1 = (Button) findViewById(R.id.btn1);
-        btn1.setText("发送一个sleep");
+        btn1.setText("send");
         btn1.setOnClickListener(this);
 
         Button btn2 = (Button) findViewById(R.id.btn2);
-        btn2.setText("直接打印");
+        btn2.setText("read");
         btn2.setOnClickListener(this);
 
     }
@@ -50,12 +55,44 @@ public class TestHandlerThreadAct extends Activity implements View.OnClickListen
 
 
     void send1() {
-        mHandler.sendEmptyMessage(msg1_sleep5000);
+        mHandler.sendEmptyMessageDelayed(msg1_send,5000);
     }
 
     void send2() {
-        mHandler.sendEmptyMessage(msg1_donothing);
+        mHandler.sendEmptyMessageDelayed(msg2_read,3000);
     }
+
+    void doRead() {
+        Log.e(tag,"doRead start");
+        try {
+            FileInputStream inputStream = new FileInputStream("/sdcard/yaya.txt");
+            byte[] data = new byte[20];
+            int c = 0;
+            while (c != -1) {
+                c = inputStream.read(data);
+                Log.e("readContent:", new String(data));
+            }
+            Log.e(tag,"doRead end");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void doWrite() {
+        Log.e(tag,"doWrite");
+        try {
+            FileOutputStream write = new FileOutputStream("/sdcard/yaya.txt",true);
+            write.write("12345".getBytes());
+            write.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -78,11 +115,13 @@ public class TestHandlerThreadAct extends Activity implements View.OnClickListen
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case msg1_sleep5000:
-                    sleep5S();
+                case msg1_send:
+                    doWrite();
+                    send1();
                     break;
-                case msg1_donothing:
-                    Log.e(tag, "啥都不做");
+                case msg2_read:
+                    doRead();
+                    send2();
                     break;
             }
         }

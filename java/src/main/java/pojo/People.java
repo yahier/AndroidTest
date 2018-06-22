@@ -4,7 +4,7 @@ package pojo;
  * Created by yahier on 17/3/1.
  */
 
-public class People {
+public class People implements Cloneable{
 
 
     public People() {
@@ -15,6 +15,11 @@ public class People {
         this.name = name;
         this.pwd = pwd;
         this.age = age;
+    }
+
+    @Override
+    public People clone() throws CloneNotSupportedException {
+        return (People) super.clone();
     }
 
     int age;

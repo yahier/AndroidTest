@@ -11,8 +11,14 @@ public class Core {
 
     public static final void main(String[] args) {
         test1();
+        testOX();
     }
 
+
+    private static void testOX() {
+        String value = Integer.toHexString(14);
+        System.out.println("value:" + value);
+    }
 
     /**
      * 测试String地址

@@ -23,6 +23,7 @@ public class ListSort {
     }
 
     public static void main(String[] args) {
+        testChange();
         randomSort();
     }
 
@@ -31,5 +32,13 @@ public class ListSort {
         list.forEach(people -> System.out.println(people.getName()));
     }
 
+
+    static void testChange(){
+        //list.get(2).setName("wushuang");
+
+        People people = list.get(2);
+        people.setName("yayaya");
+        //原来以上两种都可以，都不是一定要调用list.set(int ,people)的
+    }
 
 }

@@ -1,10 +1,5 @@
 package core;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 public class Test {
     //初始条件,判断条件,条件改变
     public void test() {
@@ -22,6 +17,19 @@ public class Test {
 
     public static void main(String avgs[]) {
         Test t = new Test();
-        t.test();
+        t.test1();
+    }
+
+
+    private void test1() {
+        int basic = 0xff;
+        byte a = (byte) 0x92;
+        int b = a & basic;
+        System.out.println("value:" + a + "," + b);
+
+        byte zero = (byte) 0x01;
+        int zero2 = zero & basic;
+        System.out.println("zero:" + zero + "," + zero2);
+
     }
 }

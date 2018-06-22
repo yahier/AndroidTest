@@ -15,6 +15,10 @@ public class DeleteTest {
     }
 
     static void test1() {
+        double v = 0.0;
+        int in = (int)v;
+        System.err.println("in:"+in);
+
         String value = "我问发收到234【DX9000】";
         Pattern p = Pattern.compile("【.*】");
         Matcher m = p.matcher(value);

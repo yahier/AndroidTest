@@ -28,6 +28,10 @@ public class StreamApiTest {
     }
 
     public static void main(String[] args) {
+        byte b = 0;
+        double d = (double)b/100;
+        System.out.println("d:"+d);
+
         test1();
         test2();
         test3();
@@ -49,6 +53,9 @@ public class StreamApiTest {
         //parallel:并行
         long count2 = list.parallelStream().filter(str -> str.length() > 2).count();
         System.out.println("test1:" + count2);
+
+        List<String> list3 = list.stream().filter(item->item.equals("钟白")).map(item -> item + "yahier").collect(Collectors.toList());
+        list.forEach(item->System.out.println("test1:"+item));
 
 
     }

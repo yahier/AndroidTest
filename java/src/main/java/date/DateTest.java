@@ -1,11 +1,11 @@
 package date;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 public class DateTest {
     public static void main(String[] args) {
@@ -23,7 +23,12 @@ public class DateTest {
         // SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         System.out.printf("date:" + format.format(date));
 
+        String timeMillis = String.valueOf(System.currentTimeMillis());
+        String last5 = timeMillis.substring(timeMillis.length() - 5);
+        System.out.printf("last5:" + last5);
 
+        int value = 100 + new Random().nextInt(900);
+        System.out.printf("value:" + value);
     }
 
     static void sa() {

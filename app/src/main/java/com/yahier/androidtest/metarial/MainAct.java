@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
@@ -37,6 +36,7 @@ import com.yahier.androidtest.databinding.Test3Act;
 import com.yahier.androidtest.databinding.Test4Act;
 import com.yahier.androidtest.databinding.Test5Act;
 import com.yahier.androidtest.databinding.Test6Act;
+import com.yahier.androidtest.download.DownTest;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -143,7 +143,7 @@ public class MainAct extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         setData();
         show();
-        //otherTest();
+        otherTest();
         //testLink();
 
     }
@@ -170,6 +170,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
         linkedHashMap.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));
         linkedHashMap.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
@@ -225,7 +226,7 @@ public class MainAct extends AppCompatActivity {
     }
 
 
-    void show() {
+    private void show() {
         final Collection<MainItem> items = linkedHashMap.values();
         final MainItem[] itemArray = new MainItem[items.size()];
         items.toArray(itemArray);
@@ -236,13 +237,11 @@ public class MainAct extends AppCompatActivity {
             public void onItemClck(int i) {
                 getWindow().setExitTransition(new Explode());
                 Intent intent = new Intent(mAct, itemArray[i].getmAct());
-                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mAct).toBundle());
+                startActivity(intent,
+                        ActivityOptions
+                                .makeSceneTransitionAnimation(mAct).toBundle());
             }
         });
-    }
-
-    void testRoute() {
-        ARouter.getInstance().build("/cn/bookings/tickets_service/ticket_booking/index.shtml").navigation();
     }
 
 

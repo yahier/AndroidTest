@@ -1,7 +1,7 @@
 package com.yahier.androidtest.download;
 
 public enum HttpConnectParams {
-	URLSTRING("http://192.168.1.102:8080/hotel/beat.flv"),
+	URLSTRING("https://apk.apk.hz155.com/down/lypcdibutj.apk"),
 	/**
 	 * 请求的方式
 	 */

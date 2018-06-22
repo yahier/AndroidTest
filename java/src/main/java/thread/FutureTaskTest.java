@@ -1,5 +1,6 @@
 package thread;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,8 +15,9 @@ public class FutureTaskTest {
     static FutureTask<String> task = new FutureTask<>(new RealData(("a")));
 
     public final static void main(String[] args) {
-        ThreadExecute();
+        //ThreadExecute();
         //poolExecute();
+        testTimeout();
     }
 
     static void poolExecute() {
@@ -61,4 +63,24 @@ public class FutureTaskTest {
     }
 
 
+    private static void testTimeout() {
+        Callable<Integer> call = () -> {
+            Thread.sleep(180);
+            return 3;
+        };
+        ExecutorService threadPool = Executors.newFixedThreadPool(1);
+        Future<Integer> future = threadPool.submit(call);
+        int value = 0;
+        try {
+            value = future.get(200, TimeUnit.MILLISECONDS);
+            System.out.println("value:" + value);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+        System.out.println("value:" + value);
+    }
 }

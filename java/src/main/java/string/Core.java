@@ -10,10 +10,21 @@ public class Core {
     static final String TAG = "Core";
 
     public static final void main(String[] args) {
-        test1();
-        testOX();
+        //test1();
+        //testOX();
+
+        String value = saveTwoDecimal(12.000);
+        System.out.println("value:" + value);
+
+        double a = 0.95;
+        System.out.println("value:" + (int)a);
+
     }
 
+
+    public static String saveTwoDecimal(double value) {
+        return String.format("%.1f", value);
+    }
 
     private static void testOX() {
         String value = Integer.toHexString(14);

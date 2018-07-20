@@ -100,6 +100,10 @@
             android:name=".viewtest.CanvasTest"
             android:label="CanvasTest" />
 
+        <activity
+            android:name=".multipleThreads.ThreadPoolAct"
+            android:label="线程池" />
+
         <service android:name=".service.OneService" />
         <service android:name=".service.MessengerService" />
         <service android:name=".service.MyIntentService" />

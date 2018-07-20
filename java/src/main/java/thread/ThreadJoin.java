@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadJoin {
     public static void main(String[] args) {
+
         final Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {

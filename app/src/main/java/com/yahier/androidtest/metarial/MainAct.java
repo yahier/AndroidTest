@@ -44,6 +44,7 @@ import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
 import com.yahier.androidtest.multipleThreads.TestIntentServiceAct;
+import com.yahier.androidtest.multipleThreads.ThreadPoolAct;
 import com.yahier.androidtest.service.AccessServiceAct;
 import com.yahier.androidtest.service.ActivityMessenger;
 import com.yahier.androidtest.service.ServiceActivity;
@@ -175,6 +176,8 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
+
         linkedHashMap.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));
         linkedHashMap.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));

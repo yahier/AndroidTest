@@ -44,6 +44,11 @@ public class MediaPlayerTest extends AppCompatActivity {
 
         String path = Environment.getExternalStorageDirectory().getPath();
         Log.e(TAG, "path:" + path);
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("yahier");
+        buffer.delete(0,5);
+        Log.e("buffer",buffer.toString());
     }
 
 

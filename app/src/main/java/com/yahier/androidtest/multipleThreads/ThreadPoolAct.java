@@ -52,7 +52,7 @@ public class ThreadPoolAct extends AppCompatActivity {
 
     private void test1() {
         Log.e("test1", "invoke");
-        getInstance().execute((Runnable) () -> Log.e(TAG, "test1 run"));
+        getInstance().execute(() -> Log.e(TAG, "test1 run"));
 
         YaScheduledThreadManager.getInstance().startCycle("1", () -> {
             Log.e("test1", "run");
@@ -67,12 +67,7 @@ public class ThreadPoolAct extends AppCompatActivity {
 
     private void test3() {
         Log.e("test3", "invoke");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Log.e("test3", "run");
-            }
-        }).start();
+        new Thread(() -> Log.e("test3", "run")).start();
     }
 
     private void test4() {

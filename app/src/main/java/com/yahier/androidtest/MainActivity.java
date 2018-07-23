@@ -3,12 +3,11 @@ package com.yahier.androidtest;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // test3();
-       // test4();
+        // test3();
+        // test4();
     }
 
 
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void send(){
+    private void send() {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("sms:10086"));
 

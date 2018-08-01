@@ -1,0 +1,9 @@
+task hello1 {
+    println 'I am bingo on 10.21 晚上.'
+}
+
+
+task test2{
+   println 'test1 invoke'
+}
+

@@ -23,3 +23,8 @@ task chVer2(type: Copy) { // 指定Type为Copy任务
     }
 
 }
+
+task test1{
+   println 'test1 invoke'
+}
+

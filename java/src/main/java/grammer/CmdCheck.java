@@ -61,9 +61,22 @@ public class CmdCheck {
         }
     }
 
+    /**
+     * 字符串转成 16 进制数字
+     */
+    private static void dataConvert() {
+        int a = 0X34a6;
+        String value = "a6";
+        int a2 = Integer.parseInt("62", 16);
+        System.out.println("a2:" + a2);
+
+    }
+
 
     public static void main(String[] args) {
         byte[] data = {(byte) 0XAA, 0X55, 0X1, 0X05, 0X56, 1, 1, 0, 2, 0, 0};
         test(data);
+
+        dataConvert();
     }
 }

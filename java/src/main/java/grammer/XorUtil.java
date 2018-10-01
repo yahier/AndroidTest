@@ -21,7 +21,7 @@ public class XorUtil {
 
         // 16位寄存器，所有数位均为1
         int wcrc = 0xffff;
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < data.length - 2; i++) {
             // 16 位寄存器的高位字节
             high = wcrc >> 8;
             // 取被校验串的一个字节与 16 位寄存器的高位字节进行“异或”运算
@@ -70,6 +70,26 @@ public class XorUtil {
             init = init ^ tmp;
         }
         return init;
+    }
+
+
+
+    public static String calculateCrc16(byte[] bytes) {
+        int crc = 0x0000ffff;
+        for (int i = 2; i < bytes.length; i++) {
+            crc ^= ((int) bytes[i] & 0x000000ff);
+            for (int j = 0; j < 8; j++) {
+                if ((crc & 0x00000001) != 0) {
+                    crc >>= 1;
+                    crc ^= 0x0000a001;
+                } else {
+                    crc >>= 1;
+                }
+            }
+        }
+        //高低位互换，输出符合相关工具对Modbus CRC16的运算
+        crc = ((crc & 0xff00) >> 8) | ((crc & 0x00ff) << 8);
+        return String.format("%04X", crc);
     }
 
 }

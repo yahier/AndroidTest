@@ -60,6 +60,7 @@ import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
+import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.ConstraintLayoutTest;
@@ -176,6 +177,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));
         linkedHashMap.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
 
         linkedHashMap.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));

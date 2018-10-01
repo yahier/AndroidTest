@@ -43,6 +43,7 @@
             android:name=".metarial.RecycleAct"
             android:process=":remote" />
         <activity android:name=".metarial.CardViewAct" />
+        <activity android:name=".util.ApacheCommonTestAct" />
         <activity android:name=".bitmap.MatrixTest" />
         <activity android:name=".bitmap.PorterDuffTest" />
         <activity android:name=".content.provider.TestCPActivity" />

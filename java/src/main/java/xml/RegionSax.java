@@ -1,20 +1,13 @@
 package xml;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RegionSax extends DefaultHandler {
 
@@ -23,7 +16,6 @@ public class RegionSax extends DefaultHandler {
 	static Map<String, Map> countryCodeMap;
 
 	static List<String> countryList;
-	// ´æ´¢¹ú¼ÒÃû
 	static List<String> countryNamesList;
 	static List<String> countryCodesList;
 
@@ -32,7 +24,7 @@ public class RegionSax extends DefaultHandler {
 	String countryCode = "";
 	String countryName;
 	final static String defaultContryCode = "1";
-	final static String defaultContryName = "ÖÐ¹ú";
+	final static String defaultContryName = "ï¿½Ð¹ï¿½";
 
 	@Override
 	public void startDocument() throws SAXException {
@@ -40,7 +32,7 @@ public class RegionSax extends DefaultHandler {
 		super.startDocument();
 		countryCodeMap = new HashMap<String, Map>();
 
-		// ×°ÔØËùÓÐ¹ú¼Òcode,ËùÓÐ¹ú¼ÒÃû£¬
+		// ×°ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½code,ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		countryList = new ArrayList<String>();
 		countryNamesList = new ArrayList<String>();
 		countryCodesList = new ArrayList<String>();
@@ -52,7 +44,7 @@ public class RegionSax extends DefaultHandler {
 
 		if (qName.equals("CountryRegion")) {
 			provinceCodeMap = new HashMap<String, Map>();
-			// ¼ÓÈë×Ö¶ÎÃû
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½
 
 			countryCode = attributes.getValue(1);
 			countryName = attributes.getValue(0);
@@ -71,7 +63,6 @@ public class RegionSax extends DefaultHandler {
 		super.endElement(uri, localName, qName);
 
 
-		// Ò»¸ö¹ú¼ÒÍêÁË
 		if (qName.equals("CountryRegion")) {
 			countryCodeMap.put(countryCode, provinceCodeMap);
 		}
@@ -96,7 +87,7 @@ public class RegionSax extends DefaultHandler {
 
 
 	/**
-	 * ¸ù¾Ý¹ú¼ÒÂë£¬Ê¡·ÝÂë£¬³ÇÊÐÂë£¬µÃµ½³ÇÊÐÃû
+	 * ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ë£¬Ê¡ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -111,7 +102,7 @@ public class RegionSax extends DefaultHandler {
 			city = proMap.get(CityCode);
 
 		} catch (NullPointerException myNull) {
-			System.out.println("²ÎÊýÓÐÎó");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		}
 		if (city == null)
 			city = "unKnown";
@@ -121,7 +112,7 @@ public class RegionSax extends DefaultHandler {
 	}
 
 	/**
-	 * ¸ù¾Ý¹ú¼ÒÃû·µ»Ø¹ú¼Òcode
+	 * ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½code
 	 * 
 	 * @param countryName
 	 * @return
@@ -137,7 +128,7 @@ public class RegionSax extends DefaultHandler {
 		}
 
 		Object[] codes = countryCodesList.toArray();
-		System.out.println("¹ú¼ÒÂëÊÇ    " + codes[index].toString());
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    " + codes[index].toString());
 		return codes[index].toString();
 
 	}

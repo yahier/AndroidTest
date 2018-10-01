@@ -1,8 +1,15 @@
 apply plugin: 'java'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile files('libs/commons-beanutils-1.9.3.jar')
+    //compile files('libs/commons-collections4-4.2.jar')
+    //compile files('libs/commons-collections-3.2.2.jar')
+    compile files('libs/commons-collections4-4.2.jar')
 }
 
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"
+//sourceCompatibility = "1.8"
+//targetCompatibility = "1.8"
+sourceCompatibility = rootProject.ext.javaVersion
+targetCompatibility = rootProject.ext.javaVersion

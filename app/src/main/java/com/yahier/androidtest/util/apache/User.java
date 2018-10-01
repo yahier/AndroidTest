@@ -1,4 +1,4 @@
-package com.yahier.androidtest.util.apache.beanutils;
+package com.yahier.androidtest.util.apache;
 
 /**
  * Created by yahier on 10/1/18.

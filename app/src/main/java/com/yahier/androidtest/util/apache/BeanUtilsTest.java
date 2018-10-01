@@ -1,4 +1,4 @@
-package com.yahier.androidtest.util.apache.beanutils;
+package com.yahier.androidtest.util.apache;
 
 import android.util.Log;
 

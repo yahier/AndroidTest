@@ -33,6 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
+        android:text="测试IOUtils"
         tools:context=".MainActivity" />
 
 
@@ -43,5 +44,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/padding_medium"
+        android:text="lang测试  字符串 数组 随机数"
         tools:context=".MainActivity" />
 </LinearLayout>

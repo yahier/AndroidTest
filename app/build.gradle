@@ -148,4 +148,6 @@ dependencies {
     //    testImplementation "android.arch.persistence.room:testing:1.0.0"
     compile files('libs/commons-collections4-4.2.jar')
     compile files('libs/commons-beanutils-1.9.3.jar')
+    compile files('libs/commons-io-2.6.jar')
+    compile files('libs/commons-lang3-3.8.1.jar')
 }

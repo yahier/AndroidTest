@@ -6,6 +6,8 @@ import android.util.Log;
 import com.squareup.leakcanary.LeakCanary;
 import com.yahier.androidtest.util.LifeCycleUtil;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -23,9 +25,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         Log.e(TAG, "onCreate");
-        JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
-        Log.e(TAG, "极光初始化完成");
+        setJPush();
         app = this;
         LeakCanary.install(this);
         registerActivityLifecycleCallbacks(LifeCycleUtil.getInstant());
@@ -34,5 +34,16 @@ public class MyApp extends Application {
 
     public static MyApp getContext() {
         return app;
+    }
+
+    private void setJPush() {
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+        Set<String> set = new HashSet<>();
+        set.add("tag1");
+        JPushInterface.setTags(this, set, (i, s, set1) -> {
+
+        });
+        Log.e(TAG, "极光初始化完成");
     }
 }

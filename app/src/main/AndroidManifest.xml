@@ -191,6 +191,24 @@
             </intent-filter>
         </receiver>
 
+        <!--接收极光推送-->
+        <receiver
+            android:name=".test.JPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.yahier" />
+            </intent-filter>
+        </receiver>
+
+
         <service
             android:name=".service.MyAccessibilityService"
             android:enabled="true"
@@ -206,11 +224,13 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <!-- <service -->
-        <!-- android:name="cn.jpush.android.service.PushService" -->
-        <!-- android:process=":multiprocess" -->
-        <!-- tools:node="replace"> -->
-        <!-- </service> -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:process=":multiprocess"
+            tools:node="replace">
+
+        </service>
+
         <activity android:name=".kotlin.Main2Activity" />
     </application>
 

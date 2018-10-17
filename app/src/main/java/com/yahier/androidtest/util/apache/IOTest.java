@@ -23,6 +23,7 @@ public class IOTest {
     public static void main(Context context) {
         new Thread(() -> test1()).start();
         test2(context);
+        //test
 
     }
 

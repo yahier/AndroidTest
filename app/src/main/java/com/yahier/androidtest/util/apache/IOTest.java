@@ -23,7 +23,7 @@ public class IOTest {
     public static void main(Context context) {
         new Thread(() -> test1()).start();
         test2(context);
-        //test 11:50
+        //测试命令行:11:51
 
     }
 

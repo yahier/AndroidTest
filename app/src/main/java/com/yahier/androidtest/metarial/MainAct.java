@@ -172,7 +172,7 @@ public class MainAct extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("yaya://www.baidu.com"));
         startActivity(intent);
-
+        //测试命令行:11:51
     }
 
     void setData() {

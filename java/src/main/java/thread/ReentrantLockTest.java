@@ -9,6 +9,7 @@ import myutil.Log;
 
 /**
  * Created by yahier on 17/4/1.
+ * 重入锁
  */
 
 public class ReentrantLockTest {
@@ -17,11 +18,16 @@ public class ReentrantLockTest {
     private final static ReentrantLock lock = new ReentrantLock();
 
     public final static void main(String[] args) {
+       //test1();
         test2();
 
     }
 
-    private void test1() {
+
+    /**
+     * 这个测试test写的很好啊
+     */
+    private static void test1() {
         ExecutorService threadPool = Executors.newCachedThreadPool();
         threadPool.submit((Callable) () -> {
             m();
@@ -50,7 +56,7 @@ public class ReentrantLockTest {
         }
     }
 
-    public static void two() {
+    private static void two() {
         Log.e(TAG, "two");
     }
 
@@ -58,7 +64,7 @@ public class ReentrantLockTest {
     //27:51
     public static void test2() {
         ExecutorService service = Executors.newFixedThreadPool(10);
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < 100; i++) {
             final int j = i;
             service.submit((Callable) () -> {
 
@@ -72,7 +78,7 @@ public class ReentrantLockTest {
         }
     }
 
-    public static Object handleRead() {
+    private static Object handleRead() {
         try {
             lock.lock();
             Thread.sleep(1);
@@ -88,7 +94,7 @@ public class ReentrantLockTest {
     }
 
 
-    public static void handleWrite(int index) {
+    private static void handleWrite(int index) {
         try {
             lock.lock();
             Thread.sleep(1);

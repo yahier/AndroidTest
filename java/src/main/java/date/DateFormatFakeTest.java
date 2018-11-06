@@ -22,7 +22,7 @@ public class DateFormatFakeTest extends Thread {
     private String name;
     private String dateStr;
     private long sleepTime;
-    static DateFormatFakeTest remute;
+    static DateFormatFakeTest mutex;
 
     public DateFormatFakeTest() {
 
@@ -45,7 +45,7 @@ public class DateFormatFakeTest extends Thread {
         try {
             System.out.println(name + " : dateStr: " + dateStr);
             // fixme 下一句代码偶尔会出现 java.lang.NumberFormatException: multiple points。加同步之后 问题得以解决
-            synchronized (remute) {
+            synchronized (mutex) {
                 date = dateFormat.parse(dateStr);
             }
         } catch (ParseException e) {
@@ -56,7 +56,7 @@ public class DateFormatFakeTest extends Thread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        remute = new DateFormatFakeTest();
+        mutex = new DateFormatFakeTest();
         test1();
     }
 

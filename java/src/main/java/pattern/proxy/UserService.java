@@ -5,7 +5,6 @@ package pattern.proxy;
  */
 
 public interface UserService {
-    public String getName(int id);
+    public String getName();
 
-    public Integer getAge(int id);
 }

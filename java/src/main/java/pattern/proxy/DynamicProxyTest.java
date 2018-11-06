@@ -5,6 +5,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * Created by yahier on 17/2/28.
+ * JDK动态代理
  */
 
 public class DynamicProxyTest {
@@ -14,13 +15,12 @@ public class DynamicProxyTest {
         InvocationHandler invocationHandler = new MyInvocationHandler(userService);
 
         //以下2选1
-        Class[] classes = userService.getClass().getInterfaces();
-        Class[] classes2 = new Class[]{UserService.class};
+        //Class[] classes = userService.getClass().getInterfaces();
+        Class[] classes = new Class[]{UserService.class};
 
-        UserService userServiceProxy = (UserService) Proxy.newProxyInstance(userService.getClass().getClassLoader(),
-                classes2, invocationHandler);
+        UserService userServiceProxy = (UserService) Proxy.newProxyInstance(userService.getClass().getClassLoader(), classes, invocationHandler);
 
-        System.out.println(userServiceProxy.getName(1));
+        System.out.println(userServiceProxy.getName());
     }
 
 

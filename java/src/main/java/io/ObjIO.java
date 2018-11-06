@@ -36,7 +36,13 @@ public class ObjIO {
         }
     }
 
-    void save() {
+    /**
+     * 保存的文件内容是
+     * aced 0005 7372 000f 696f 2e4f 626a 494f
+     * 2450 656f 706c 6584 f308 7603 0769 8e02
+     * 0001 4900 0361 6765 7870 0000 000c
+     */
+    private void save() {
         p = new People(12);
         try {
             ObjectOutputStream obj = new ObjectOutputStream(

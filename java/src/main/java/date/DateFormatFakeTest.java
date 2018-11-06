@@ -21,6 +21,7 @@ public class DateFormatFakeTest extends Thread {
 
     private String name;
     private String dateStr;
+    private Date date;
     private long sleepTime;
     static DateFormatFakeTest mutex;
 
@@ -34,8 +35,25 @@ public class DateFormatFakeTest extends Thread {
         this.sleepTime = sleepTime;
     }
 
+    public DateFormatFakeTest(String name, Date date, long sleepTime) {
+        this.name = name;
+        this.date = date;
+        this.sleepTime = sleepTime;
+    }
+
     @Override
     public void run() {
+        if (dateStr != null) {
+            handleDataStr();
+        }
+
+        if (date != null) {
+            handleDate();
+        }
+
+    }
+
+    private void handleDataStr() {
         Date date = null;
         try {
             TimeUnit.MILLISECONDS.sleep(sleepTime);
@@ -55,9 +73,31 @@ public class DateFormatFakeTest extends Thread {
         System.out.println(name + " : date: " + date);
     }
 
+
+    /**
+     * dateFormat.format(Date date)方法在多线程中使用没有问题
+     */
+    private void handleDate() {
+        String dateStr = null;
+        try {
+            TimeUnit.MILLISECONDS.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            System.out.println(name + " : date: " + date);
+            dateStr = dateFormat.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(name + " : dateStr: " + dateStr);
+    }
+
     public static void main(String[] args) throws InterruptedException {
         mutex = new DateFormatFakeTest();
         test1();
+        test2();
     }
 
 
@@ -66,6 +106,15 @@ public class DateFormatFakeTest extends Thread {
         for (int i = 0; i < 1000; i++) {
             int sleepTime = new Random().nextInt(3000);
             executor.execute(new DateFormatFakeTest(String.valueOf(i + 1), "1991-12-13", sleepTime));
+        }
+        executor.shutdown();
+    }
+
+    private static void test2() {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        for (int i = 0; i < 1000; i++) {
+            int sleepTime = new Random().nextInt(3000);
+            executor.execute(new DateFormatFakeTest(String.valueOf(i + 1), new Date(), sleepTime));
         }
         executor.shutdown();
     }

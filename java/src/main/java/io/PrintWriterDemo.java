@@ -1,14 +1,12 @@
-package grammer;
+package io;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.FileWriter;
-import java.io.File;
-
-import io.ObjIO;
 
 public class PrintWriterDemo {
 	final static String filePath = ObjIO.filePath;

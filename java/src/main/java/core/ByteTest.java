@@ -12,10 +12,11 @@ public class ByteTest {
 
     static void test(){
         byte b = (byte) 0XFF;
-        int b2 = (byte)0xcc;
-        int i = b;
-        int i2 = adjustIn255(b);
-        System.out.println("i:" + i + " " + i2 +" "+b2);
+        byte b2 = (byte)29;
+
+        double i = b+(double)b2/100;
+        //int i2 = adjustIn255(b)+adjustIn255(29);
+        System.out.println("i:" + i);
     }
 
     static void test1() {

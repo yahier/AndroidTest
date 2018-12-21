@@ -2,7 +2,7 @@ package pattern.model;
 
 /**
  * Created by yahier on 12/19/18.
- * Q1:怎么保证三个方法按固定顺序执行。
+ * 模拟三个线程按顺序运行，notify通知最后一个wait的，notifyAll通知所有
  */
 
 public class UpdateManager extends AbsMain {

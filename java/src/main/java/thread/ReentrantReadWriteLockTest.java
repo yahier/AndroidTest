@@ -10,18 +10,18 @@ import myutil.Log;
 
 /**
  * Created by yahier on 17/4/4.
+ * reentrantReadWriteLock可重入读写锁
  */
 
 public class ReentrantReadWriteLockTest {
-    final static String TAG = "ReentrantReadWriteLockTest";
-    private static ReentrantReadWriteLock reentrantReadWriteLock;
+    private final static String TAG = "ReentrantReadWriteLockTest";
     private static Lock readLock;
     private static Lock writeLock;
-    static int value;
+    private static int value;
 
 
     public final static void main(String[] args) {
-        reentrantReadWriteLock = new ReentrantReadWriteLock();
+        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
         readLock = reentrantReadWriteLock.readLock();
         writeLock = reentrantReadWriteLock.writeLock();
 
@@ -29,17 +29,13 @@ public class ReentrantReadWriteLockTest {
         ExecutorService service = Executors.newFixedThreadPool(10);
         for (int i = 0; i < 20; i++) {
             final int j = i;
-            service.submit(new Callable() {
-                @Override
-                public Object call() throws Exception {
-
-                    if (j % 2 == 0) {
-                        handleRead();
-                    } else {
-                        handleWrite(j);
-                    }
-                    return null;
+            service.submit((Callable) () -> {
+                if (j % 2 == 0) {
+                    handleRead();
+                } else {
+                    handleWrite(j);
                 }
+                return null;
             });
         }
 
@@ -48,6 +44,7 @@ public class ReentrantReadWriteLockTest {
 
     //为什么读的时候 也要加锁呢。
     public static Object handleRead() {
+        //Log.addPreDate(TAG, "read:开始");
         try {
             readLock.lock();
             Thread.sleep(1);
@@ -56,7 +53,7 @@ public class ReentrantReadWriteLockTest {
         } finally {
             readLock.unlock();
         }
-        Log.e(TAG, "read:" + value);
+        Log.addPreDate(TAG, "read:" + value);
         return value;
 
 

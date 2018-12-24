@@ -19,7 +19,7 @@ public class DateTest {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(-1003086828933L);
         Date date = calendar.getTime();
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
+        SimpleDateFormat format = new SimpleDateFormat(pattern,Locale.CHINESE);
         // SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
         System.out.printf("date:" + format.format(date));
 
@@ -33,7 +33,7 @@ public class DateTest {
 
     static void sa() {
         String pattern = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern,Locale.getDefault());
         Date d = new Date();
         String date_s = sdf.format(d);
         System.out.println(date_s);

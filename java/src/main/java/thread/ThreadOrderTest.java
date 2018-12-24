@@ -6,6 +6,7 @@ import pojo.People;
  * Created by yahier on 2018/2/24.
  * 测试线程轮流运行。效果OK
  * notify唤醒当前对象的等待线程，notifyAll唤醒所有的线程
+ * 可以参考Client.java 多线程下的模板模式，一样的达到线程按顺序执行的效果
  */
 
 public class ThreadOrderTest {

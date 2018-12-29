@@ -181,6 +181,9 @@
         <activity android:name=".ui.test.StatusBarFitColorAct" />
         <activity android:name=".view.act.ConstraintLayoutTest" />
         <activity
+            android:name=".activity.MonitorUiBlockActivity"
+            android:label="ui线程卡顿监听" />
+        <activity
             android:name=".metarial.CollapsingToolbarLayoutTest"
             android:theme="@style/AppBaseTheme" />
 

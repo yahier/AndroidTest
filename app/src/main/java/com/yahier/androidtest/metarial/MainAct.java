@@ -23,6 +23,7 @@ import android.widget.Button;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MediaPlayerTest;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.activity.MonitorUiBlockActivity;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
@@ -177,6 +178,7 @@ public class MainAct extends AppCompatActivity {
 
     void setData() {
         linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer...", MonitorUiBlockActivity.class));
         linkedHashMap.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));
         linkedHashMap.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
 

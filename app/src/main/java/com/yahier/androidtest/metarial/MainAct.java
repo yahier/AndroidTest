@@ -77,8 +77,9 @@ import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
 import java.util.Collection;
-import java.util.LinkedHashMap;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * Created by yahier on 16/12/30.
@@ -88,7 +89,7 @@ public class MainAct extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     List<String> datas;
-    LinkedHashMap<String, MainItem> linkedHashMap;
+    TreeMap<String, MainItem> linkedHashMap;
     MainAct mAct;
 
     @Override
@@ -177,7 +178,12 @@ public class MainAct extends AppCompatActivity {
     }
 
     void setData() {
-        linkedHashMap = new LinkedHashMap<String, MainItem>();
+        linkedHashMap = new TreeMap<>(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return Integer.parseInt(o2) - Integer.parseInt(o1);
+            }
+        });
         linkedHashMap.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer...", MonitorUiBlockActivity.class));
         linkedHashMap.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));
         linkedHashMap.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
@@ -185,7 +191,7 @@ public class MainAct extends AppCompatActivity {
         linkedHashMap.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));
         linkedHashMap.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
-        linkedHashMap.put("50", new MainItem("约束性布局", "", ConstraintLayoutTest.class));
+        linkedHashMap.put("50", new MainItem("约束性布局", "android.support.constraint.ConstraintLayout", ConstraintLayoutTest.class));
         linkedHashMap.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
         linkedHashMap.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
         linkedHashMap.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));

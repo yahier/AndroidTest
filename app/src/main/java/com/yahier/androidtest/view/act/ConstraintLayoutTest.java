@@ -23,12 +23,12 @@ public class ConstraintLayoutTest extends AppCompatActivity {
 
     }
 
-    void testAddContentView() {
+    private void testAddContentView() {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 400);
         addContentView(getImageView(), params);
     }
 
-    View getImageView() {
+    private View getImageView() {
         ImageView img = new ImageView(this);
         img.setImageResource(R.drawable.sunset);
         return img;

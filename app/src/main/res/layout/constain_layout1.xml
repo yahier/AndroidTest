@@ -14,16 +14,16 @@
         android:text="确定"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="飞走"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="231dp" />
+        tools:layout_editor_absoluteX="500dp"
+        tools:layout_editor_absoluteY="500dp" />
 </android.support.constraint.ConstraintLayout>

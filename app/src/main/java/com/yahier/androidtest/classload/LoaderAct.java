@@ -1,7 +1,6 @@
 package com.yahier.androidtest.classload;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -16,6 +15,7 @@ import dalvik.system.DexClassLoader;
 
 /**
  * Created by yahier on 17/3/21.
+ * 测试ClassLoader
  */
 
 public class LoaderAct extends Activity {
@@ -25,7 +25,6 @@ public class LoaderAct extends Activity {
     public static final String DEX = "dex";
     public ShowStringClass mShowStringClass = null;
     public TextView mTv = null;
-    public int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +36,20 @@ public class LoaderAct extends Activity {
         mTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DexClassLoader(LoaderAct.this);
+                testDexClassLoader();
             }
         });
 
+        findViewById(R.id.btnTest).setOnClickListener(v -> {
+            showClassLoader();
+        });
 
     }
 
     /**
      * 使用DexClassLoader方式加载类
      */
-    public void DexClassLoader(Context context) {
+    public void testDexClassLoader() {
         // dex压缩文件的路径（可以是apk,jar,zip格式）
         String dexPath = Environment.getExternalStorageDirectory().toString() + File.separator + SHOWSTRINGCLASS;
 
@@ -55,7 +57,7 @@ public class LoaderAct extends Activity {
         String dexOutputDirs = Environment.getExternalStorageDirectory().toString();
 
         //指定dexoutputpath为APP自己的缓存目录
-        File dexOutputDir = context.getDir(DEX, 0);
+        File dexOutputDir = getDir(DEX, 0);
 
         // 定义DexClassLoader
         // 第一个参数：是dex压缩文件的路径
@@ -93,14 +95,12 @@ public class LoaderAct extends Activity {
     /**
      * 打印系统的classLoader
      */
-    public void showClassLoader() {
+    private void showClassLoader() {
         ClassLoader classLoader = getClassLoader();
         if (classLoader != null) {
-            Log.i(TAG, "[onCreate] classLoader " + i + " : " + classLoader.toString());
             while (classLoader.getParent() != null) {
                 classLoader = classLoader.getParent();
-                Log.i(TAG, "[onCreate] classLoader " + i + " : " + classLoader.toString());
-                i++;
+                Log.i(TAG, "loader:" + classLoader.toString());
             }
         }
     }

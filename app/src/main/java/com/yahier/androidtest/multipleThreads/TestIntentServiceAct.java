@@ -1,12 +1,12 @@
 package com.yahier.androidtest.multipleThreads;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.service.MyIntentService;
 
@@ -14,7 +14,7 @@ import com.yahier.androidtest.service.MyIntentService;
  * Created by yahier on 17/2/10.
  */
 
-public class TestIntentServiceAct extends Activity implements View.OnClickListener {
+public class TestIntentServiceAct extends BaseActivity implements View.OnClickListener {
 
     String tag = "TestIntentServiceAct";
     @Override

@@ -3,9 +3,9 @@ package com.yahier.androidtest.activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.util.UiBlock.BlockDetectByChoreographer;
 import com.yahier.androidtest.util.UiBlock.BlockDetectByLooper;
@@ -16,7 +16,7 @@ import com.yahier.androidtest.util.UiBlock.BlockDetectByPrinter;
  * 检测UI线程的卡顿
  */
 
-public class MonitorUiBlockActivity extends AppCompatActivity {
+public class MonitorUiBlockActivity extends BaseActivity {
     Button btn1, btn2, btn3;
 
     @Override

@@ -3,8 +3,8 @@ package com.yahier.androidtest.databinding;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -13,7 +13,7 @@ import com.yahier.androidtest.R;
  - 通过运算符操作数据
  */
 
-public class Test3Act extends AppCompatActivity {
+public class Test3Act extends BaseActivity {
     com.yahier.androidtest.databinding.DatabindingTest3Binding binding;
 
     @Override

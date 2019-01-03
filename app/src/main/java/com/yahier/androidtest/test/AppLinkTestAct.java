@@ -1,21 +1,19 @@
 package com.yahier.androidtest.test;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/5/31.
  */
 @Route(path = "/cn/bookings/tickets_service/ticket_booking/index.shtml",extras = 100)
-public class AppLinkTestAct extends AppCompatActivity {
+public class AppLinkTestAct extends BaseActivity {
     final String TAG = "AppLinkTestAct";
 
     @Override

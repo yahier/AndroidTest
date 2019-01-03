@@ -1,16 +1,16 @@
 package com.yahier.androidtest.multipleThreads;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by lenovo on 2017/1/4.
  */
 
-public class SynchonizedTest extends Activity {
+public class SynchonizedTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

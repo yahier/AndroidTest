@@ -4,11 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.widget.BitmapShaders;
 import com.yahier.androidtest.widget.CircleImageDrawable;
@@ -17,7 +17,7 @@ import com.yahier.androidtest.widget.CircleImageDrawable;
  * Created by yahier on 17/4/12.
  */
 
-public class DrawableAct extends AppCompatActivity {
+public class DrawableAct extends BaseActivity {
     LinearLayout linearLayout;
     ImageView img;
 

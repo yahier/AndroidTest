@@ -1,6 +1,5 @@
 package com.yahier.androidtest.multipleThreads;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -10,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.io.FileInputStream;
@@ -22,7 +22,7 @@ import java.io.IOException;
  * 测试HandlerThread,感觉不错
  */
 
-public class TestHandlerThreadAct extends Activity implements View.OnClickListener {
+public class TestHandlerThreadAct extends BaseActivity implements View.OnClickListener {
     MyHandler mHandler;
     String tag = "TestHandlerThreadAct";
 

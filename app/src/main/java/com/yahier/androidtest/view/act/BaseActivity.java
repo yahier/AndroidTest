@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.widget.SwipeBackLayout;
 
-
+@Deprecated
 public class BaseActivity extends FragmentActivity {
 	public SwipeBackLayout swipeBackLayout;
 

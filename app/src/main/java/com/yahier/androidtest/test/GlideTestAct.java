@@ -1,11 +1,10 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.adapter.GVImgAdapter;
 
@@ -16,7 +15,7 @@ import java.util.List;
  * Created by yahier on 17/3/13.
  */
 
-public class GlideTestAct extends Activity {
+public class GlideTestAct extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

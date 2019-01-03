@@ -1,6 +1,5 @@
 package com.yahier.androidtest.view.act;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import com.yahier.androidtest.R;
 /**
  * .当activity不需要侧滑关闭时,setEnableGesture(false);
  */
-public class SwipeBackMainActivity extends Activity {
+public class SwipeBackMainActivity extends com.yahier.androidtest.BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

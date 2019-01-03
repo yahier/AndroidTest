@@ -1,6 +1,5 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -14,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.io.Serializable;
@@ -22,7 +22,7 @@ import java.io.Serializable;
  * Created by yahier on 17/4/26.
  */
 
-public class WebViewAct extends Activity implements View.OnClickListener {
+public class WebViewAct extends BaseActivity implements View.OnClickListener {
     WebView mWeb;
     final String tag = "yahier";
     final String TAG = "WebViewAct";

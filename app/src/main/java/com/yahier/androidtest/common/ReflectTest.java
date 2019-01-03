@@ -1,10 +1,10 @@
 package com.yahier.androidtest.common;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
  * Created by lenovo on 2017/1/4.
  */
 
-public class ReflectTest extends Activity implements View.OnClickListener{
+public class ReflectTest extends BaseActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

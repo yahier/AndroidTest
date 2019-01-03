@@ -1,6 +1,5 @@
 package com.yahier.androidtest.service;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -8,13 +7,14 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/1/4.
  */
 
-public class ServiceActivity extends Activity implements View.OnClickListener {
+public class ServiceActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

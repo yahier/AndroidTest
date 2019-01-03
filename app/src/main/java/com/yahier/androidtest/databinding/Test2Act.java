@@ -3,9 +3,9 @@ package com.yahier.androidtest.databinding;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -13,7 +13,7 @@ import com.yahier.androidtest.R;
  * 测试 事件绑定。还存在问题 View事件传递不了。
  */
 
-public class Test2Act extends AppCompatActivity {
+public class Test2Act extends BaseActivity {
     com.yahier.androidtest.databinding.DatabindingTest2Binding binding;
 
     @Override

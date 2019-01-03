@@ -1,16 +1,15 @@
 package com.yahier.androidtest.bitmap;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.widget.LargeImageView;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-public class LargeImageViewActivity extends AppCompatActivity
+public class LargeImageViewActivity extends BaseActivity
 {
     private LargeImageView mLargeImageView;
 

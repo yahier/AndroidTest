@@ -1,11 +1,11 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.common.MyApp;
 
@@ -13,7 +13,7 @@ import com.yahier.androidtest.common.MyApp;
  * Created by yahier on 17/1/27.
  */
 
-public class WindowTest extends Activity {
+public class WindowTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

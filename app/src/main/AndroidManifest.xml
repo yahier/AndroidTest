@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.yahier.androidtest"
-    android:versionCode="1"
-    android:versionName="1.0">
+    package="com.yahier.androidtest">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -162,11 +160,15 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".download.DownTest"
+            android:label="断点续传"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".test.HtmlAllTestActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
         <activity android:name=".test.WindowTest" />
-        <activity android:name=".metarial.VectorSVNAct" />
+        <activity android:name=".metarial.VectorSVGAct" />
         <activity android:name=".view.act.MotionEventAct" />
         <activity android:name=".test.TestNotificationAct" />
         <activity android:name=".test.BroadCastActTest" />

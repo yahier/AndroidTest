@@ -1,12 +1,12 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -15,7 +15,7 @@ import com.yahier.androidtest.R;
  * android:configChanges="orientation|screenSize"  另外不设置的话，横竖都切换一次生命周期呀。
  */
 
-public class ConfigChangesActTest extends Activity {
+public class ConfigChangesActTest extends BaseActivity {
     String TAG = "ConfigChangesActTest";
 
     @Override

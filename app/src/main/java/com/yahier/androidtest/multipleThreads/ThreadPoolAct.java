@@ -3,10 +3,10 @@ package com.yahier.androidtest.multipleThreads;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.util.concurrent.ExecutionException;
@@ -18,7 +18,7 @@ import static com.yahier.androidtest.multipleThreads.YaThreadManager.getInstance
  * Created by yahier on 2018/7/19.
  */
 
-public class ThreadPoolAct extends AppCompatActivity {
+public class ThreadPoolAct extends BaseActivity {
     private final String TAG = "ThreadPoolAct";
     Button btn1, btn2, btn3, btn4;
 

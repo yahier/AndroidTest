@@ -1,7 +1,6 @@
 package com.yahier.androidtest.download;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.io.BufferedReader;
@@ -33,7 +33,7 @@ import static com.yahier.androidtest.classload.LoaderAct.TAG;
  * @author yahier.
  */
 
-public class DownTest extends Activity {
+public class DownTest extends BaseActivity {
     static TextView text;
     static Context mContext;
     static boolean flag = true;

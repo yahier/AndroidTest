@@ -3,9 +3,9 @@ package com.yahier.androidtest.databinding;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.util.Random;
@@ -14,7 +14,7 @@ import java.util.Random;
  * Created by yahier on 17/5/9.
  */
 
-public class Test5Act extends AppCompatActivity {
+public class Test5Act extends BaseActivity {
     com.yahier.androidtest.databinding.DatabindingTest5Binding binding;
     Person person;
 

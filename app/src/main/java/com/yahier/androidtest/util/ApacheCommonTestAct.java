@@ -4,8 +4,8 @@ import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.util.apache.BeanUtilsTest;
 import com.yahier.androidtest.util.apache.CollectionsTest;
@@ -16,7 +16,7 @@ import com.yahier.androidtest.util.apache.LangTest;
  * Created by yahier on 10/1/18.
  */
 
-public class ApacheCommonTestAct extends AppCompatActivity {
+public class ApacheCommonTestAct extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

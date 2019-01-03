@@ -1,6 +1,5 @@
 package com.yahier.androidtest.bitmap;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -8,15 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/1/20.
  */
 
-public class ViewToBitmapAct extends Activity implements View.OnClickListener {
+public class ViewToBitmapAct extends BaseActivity implements View.OnClickListener {
     View rootView;
     ImageView img;
     final String TAG = "ViewToBitmapAct";

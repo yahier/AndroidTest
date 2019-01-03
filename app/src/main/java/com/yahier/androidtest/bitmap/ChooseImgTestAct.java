@@ -1,6 +1,5 @@
 package com.yahier.androidtest.bitmap;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.util.BitmapUtil;
 
@@ -26,7 +26,7 @@ import com.yahier.androidtest.util.BitmapUtil;
  * 测试scaleType 测试了fitCenter，fitXY,matrix
  */
 
-public class ChooseImgTestAct extends Activity {
+public class ChooseImgTestAct extends BaseActivity {
     final String TAG = getClass().getSimpleName();
     final static int CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE = 100;
     Button okBtn;

@@ -4,7 +4,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -19,7 +18,7 @@ import java.io.IOException;
  * 视频播放 测试
  */
 
-public class MediaPlayerTest extends AppCompatActivity {
+public class MediaPlayerTest extends BaseActivity {
     final String TAG = "MediaPlayerTest";
     SurfaceView surfaceView;
     private SurfaceHolder holder;

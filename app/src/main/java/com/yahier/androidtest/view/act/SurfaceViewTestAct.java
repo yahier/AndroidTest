@@ -1,6 +1,5 @@
 package com.yahier.androidtest.view.act;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,7 +15,7 @@ import android.view.SurfaceView;
  * Created by yahier on 17/4/2.
  */
 
-public class SurfaceViewTestAct extends Activity {
+public class SurfaceViewTestAct extends com.yahier.androidtest.BaseActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

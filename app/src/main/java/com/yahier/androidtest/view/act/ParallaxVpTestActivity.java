@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.widget.SimpleFragment;
 
-public class ParallaxVpTestActivity extends AppCompatActivity {
+public class ParallaxVpTestActivity extends com.yahier.androidtest.BaseActivity {
     private ViewPager mViewPager;
     private int mTabCount = 3;
 

@@ -1,6 +1,5 @@
 package com.yahier.androidtest.metarial;
 
-import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -13,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.MyAdapter;
 import com.yahier.androidtest.R;
 
@@ -24,7 +24,7 @@ import java.util.List;
  * 测试RecyclerView的动画，和DiffUtil功能
  */
 
-public class RecycleAct extends Activity {
+public class RecycleAct extends BaseActivity {
     private MyAdapter mAdapter;
 
     @Override

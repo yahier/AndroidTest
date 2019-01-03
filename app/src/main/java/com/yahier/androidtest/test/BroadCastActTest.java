@@ -1,9 +1,6 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -11,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.vo.TimerRecode;
 
@@ -19,7 +17,7 @@ import com.yahier.androidtest.vo.TimerRecode;
  * manifest注册的是 跟随整个app的进程时间。代码注册的，注销后就死了。
  */
 
-public class BroadCastActTest extends Activity {
+public class BroadCastActTest extends BaseActivity {
     MyBraodCastReceiver receiver;
     Button btn;
 

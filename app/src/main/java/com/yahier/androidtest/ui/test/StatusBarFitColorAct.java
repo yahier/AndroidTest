@@ -6,11 +6,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -18,7 +18,7 @@ import com.yahier.androidtest.R;
  * 测试状态栏随图片变色(类名写的有偏差)
  */
 
-public class StatusBarFitColorAct extends AppCompatActivity {
+public class StatusBarFitColorAct extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

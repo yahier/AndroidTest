@@ -1,6 +1,6 @@
 package com.yahier.androidtest.multipleThreads;
 
-import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/1/5.
  */
 
-public class OperateUiThreadAct extends Activity {
+public class OperateUiThreadAct extends BaseActivity {
     Button btn1, btn2, btn3;
 
     @Override
@@ -115,9 +116,12 @@ public class OperateUiThreadAct extends Activity {
     }
 
 
-    void go(){
-        Toast.makeText(this,"执行go方法",Toast.LENGTH_SHORT).show();
+    void go() {
         Intent intent = new Intent("yahier.look");
-        startActivity(intent);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "没有找到activity", Toast.LENGTH_SHORT).show();
+        }
     }
 }

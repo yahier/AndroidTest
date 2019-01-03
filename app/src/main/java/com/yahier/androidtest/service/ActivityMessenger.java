@@ -1,6 +1,5 @@
 package com.yahier.androidtest.service;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -16,13 +15,14 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * activity发送message给service。service接着又把message发送回来。
  * Messager的构造函数里，也可以用IBinder.可以用Handler,
  */
-public class ActivityMessenger extends Activity {
+public class ActivityMessenger extends BaseActivity {
     /**
      * 向Service发送Message的Messenger对象
      */

@@ -3,8 +3,8 @@ package com.yahier.androidtest.databinding;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -12,7 +12,7 @@ import com.yahier.androidtest.R;
  * 相同类名，不同映射。有待继续测试
  */
 
-public class Test4Act extends AppCompatActivity {
+public class Test4Act extends BaseActivity {
     com.yahier.androidtest.databinding.DatabindingTest4Binding binding;
 
     @Override

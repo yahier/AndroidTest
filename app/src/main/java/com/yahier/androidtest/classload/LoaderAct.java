@@ -1,12 +1,12 @@
 package com.yahier.androidtest.classload;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.io.File;
@@ -18,7 +18,7 @@ import dalvik.system.DexClassLoader;
  * 测试ClassLoader
  */
 
-public class LoaderAct extends Activity {
+public class LoaderAct extends BaseActivity {
     public static final String TAG = "LoaderAct";
     public static final String SHOWSTRINGCLASS = "showStringClass_impl.jar";
     public static final String SHOWSTRINGCLASS_PATH = "com.yahier.androidtest.classload.ShowStringClass";

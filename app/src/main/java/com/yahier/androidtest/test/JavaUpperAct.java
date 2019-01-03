@@ -1,11 +1,10 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -13,7 +12,7 @@ import com.yahier.androidtest.R;
  * lambda涉及到所有的接口么，怎么自动提示呢
  */
 
-public class JavaUpperAct extends Activity {
+public class JavaUpperAct extends BaseActivity {
     static final String TAG = "JavaUpperAct";
 
     @Override

@@ -1,20 +1,19 @@
 package com.yahier.androidtest.viewtest;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/1/8.
  */
 
-public class CanvasTest extends Activity {
+public class CanvasTest extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

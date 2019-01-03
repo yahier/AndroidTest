@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.FileInputStream;
@@ -16,7 +15,7 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     String TAG = "MainActivity";
 
     @Override
@@ -80,8 +79,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        handler.removeMessages(0);
-        timer.cancel();
+        if (handler != null)
+            handler.removeMessages(0);
+        if (timer != null)
+            timer.cancel();
 
     }
 

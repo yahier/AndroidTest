@@ -2,7 +2,6 @@ package com.yahier.androidtest.view.act;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,7 +13,7 @@ import com.yahier.androidtest.R;
  * 测试事件分发。拦截
  */
 
-public class MotionEventAct extends AppCompatActivity implements View.OnClickListener {
+public class MotionEventAct extends com.yahier.androidtest.BaseActivity implements View.OnClickListener {
     static final String TAG = "act";
 
     @Override

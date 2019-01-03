@@ -1,6 +1,5 @@
 package com.yahier.androidtest.view.act;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.yahier.androidtest.R;
@@ -10,7 +9,7 @@ import com.yahier.androidtest.R;
  * 通过设置style.的windowBackground来消灭启动瞬间的白屏。
  */
 
-public class DrawableStyleAct extends Activity {
+public class DrawableStyleAct extends com.yahier.androidtest.BaseActivity {
     final String TAG = "DrawableStyleAct";
 
     @Override

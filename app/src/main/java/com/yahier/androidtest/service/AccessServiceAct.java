@@ -1,19 +1,19 @@
 package com.yahier.androidtest.service;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/1/5.
  */
 
-public class AccessServiceAct extends Activity {
+public class AccessServiceAct extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

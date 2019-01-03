@@ -1,10 +1,10 @@
 package com.yahier.androidtest.metarial;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 import android.widget.TextView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
@@ -13,14 +13,15 @@ import com.yahier.androidtest.R;
  * note:   https://developer.android.google.cn/training/material/shadows-clipping.html
  */
 
-public class Material1Act extends Activity {
+public class Material1Act extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // enable transitions
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+
         setContentView(R.layout.material_1);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
 
         testTranslationZ();
     }

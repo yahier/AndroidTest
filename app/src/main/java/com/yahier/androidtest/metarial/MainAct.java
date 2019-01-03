@@ -1,7 +1,6 @@
 package com.yahier.androidtest.metarial;
 
 import android.Manifest;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
@@ -11,7 +10,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MediaPlayerTest;
 import com.yahier.androidtest.R;
@@ -77,19 +76,17 @@ import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeMap;
 
 /**
  * Created by yahier on 16/12/30.
- * 列表倒序排列的
+ * 列表显示 是按数字大小倒序排列的
  */
 
-public class MainAct extends AppCompatActivity {
+public class MainAct extends BaseActivity {
 
     RecyclerView mRecyclerView;
-    List<String> datas;
     TreeMap<String, MainItem> linkedHashMap;
     MainAct mAct;
 
@@ -100,7 +97,6 @@ public class MainAct extends AppCompatActivity {
         MaterialMainActBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
         mAct = this;
         mRecyclerView = (RecyclerView) findViewById(R.id.list_view);
-
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -203,7 +199,7 @@ public class MainAct extends AppCompatActivity {
         linkedHashMap.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         linkedHashMap.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         linkedHashMap.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
-        linkedHashMap.put("1", new MainItem("矢量动画", "", VectorSVNAct.class));
+        linkedHashMap.put("1", new MainItem("矢量动画", "VectorSVG可缩放矢量动画 objectAnimator", VectorSVGAct.class));
         linkedHashMap.put("2", new MainItem("事件分发测试", MotionEventAct.class));
         linkedHashMap.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
         linkedHashMap.put("4", new MainItem("drawable效果  包括BitmapShader", "详细解说一下", DrawableAct.class));
@@ -264,9 +260,11 @@ public class MainAct extends AppCompatActivity {
             public void onItemClck(int i) {
                 getWindow().setExitTransition(new Explode());
                 Intent intent = new Intent(mAct, itemArray[i].getmAct());
-                startActivity(intent,
-                        ActivityOptions
-                                .makeSceneTransitionAnimation(mAct).toBundle());
+
+                startActivity(intent);
+//                startActivity(intent,
+//                        ActivityOptions
+//                                .makeSceneTransitionAnimation(mAct).toBundle());
             }
         });
     }

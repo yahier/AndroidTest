@@ -1,7 +1,6 @@
 package com.yahier.androidtest.view.act;
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +13,7 @@ import com.yahier.androidtest.R;
  * Created by yahier on 17/2/11.
  */
 
-public class CommonViewTest extends Activity implements View.OnClickListener {
+public class CommonViewTest extends com.yahier.androidtest.BaseActivity implements View.OnClickListener {
     final String tag = "CommonViewTest";
     Button btn1, btn2;
 

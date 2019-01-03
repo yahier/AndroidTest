@@ -12,10 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 
-public class TestCPActivity extends Activity implements OnClickListener {
+public class TestCPActivity extends BaseActivity implements OnClickListener {
 	EditText input;
 	TextView textShow;
 	Uri uri;

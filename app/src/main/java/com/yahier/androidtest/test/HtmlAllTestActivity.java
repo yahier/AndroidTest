@@ -1,6 +1,5 @@
 package com.yahier.androidtest.test;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -11,13 +10,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
  * Created by yahier on 17/2/20.
  */
 
-public class HtmlAllTestActivity extends Activity {
+public class HtmlAllTestActivity extends BaseActivity {
     private TextView tv;
 
     @Override

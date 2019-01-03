@@ -1,10 +1,10 @@
 package com.yahier.androidtest.data;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 import java.io.BufferedReader;
@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  * Created by yahier on 17/1/22.
  */
 
-public class LogTest extends Activity {
+public class LogTest extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

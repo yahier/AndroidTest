@@ -1,4 +1,4 @@
-package countDownLatch;
+package thread;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -8,10 +8,9 @@ import java.util.concurrent.CountDownLatch;
  * 执行await则等待，当countDown()执行一次，数值-1，当数值减至0时，await()方法就被唤醒
  */
 
-public class Test {
-
+public class TestCountDownLatch {
     public static void main(String[] args) {
-        Test test = new Test();
+        TestCountDownLatch test = new TestCountDownLatch();
         Driver driver = test.new Driver();
         driver.main();
     }
@@ -24,7 +23,7 @@ public class Test {
             CountDownLatch doneSignal = new CountDownLatch(N);
 
             for (int i = 0; i < N; ++i) // create and start threads
-                new Thread(new Worker(startSignal, doneSignal)).start();
+                new Thread(new TestCountDownLatch.Worker(startSignal, doneSignal)).start();
 
             doSomethingElse();            // don't let run yet
             startSignal.countDown();      // let all threads proceed

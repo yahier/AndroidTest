@@ -77,12 +77,13 @@ import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
  * Created by yahier on 16/12/30.
+ * 列表倒序排列的
  */
 
 public class MainAct extends AppCompatActivity {
@@ -177,21 +178,19 @@ public class MainAct extends AppCompatActivity {
         //测试命令行:11:51
     }
 
-    void setData() {
-        linkedHashMap = new TreeMap<>(new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return Integer.parseInt(o2) - Integer.parseInt(o1);
-            }
-        });
-        linkedHashMap.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer...", MonitorUiBlockActivity.class));
+    /**
+     * 请注意，显示效果是key大的，显示在上面
+     */
+    private void setData() {
+        linkedHashMap = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        linkedHashMap.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer", MonitorUiBlockActivity.class));
         linkedHashMap.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));
         linkedHashMap.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
 
         linkedHashMap.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));
         linkedHashMap.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         linkedHashMap.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
-        linkedHashMap.put("50", new MainItem("约束性布局", "android.support.constraint.ConstraintLayout", ConstraintLayoutTest.class));
+        linkedHashMap.put("50", new MainItem("约束性布局", "ConstraintLayout", ConstraintLayoutTest.class));
         linkedHashMap.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
         linkedHashMap.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
         linkedHashMap.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
@@ -227,7 +226,7 @@ public class MainAct extends AppCompatActivity {
         linkedHashMap.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
         linkedHashMap.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));
         linkedHashMap.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
-        linkedHashMap.put("23", new MainItem("Synchonized", "详细解说一下", SynchonizedTest.class));
+        linkedHashMap.put("23", new MainItem("Synchonized", "测试synchonized", SynchonizedTest.class));
         linkedHashMap.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));
         linkedHashMap.put("25", new MainItem("messenger", "msgFromClient.replyTo = mMessenger", ActivityMessenger.class));
         linkedHashMap.put("26", new MainItem("AccessbilityService", "详细解说一下", AccessServiceAct.class));
@@ -246,9 +245,18 @@ public class MainAct extends AppCompatActivity {
 
 
     private void show() {
-        final Collection<MainItem> items = linkedHashMap.values();
-        final MainItem[] itemArray = new MainItem[items.size()];
-        items.toArray(itemArray);
+        final Collection<MainItem> valueItems = linkedHashMap.values();
+        final Set<String> keySet = linkedHashMap.keySet();
+
+        final MainItem[] itemArray = new MainItem[linkedHashMap.size()];
+        final String[] keyArray = new String[linkedHashMap.size()];
+
+        valueItems.toArray(itemArray);
+        keySet.toArray(keyArray);
+
+        for (int i = 0; i < linkedHashMap.size(); i++) {
+            itemArray[i].setTitle(keyArray[i] + " " + itemArray[i].getTitle());
+        }
         final MainRecycleAdapter mAdapter = new MainRecycleAdapter(itemArray);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClick(new MainRecycleAdapter.OnItemClickListener() {

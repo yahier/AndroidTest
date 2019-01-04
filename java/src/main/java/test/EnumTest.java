@@ -10,7 +10,7 @@ import pojo.People;
 public class EnumTest {
     People[] peoples = new People[4];
 
-    public final static void main(String[] args) {
+    public static void main(String[] args) {
         testPeople();
     }
 
@@ -26,13 +26,10 @@ public class EnumTest {
 
         int gender = p.getGender();
         //例子中 switch中的条件也是enum.case才是enum
-        switch(gender){
-            //case People.GenderStatus.Boy:
-            //    break;
-        }
-
-
-
+//        switch (p) {
+//            case People.GenderStatus.Boy:
+//                break;
+//        }
 
 
     }

@@ -17,12 +17,12 @@ public class Core {
         System.out.println("value:" + value);
 
         double a = 0.95;
-        System.out.println("value:" + (int)a);
+        System.out.println("value:" + (int) a);
 
     }
 
 
-    public static String saveTwoDecimal(double value) {
+    private static String saveTwoDecimal(double value) {
         return String.format("%.1f", value);
     }
 

@@ -3,47 +3,44 @@ package string;
 import java.math.BigInteger;
 
 public class Pi {
-	// 4 * (1 – 1/3 + 1/5 – 1/7 + …) 这是计算pi的公式
-	public static void main(String[] args) {
-		//calculatePi(9223372036854775807l);
-		//testBig();
-		System.out.println(big(BigInteger.valueOf(100)).toString()); 
-	}
+    public static void main(String[] args) {
+        //calculatePi(9223372036854775807l);
+        //testBig();
+        System.out.println(big(BigInteger.valueOf(100)).toString());
+    }
 
-	// 计算出了pi
-	static void calculatePi(long m) {
-		int a = 1;//
-		float sum = 0;
-		for (int i = 1; i <= m; i = i + 2) {
-			sum = sum + (1.0f / i) * a;
-			a = a * (-1);
-			System.out.println(sum * 4);
-		}
-	}
+    static void calculatePi(long m) {
+        int a = 1;//
+        float sum = 0;
+        for (int i = 1; i <= m; i = i + 2) {
+            sum = sum + (1.0f / i) * a;
+            a = a * (-1);
+            System.out.println(sum * 4);
+        }
+    }
 
-	static void test(){
-		for(long i=2,j=0;j<63;i=i*2,j++){
-			System.out.println(i);
-		}
-		long a =9223372036854775807l;//long的最大值
-		int b=2147483647; //int最大值
-	}
- 
-	//计算出 更精确的pi
-	static void testBig(){
-		BigInteger big = new BigInteger("92233720368547758070000");
-		System.out.println(big.bitCount());
-		System.out.println(big.bitLength());
-		System.out.println(big.longValue());
-	}
-	
-	public static BigInteger big(BigInteger b){  
-		   if(b.equals(BigInteger.valueOf(1L))){  
-		    return BigInteger.valueOf(1L);  
-		   }else{  
-		      return (b.multiply(big(b.subtract(BigInteger.valueOf(1L)))));       
-		   }  
-		}  
-	
-	
+    static void test() {
+        for (long i = 2, j = 0; j < 63; i = i * 2, j++) {
+            System.out.println(i);
+        }
+        long a = 9223372036854775807l;
+        int b = 2147483647;
+    }
+
+    static void testBig() {
+        BigInteger big = new BigInteger("92233720368547758070000");
+        System.out.println(big.bitCount());
+        System.out.println(big.bitLength());
+        System.out.println(big.longValue());
+    }
+
+    public static BigInteger big(BigInteger b) {
+        if (b.equals(BigInteger.valueOf(1L))) {
+            return BigInteger.valueOf(1L);
+        } else {
+            return (b.multiply(big(b.subtract(BigInteger.valueOf(1L)))));
+        }
+    }
+
+
 }

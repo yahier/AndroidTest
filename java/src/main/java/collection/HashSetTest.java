@@ -1,12 +1,12 @@
-package core;
+package collection;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import pojo.Book;
 
-import vo.Book;
 
 /**
  * Created by yahier on 17/7/18.

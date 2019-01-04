@@ -1,4 +1,4 @@
-package vo;
+package pojo;
 
 /**
  * Created by yahier on 17/7/18.

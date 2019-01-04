@@ -6,7 +6,7 @@ package test;
 
 public class Temp {
 
-    public final static void main(String[] args) {
+    public static void main(String[] args) {
         int a = 0;
         String s1 = "ya";
         bin(a, s1);

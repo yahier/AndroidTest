@@ -22,8 +22,8 @@ public class CollectionsTest {
         //Log.e("test3", "size:" + result1.size());
        // Stream.of(result1).forEach(System.out::println);
 
-        org.apache.commons.collections4.ListUtils.indexOf(list1,item->{
-            return true;
-        });
+//        org.apache.commons.collections4.ListUtils.indexOf(list1,item->{
+//            return true;
+//        });
     }
 }

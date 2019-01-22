@@ -181,6 +181,9 @@
         <activity android:name=".view.act.ParallaxVpTestActivity" />
         <activity android:name=".view.act.SurfaceViewTestAct" />
         <activity android:name=".ui.test.StatusBarFitColorAct" />
+        <activity
+            android:name=".ui.test.AwardAct"
+            android:label="抽奖测试" />
         <activity android:name=".view.act.ConstraintLayoutTest" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"

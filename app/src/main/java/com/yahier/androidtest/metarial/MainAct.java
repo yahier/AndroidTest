@@ -56,6 +56,7 @@ import com.yahier.androidtest.test.JavaUpperAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
+import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
@@ -159,6 +160,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("57", new MainItem("抽奖页面 滚动名单", "页面数据变换", AwardAct.class));
         map.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer", MonitorUiBlockActivity.class));
         map.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));
         map.put("54", new MainItem("线程池", "吼吼吼", ThreadPoolAct.class));
@@ -177,6 +179,8 @@ public class MainAct extends BaseActivity {
         map.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         map.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
+        map.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));
+        //哈 写反了
         map.put("1", new MainItem("矢量动画", "VectorSVG可缩放矢量动画 objectAnimator", VectorSVGAct.class));
         map.put("2", new MainItem("事件分发测试", MotionEventAct.class));
         map.put("3", new MainItem("drawable style效果", "详细解说一下", DrawableStyleAct.class));
@@ -185,7 +189,6 @@ public class MainAct extends BaseActivity {
         map.put("6", new MainItem("左侧滑动", "详细解说一下", SwipeBackMainActivity.class));
         map.put("7", new MainItem("自定义layout", "详细解说一下", MyLayoutAct.class));
         map.put("8", new MainItem("自定义View", "详细解说一下", ViewLocationAct.class));
-        map.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));
         map.put("9", new MainItem("SurfaceView测试", "详细解说一下", SurfaceViewTestAct.class));
         map.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
         map.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));

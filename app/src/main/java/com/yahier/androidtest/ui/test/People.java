@@ -1,4 +1,4 @@
-package pojo;
+package com.yahier.androidtest.ui.test;
 
 /**
  * Created by yahier on 17/3/1.

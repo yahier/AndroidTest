@@ -33,42 +33,49 @@ public class AwardAct extends BaseActivity {
         recyclerView.setAdapter(mAdapter);
 
         findViewById(R.id.btnAward100).setOnClickListener(v -> {
-            if (offSize > 0) {
+            if (keepWork) {
                 stopCycle();
             } else {
                 pick100LuckyGuys();
                 cycle100();
             }
         });
+
+        refreshSingleItem();
     }
 
+
+    private void refreshSingleItem() {
+        pick100LuckyGuys();
+        recyclerView.postDelayed(() -> {
+            mAdapter.refreshSingleItem(20, "知秋");
+        }, 2000);
+    }
 
     /**
      * 抽取100个中奖名单
      */
     private void pick100LuckyGuys() {
-        offSize = 0;
-        List<People> list = DataManager.getList(100, offSize);
+        keepWork = true;
+        List<People> list = DataManager.getList(100);
         mAdapter.setData(list);
-        recyclerView.setAdapter(mAdapter);
     }
 
     Runnable runnable100 = new Runnable() {
         @Override
         public void run() {
-            List<People> list = DataManager.getList(100, offSize);
+            List<People> list = DataManager.getList(100);
             mAdapter.setData(list);
             cycle100();
         }
     };
 
-    private volatile int offSize = 0;
+    private volatile boolean keepWork = false;
 
     private void cycle100() {
-        if (offSize >= 0) {
+        if (keepWork) {
             recyclerView.postDelayed(runnable100, 200);
         }
-        offSize++;
     }
 
     @Override
@@ -79,6 +86,6 @@ public class AwardAct extends BaseActivity {
 
     private void stopCycle() {
         recyclerView.removeCallbacks(runnable100);
-        offSize = -2;
+        keepWork = false;
     }
 }

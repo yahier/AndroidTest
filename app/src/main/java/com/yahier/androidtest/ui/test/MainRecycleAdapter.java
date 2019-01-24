@@ -38,20 +38,20 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         notifyDataSetChanged();
     }
 
+    public void refreshSingleItem(int position, String name) {
+        list.get(position).setName(name);
+        notifyItemChanged(position);
+    }
 
     @Override
-    public MainRecycleAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                            int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.tv, parent, false);
-
+    public MainRecycleAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.tv, parent,false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-
         People item = list.get(position);
         holder.mTextView.setText(item.getName());
 

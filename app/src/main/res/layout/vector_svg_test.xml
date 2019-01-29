@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <View
@@ -18,5 +19,21 @@
         android:layout_height="100dp"
         android:onClick="animL"
         app:srcCompat="@drawable/fivestar" />
+
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击可以变换喔"
+        android:textSize="28dp" />
+
+
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="btnTest"
+        android:text="执行测试方法"
+        android:textSize="32dp" />
 
 </LinearLayout>

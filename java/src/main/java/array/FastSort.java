@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 
 public class FastSort {
-    public static final void main(String[] args) {
+    public static void main(String[] args) {
         int[] data = {1, 6, 2, 8, 3, 4, 1};
         sort(data, 0, data.length - 1);
         System.out.println(Arrays.toString(data));

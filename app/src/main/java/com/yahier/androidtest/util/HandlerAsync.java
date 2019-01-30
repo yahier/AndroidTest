@@ -27,7 +27,7 @@ public class HandlerAsync {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            listener.parse(result);
+            listener.handleResult(result);
         }
     }
 
@@ -44,6 +44,6 @@ public class HandlerAsync {
          *
          * @param result
          */
-        void parse(String result);
+        void handleResult(String result);
     }
 }

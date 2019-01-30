@@ -50,7 +50,7 @@ public class VectorSVGAct extends BaseActivity {
             }
 
             @Override
-            public void parse(String result) {
+            public void handleResult(String result) {
                 tvTip.setText(result);
             }
         });

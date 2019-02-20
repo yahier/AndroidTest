@@ -28,34 +28,30 @@ public class StreamApiTest {
     }
 
     public static void main(String[] args) {
-        byte b = 0;
-        double d = (double)b/100;
-        System.out.println("d:"+d);
-
-        test1();
-        test2();
-        test3();
-        test4();
-        test5();
-        test6();
-        test7();
+//        test1();
+//        test2();
+//        test3();
+//        test4();
+//        test5();
+//        test6();
+//        test7();
         test8();
-        test9();
-        test10();
-        test11();
-        test12();
+//        test9();
+//        test10();
+//        test11();
+//        test12();
     }
 
     static void test1() {
         long count = list.stream().filter(str -> str.length() > 2).count();
-        System.out.println("test1:" + count);
+        System.out.println("test1 count1:" + count);
 
         //parallel:并行
         long count2 = list.parallelStream().filter(str -> str.length() > 2).count();
-        System.out.println("test1:" + count2);
+        System.out.println("test1 count2:" + count2);
 
-        List<String> list3 = list.stream().filter(item->item.equals("钟白")).map(item -> item + "yahier").collect(Collectors.toList());
-        list.forEach(item->System.out.println("test1:"+item));
+        List<String> list3 = list.stream().filter(item -> item.equals("钟白")).map(item -> item + "yahier").collect(Collectors.toList());
+        list.forEach(item -> System.out.println("test1:" + item));
 
 
     }
@@ -83,12 +79,13 @@ public class StreamApiTest {
     static void test3() {
         Stream stream1 = Stream.empty();
         Stream stream2 = Stream.generate(() -> "yahier");
+
+        //生成1-5的Stream
         Stream<Integer> stream3 = Stream.iterate(1, integer -> integer + 1).limit(5);
-        println("test3", stream3);
+        println("test3-1", stream3);
 
         Stream stream4 = Pattern.compile("d").splitAsStream("abcdefgsmfddgldjkfdtd");
-        println("test3", stream4);
-
+        println("test3-2", stream4);
     }
 
 
@@ -138,16 +135,16 @@ public class StreamApiTest {
         //测试求和
         Stream<Integer> stream = Stream.iterate(1, value -> value + 1).limit(5);
         Optional<Integer> result = stream.reduce((a, b) -> a + b);
-        result.ifPresent(v -> System.out.println("test8,result:" + v));
+        result.ifPresent(v -> System.out.println("test8-1,result:" + v));
         //测试求最大
         int[] array = {1, 5, 77, 3, 68, 9};
         //第一个操作是操作起始值
         int result3 = Arrays.stream(array).reduce(0, (a, b) -> a >= b ? a : b);
-        System.out.println("test8,result:" + result3);
+        System.out.println("test8,result-2:" + result3);
         //测试追加内容
         Stream<String> stream2 = list.stream();
         Optional<String> result2 = stream2.reduce((a, b) -> a + b);
-        result2.ifPresent(v -> System.out.println("test8,result:" + v));
+        result2.ifPresent(v -> System.out.println("test8-3,result:" + v));
     }
 
     //收集结果 将stream转换称List Set String 或者Map(当前忽略)

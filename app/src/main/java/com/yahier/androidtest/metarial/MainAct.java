@@ -53,6 +53,7 @@ import com.yahier.androidtest.test.GlideTestAct;
 import com.yahier.androidtest.test.HandlerTest;
 import com.yahier.androidtest.test.HtmlAllTestActivity;
 import com.yahier.androidtest.test.JavaUpperAct;
+import com.yahier.androidtest.test.ServerStressTestAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
@@ -160,6 +161,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("58", new MainItem("服务器压力测试", "", ServerStressTestAct.class));
         map.put("57", new MainItem("抽奖页面 滚动名单", "页面数据变换", AwardAct.class));
         map.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer", MonitorUiBlockActivity.class));
         map.put("55", new MainItem("apache common包测试", "BeanUtils CollectionsUtils", ApacheCommonTestAct.class));

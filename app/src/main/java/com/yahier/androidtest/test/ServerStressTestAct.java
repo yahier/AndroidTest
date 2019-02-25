@@ -10,11 +10,13 @@ import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.util.HandlerAsync;
 import com.yahier.androidtest.util.HttpUtil;
+import com.yahier.androidtest.util.YahierEventManager;
+import com.yahier.androidtest.vo.YahierEvent;
 
 /**
  * 测试服务器压力
  */
-public class ServerStressTestAct extends BaseActivity {
+public class ServerStressTestAct extends BaseActivity implements YahierEventManager.OnListener {
     private final String url = "http://10.101.9.17:8080/";
     private final int requestCount = 100;
 
@@ -31,7 +33,14 @@ public class ServerStressTestAct extends BaseActivity {
             ready();
         });
 
+        findViewById(R.id.btn2).setOnClickListener(v -> {
+            YahierEventManager.getInstance().remove(this);
+        });
+
+        //每次进来的this都是不同的
+        YahierEventManager.getInstance().add(this);
     }
+
 
     private void ready() {
         Log.d("测试服务器压力", "开始");
@@ -64,4 +73,8 @@ public class ServerStressTestAct extends BaseActivity {
     }
 
 
+    @Override
+    public void onInvoked(YahierEvent event) {
+        Log.d("ServerStress onInvoked", "type" + event.getType());
+    }
 }

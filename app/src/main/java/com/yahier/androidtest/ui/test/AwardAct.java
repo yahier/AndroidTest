@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.util.Yahier;
+import com.yahier.androidtest.util.YahierEventManager;
+import com.yahier.androidtest.vo.YahierEvent;
 
 import java.util.List;
 
@@ -42,6 +46,23 @@ public class AwardAct extends BaseActivity {
         });
 
         refreshSingleItem();
+        YahierEventManager.getInstance().addAnnotation(this);
+    }
+
+    @Override
+    protected void onStop() {
+        YahierEventManager.getInstance().removeAnnotation(this);
+        super.onStop();
+        stopCycle();
+    }
+
+
+    /**
+     * 注解的广播接收者 来自 YahierEvenetManager
+     */
+    @Yahier(type = 2)
+    public void onYahierEvent(YahierEvent event) {
+        Log.d("注解收到了广播", "type:" + event.getType());
     }
 
 
@@ -78,11 +99,6 @@ public class AwardAct extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopCycle();
-    }
 
     private void stopCycle() {
         recyclerView.removeCallbacks(runnable100);

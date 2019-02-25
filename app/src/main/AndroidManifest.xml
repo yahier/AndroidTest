@@ -106,6 +106,7 @@
         <service android:name=".service.OneService" />
         <service android:name=".service.MessengerService" />
         <service android:name=".service.MyIntentService" />
+        <activity android:name=".activity.EventActivity" />
 
         <activity
             android:name=".view.act.SwipeBackMainActivity"

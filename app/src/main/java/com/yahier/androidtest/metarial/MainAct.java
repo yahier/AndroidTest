@@ -13,6 +13,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,6 +21,7 @@ import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MediaPlayerTest;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.activity.EventActivity;
 import com.yahier.androidtest.activity.MonitorUiBlockActivity;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
@@ -61,6 +63,7 @@ import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
+import com.yahier.androidtest.util.YahierEventManager;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.ConstraintLayoutTest;
 import com.yahier.androidtest.view.act.CustomRoungImgAct;
@@ -146,6 +149,10 @@ public class MainAct extends BaseActivity {
 
         String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
         ActivityCompat.requestPermissions(this, permissions, 99);
+
+        YahierEventManager.getInstance().add(event -> {
+            Log.d("事件接收了", "" + event.getType());
+        });
     }
 
     /**
@@ -161,6 +168,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("59", new MainItem("事件总线测试", "", EventActivity.class));
         map.put("58", new MainItem("服务器压力测试", "", ServerStressTestAct.class));
         map.put("57", new MainItem("抽奖页面 滚动名单", "页面数据变换", AwardAct.class));
         map.put("56", new MainItem("UI线程卡顿监听", "Looper打印 消息列表 Choreographer", MonitorUiBlockActivity.class));

@@ -39,9 +39,10 @@ public class StringTest {
     public static void main(String[] args) {
         test1();
         test2();
-        test3();
+        // test3();
         test4();
         test6();
+        test7();
     }
 
     //测试String的join方法
@@ -144,6 +145,14 @@ public class StringTest {
         //厉害了
         Stream<String> stream = list.stream().filter(Pattern.compile("[桥川|钟白]").asPredicate());
         stream.forEach(System.err::println);
+    }
+
+    static void test7() {
+        String a = "ab";
+        String b = "a" + "b";
+        String c = new String("ab");
+        System.out.println("test7 " + (a == b));//true
+        System.out.println("test7 " + (a == c));//false
     }
 
     static void println(String tag, String value) {

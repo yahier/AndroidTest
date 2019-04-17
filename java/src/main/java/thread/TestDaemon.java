@@ -29,7 +29,7 @@ public class TestDaemon {
         @Override
         public void run() {
             System.out.println("run index:" + index);
-            while (index == 1) {
+            while (index == 0) {
                 try {
                     Thread.sleep(500);
                     System.out.println("index:" + index);

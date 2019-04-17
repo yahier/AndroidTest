@@ -18,7 +18,7 @@ public class ReentrantLockTest {
     private final static ReentrantLock lock = new ReentrantLock();
 
     public final static void main(String[] args) {
-       //test1();
+        //test1();
         test2();
 
     }
@@ -29,15 +29,11 @@ public class ReentrantLockTest {
      */
     private static void test1() {
         ExecutorService threadPool = Executors.newCachedThreadPool();
-        threadPool.submit((Callable) () -> {
-            m();
-            return null;
-        });
 
-        threadPool.submit((Callable) () -> {
+        threadPool.execute(ReentrantLockTest::m);
+        threadPool.execute(() -> {
             m();
             two();
-            return null;
         });
     }
 
@@ -101,9 +97,7 @@ public class ReentrantLockTest {
             value = index;
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } finally
-
-        {
+        } finally {
             lock.unlock();
         }
     }

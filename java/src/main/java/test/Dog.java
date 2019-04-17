@@ -18,7 +18,26 @@ public class Dog {
     }
 
     public static void main(String[] args) {
-        test();
-        System.out.println(add());
+        //test();
+        //System.out.println(add());
+
+        Cat cat1 = new Cat("soso");
+        Cat cat2 = new Cat("yoyo");
+        List<Cat> list = new ArrayList<>();
+        list.add(cat1);
+        list.add(cat2);
+
+        new Thread(() -> {
+            try {
+                for (Cat cat : list) {
+                    System.out.println("name:" + cat.name);
+                }
+                Thread.sleep(20000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+
     }
 }

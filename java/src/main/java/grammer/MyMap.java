@@ -39,14 +39,21 @@ public class MyMap {
     }
 
     /**
-     * 测试LinkedHashMap
+     * 测试LinkedHashMap.
+     * 第三次参数意思是accessOrder,true是access order,false为insert order.默认是false.
+     * 据此可以开发一个简单的LRU(LEAST RECENTLY USED,最近最少使用)
      */
     static void test2() {
-        LinkedHashMap map = new LinkedHashMap(10);
+        LinkedHashMap map = new LinkedHashMap(10,0.75F,true);
         map.put("a", "1");
         map.put("b", "2");
         map.put("c", "3");
         map.put("d", "4");
+
+        map.get("d");
+        map.get("c");
+        map.get("a");
+        map.get("b");
 
         Set<?> set = map.keySet();
         Iterator it = set.iterator();

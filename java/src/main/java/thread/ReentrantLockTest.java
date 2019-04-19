@@ -3,6 +3,7 @@ package thread;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 import myutil.Log;
@@ -18,8 +19,8 @@ public class ReentrantLockTest {
     private final static ReentrantLock lock = new ReentrantLock();
 
     public final static void main(String[] args) {
-        //test1();
-        test2();
+        test1();
+        //test2();
 
     }
 
@@ -30,7 +31,6 @@ public class ReentrantLockTest {
     private static void test1() {
         ExecutorService threadPool = Executors.newCachedThreadPool();
 
-        threadPool.execute(ReentrantLockTest::m);
         threadPool.execute(() -> {
             m();
             two();
@@ -40,8 +40,8 @@ public class ReentrantLockTest {
     public static void m() {
         Log.e(TAG, "lock之前");
         try {
-            //boolean isLock = lock.tryLock(10, TimeUnit.MILLISECONDS); // block until condition holds
-            //Log.e(TAG, "isLock:" + isLock);
+            boolean isLock = lock.tryLock(3, TimeUnit.SECONDS);
+            Log.e(TAG, "isLock:" + isLock);
             lock.lock();
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -99,6 +99,7 @@ public class ReentrantLockTest {
             e.printStackTrace();
         } finally {
             lock.unlock();
+            Log.e(TAG, "write:" + value);
         }
     }
 }

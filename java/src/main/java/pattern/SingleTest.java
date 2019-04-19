@@ -1,18 +1,22 @@
 package pattern;
 
-public class Single1 {
-    private Single1() {
+public class SingleTest {
+    private SingleTest() {
         System.out.println("Single1被创造出来");
     }
 
     /**
      * 静态代码块和静态构造函数都会先执行
      */
-    static Single1 sin = new Single1();
+    static SingleTest sin = new SingleTest();
 
     public static void main(String[] args) {
-        Sin.t();
-        StaticSin.getInstance();
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                Test3.getInstance();
+            }).start();
+        }
+
         //StaticSin.getInstance();
         //Single.test();
 
@@ -22,34 +26,33 @@ public class Single1 {
 
 }
 
-class Single {
-    private Single() {
+class Test1 {
+    private Test1() {
         System.out.println("create");
     }
 
-    private static Single sin = new Single();
+    private static Test1 sin = new Test1();
 
-    public static Single getInstance() {
+    public static Test1 getInstance() {
         return sin;
     }
 
     public static void test() {
         System.out.println("test");
-        //junit.Assert
     }
 }
 
 // 多线程时 速度不够了
-class Sin {
-    Sin() {
+class Test2 {
+    Test2() {
         System.out.println("create");
     }
 
-    private Sin sin;
+    private static Test2 sin;
 
-    public synchronized Sin get() {
+    public static synchronized Test2 get() {
         if (sin == null) {
-            sin = new Sin();
+            sin = new Test2();
         }
         return sin;
     }
@@ -60,16 +63,16 @@ class Sin {
 }
 
 // 最优化的单例模式方法
-class StaticSin {
-    private StaticSin() {
-        System.out.println("staticSin create");
+class Test3 {
+    private Test3() {
+        System.out.println("Test3 create");
     }
 
     private static class SingleHolder {
-        private static StaticSin sin = new StaticSin();
+        private static Test3 sin = new Test3();
     }
 
-    public static StaticSin getInstance() {
+    public static Test3 getInstance() {
         return SingleHolder.sin;
     }
 

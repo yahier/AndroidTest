@@ -14,8 +14,10 @@ public class TestFor {
 
     public static void main(String[] args) {
         //test1();
-        test2();
-        test3();
+        //test2();
+        //test3();
+        //test6();
+        test7();
     }
 
     private static void test1() {
@@ -28,8 +30,8 @@ public class TestFor {
             System.out.println("test1:" + i);
         }
 
-    }
 
+    }
 
     private static void test2() {
         boolean isExecuted = true;
@@ -74,6 +76,27 @@ public class TestFor {
     private static void test5() {
         for (; ; ) {
             System.err.println(1);
+        }
+    }
+
+    private static void test6() {
+        for (; 1 < 2; ) {
+            System.out.println(1);
+        }
+    }
+
+    private static void test7() {
+        int a = 0;
+        int b = 0;
+        do {
+            a++;
+            System.out.println("a:" + a);
+        } while (a < 10);
+
+
+        while (b < 10) {
+            b++;
+            System.out.println("b:" + b);
         }
     }
 }

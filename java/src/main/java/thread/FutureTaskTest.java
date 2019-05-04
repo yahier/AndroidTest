@@ -84,7 +84,7 @@ public class FutureTaskTest {
         int value = 0;
         try {
             value = future.get(200, TimeUnit.MILLISECONDS);
-            System.out.println("value:" + value);
+            System.out.println("value :" + value);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

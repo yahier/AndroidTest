@@ -1,6 +1,8 @@
 package collection;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,14 +15,40 @@ import pojo.Book;
  */
 
 public class HashSetTest {
-    public final static void main(String[] args) {
+    public static void main(String[] args) {
         //test();
         //test2();
         //test3();
-        test4_List_delete();
-        test5_Set_Delete();
+        //test4_List_delete();
+        //test5_Set_Delete();
+        test5();
     }
 
+
+    /**
+     * 测试HashMap扩容规律. todo 待续
+     */
+    static void test5() {
+        HashMap<String, Integer> map = new HashMap(20,1);
+        for (int i = 0; i < 13; i++) {
+            map.put("" + i, i);
+        }
+
+        Class mClass = map.getClass();
+        try {
+            Field field = mClass.getDeclaredField("threshold");
+            try {
+                field.setAccessible(true);
+                Object object = field.get(map);
+                System.out.println("object:" + object);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     static void test() {
         Set<Book> set = new HashSet<>();

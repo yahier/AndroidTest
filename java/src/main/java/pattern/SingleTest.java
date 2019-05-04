@@ -62,7 +62,9 @@ class Test2 {
     }
 }
 
-// 最优化的单例模式方法
+/**
+ * 最优化的单例模式方法
+ */
 class Test3 {
     private Test3() {
         System.out.println("Test3 create");

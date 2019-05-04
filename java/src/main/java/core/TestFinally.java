@@ -13,12 +13,13 @@ public class TestFinally {
     static int test() {
         int a = 1;
         try {
-            return ++a;
+            a = 9 / 0;
+            return 1;
         } catch (Exception e) {
-            return 3;
+            return 2;
         } finally {
             a = 3;
-            return 3;//如若这里没有return，则返回try中的值，finally的变量修改不起效果
+            //return 3;//如若这里没有return，则返回try中的值，finally的变量修改不起效果
         }
     }
 }

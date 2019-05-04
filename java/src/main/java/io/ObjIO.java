@@ -12,11 +12,11 @@ import java.io.Serializable;
 import java.io.StreamCorruptedException;
 
 /**
- * test Object IO
+ * test Object IO.和序列化，transient关键字用来防止序列化
  */
 public class ObjIO {
     People p;
-    public final static String filePath = "/Users/yahier/test";
+    final static String filePath = "/Users/yahier/test";
 
     public static void main(String[] args) {
         ObjIO o = new ObjIO();
@@ -43,7 +43,7 @@ public class ObjIO {
      * 0001 4900 0361 6765 7870 0000 000c
      */
     private void save() {
-        p = new People(12);
+        p = new People(12, 100);
         try {
             ObjectOutputStream obj = new ObjectOutputStream(
                     new FileOutputStream(new File(filePath)));
@@ -65,29 +65,26 @@ public class ObjIO {
                     new File(filePath)));
             try {
                 People p = (People) oi.readObject();
-                System.out.println(p.age);
+                System.out.println(p.age + " " + p.score);
             } catch (ClassNotFoundException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         } catch (StreamCorruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     static class People implements Serializable {
         int age;
+        transient int score;
 
-        public People(int age) {
+        public People(int age, int score) {
             this.age = age;
-
+            this.score = score;
         }
 
 

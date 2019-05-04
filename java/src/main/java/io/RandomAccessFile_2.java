@@ -21,7 +21,6 @@ public class RandomAccessFile_2 {
 	static void te1() {
 		char[] ya = { 'W', 'E', 'A', 'R' };
 		try {
-			// д��
 			for (int i = 0; i < ya.length; i++) {
 				// in_and_out.writeChar(ya[i]);
 				String s = new String(ya, i, 1);
@@ -29,7 +28,6 @@ public class RandomAccessFile_2 {
 				in_and_out.writeUTF(s);
 			}
 			in_and_out.seek(0);
-			// �� ��
 			for (long i = ya.length - 1; i >= 0; i--) {
 				// in_and_out.seek(i * 2);
 				System.out.print(in_and_out.readUTF());
@@ -40,7 +38,6 @@ public class RandomAccessFile_2 {
 		}
 	}
 
-	// һ��һ�еĶ�
 	static void te_read() {
 		try {
 			in_and_out.seek(0);

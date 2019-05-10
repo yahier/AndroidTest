@@ -21,6 +21,7 @@ import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.MainActivity;
 import com.yahier.androidtest.MediaPlayerTest;
 import com.yahier.androidtest.R;
+import com.yahier.androidtest.activity.ActivityHookTest;
 import com.yahier.androidtest.activity.EventActivity;
 import com.yahier.androidtest.activity.MonitorUiBlockActivity;
 import com.yahier.androidtest.adapter.MainRecycleAdapter;
@@ -168,6 +169,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("60", new MainItem("Hook测试", "", ActivityHookTest.class));
         map.put("59", new MainItem("事件总线测试", "", EventActivity.class));
         map.put("58", new MainItem("服务器压力测试", "", ServerStressTestAct.class));
         map.put("57", new MainItem("抽奖页面 滚动名单", "页面数据变换", AwardAct.class));

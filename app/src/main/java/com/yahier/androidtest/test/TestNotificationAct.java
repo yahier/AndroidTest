@@ -30,7 +30,7 @@ public class TestNotificationAct extends BaseActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    TestHook.hookNotificationManager(TestNotificationAct.this);
+                    HookHelper.hookNotificationManager(TestNotificationAct.this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

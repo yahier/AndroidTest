@@ -1,18 +1,23 @@
 package com.yahier.androidtest.test;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.yahier.androidtest.util.AMSInvocationHandler;
+import com.yahier.androidtest.util.ActivityProxyInstrumentation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class TestHook {
+public class HookHelper {
 
-    final static String TAG = "TestHook";
+    final static String TAG = "HookHelper";
 
     /**
      * hook通知
@@ -56,4 +61,43 @@ public class TestHook {
 
     }
 
+    public static void replaceInstrumentation(Activity activity) throws Exception {
+        Class<?> k = Activity.class;
+        //通过Activity.class 拿到 mInstrumentation字段
+        Field field = k.getDeclaredField("mInstrumentation");
+        field.setAccessible(true);
+        //根据activity内mInstrumentation字段 获取Instrumentation对象
+        Instrumentation instrumentation = (Instrumentation) field.get(activity);
+        //创建代理对象
+        Instrumentation instrumentationProxy = new ActivityProxyInstrumentation(instrumentation);
+        //进行替换
+        field.set(activity, instrumentationProxy);
+    }
+
+
+    /**
+     * 测试失败 也许需要api26之后
+     */
+    public static void hookAMS() throws Exception {
+        // 第一步：获取 IActivityManagerSingleton
+        Class<?> aClass = Class.forName("android.app.ActivityManager");
+        Field declaredField = aClass.getDeclaredField("IActivityManagerSingleton");
+        declaredField.setAccessible(true);
+        Object value = declaredField.get(null);
+
+        Class<?> singletonClz = Class.forName("android.util.Singleton");
+        Field instanceField = singletonClz.getDeclaredField("mInstance");
+        instanceField.setAccessible(true);
+        Object iActivityManagerObject = instanceField.get(value);
+
+        // 第二步：获取我们的代理对象，这里因为 IActivityManager 是接口，我们使用动态代理的方式
+        Class<?> iActivity = Class.forName("android.app.IActivityManager");
+        InvocationHandler handler = new AMSInvocationHandler(iActivityManagerObject);
+        Object proxy = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new
+                Class<?>[]{iActivity}, handler);
+
+        // 第三步：偷梁换柱，将我们的 proxy 替换原来的对象
+        instanceField.set(value, proxy);
+
+    }
 }

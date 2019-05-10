@@ -36,31 +36,37 @@ public class LifeCycleUtil implements Application.ActivityLifecycleCallbacks {
     //记录当前页面的路径。有时候在大型应用中 很有用。
     @Override
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        Log.e(TAG, "create:" + activity.getLocalClassName());
+        Log.e(TAG, "onCreate:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivityStarted(Activity activity) {
+        Log.e(TAG, "onActivityStarted:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
+        Log.e(TAG, "onActivityResumed:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
+        Log.e(TAG, "onActivityPaused:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
+        Log.e(TAG, "onActivityStopped:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Log.e(TAG, "onActivitySaveInstanceState:" + activity.getClass().getSimpleName());
     }
 
     @Override
     public void onActivityDestroyed(Activity activity) {
+        Log.e(TAG, "onActivityDestroyed:" + activity.getClass().getSimpleName());
 
     }
 

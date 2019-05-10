@@ -22,35 +22,31 @@ public class TestNotificationAct extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Button btn = (Button) findViewById(R.id.button);
-        btn.setText("发通知");
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button btn1 = (Button) findViewById(R.id.button);
+        Button btn2 = (Button) findViewById(R.id.button2);
+
+        btn1.setText("注入Hook");
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                go();
+                try {
+                    TestHook.hookNotificationManager(TestNotificationAct.this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-
+        btn2.setText("发送通知");
+        btn2.setOnClickListener(v -> {
+            sendNotification("评论。。");
+        });
     }
-
-
-    void go() {
-        sendNotification("正在评论");
-        getWindow().getDecorView().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                sendNotification("评论好了");
-            }
-        },2000);
-    }
-
-
 
 
     void sendNotification(String content) {
         final NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-       // Notification notify = new Notification.Builder(this).setContentText(content).build();
+        // Notification notify = new Notification.Builder(this).setContentText(content).build();
         //2.实例化一个通知，指定图标、概要、时间
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.drawable.ic_launcher)
@@ -67,7 +63,7 @@ public class TestNotificationAct extends BaseActivity {
             public void run() {
                 manager.cancel(1);
             }
-        },1000);
+        }, 3000);
 
     }
 }

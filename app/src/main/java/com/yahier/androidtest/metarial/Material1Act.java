@@ -19,10 +19,8 @@ public class Material1Act extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // enable transitions
-
-        setContentView(R.layout.material_1);
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-
+        setContentView(R.layout.material_1);
         testTranslationZ();
     }
 

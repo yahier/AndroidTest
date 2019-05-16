@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -13,36 +12,57 @@ import android.widget.Toast;
  */
 
 public class OneService extends Service {
+    final String TAG = "OneService";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("OneService", "onCreate");
+        Log.e(TAG, "onCreate");
     }
 
-    @Override
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
-        Log.e("OneService", "onStart");
-        test();
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e(TAG, "onStartCommand");
         return START_STICKY;
+    }
+
+
+    @Override
+    public void onRebind(Intent intent) {
+        Log.e(TAG, "onRebind");
+        super.onRebind(intent);
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.e(TAG, "onUnbind");
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
+    }
+
+    @Override
+    public boolean stopService(Intent name) {
+        Log.e(TAG, "stopService");
+        return super.stopService(name);
+    }
+
+    public IBinder onBind(Intent intent) {
+        Log.e(TAG, "onBind");
+        return mBinder;
     }
 
     void test() {
         Toast.makeText(this, "test方法被调用", Toast.LENGTH_SHORT).show();
     }
 
-
-    public IBinder onBind(Intent intent) {
-        return mBinder;
-    }
-
-
     private final IBinder mBinder = new LocalBinder();
+
     public class LocalBinder extends Binder {
         OneService getService() {
             return OneService.this;

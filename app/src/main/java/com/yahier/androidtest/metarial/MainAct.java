@@ -213,7 +213,7 @@ public class MainAct extends BaseActivity {
         map.put("18", new MainItem("material小特性", "translationZ  elevation", Material1Act.class));
         map.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
         map.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
-        map.put("21", new MainItem("service", "详细解说一下", ServiceActivity.class));
+        map.put("21", new MainItem("service", "测试service的启动停止和生命周期", ServiceActivity.class));
         map.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));
         map.put("23", new MainItem("Synchonized", "测试synchonized", SynchonizedTest.class));
         map.put("24", new MainItem("反射", "详细解说一下", ReflectTest.class));

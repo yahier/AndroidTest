@@ -37,7 +37,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             case R.id.bind:
                 intent = new Intent(this, OneService.class);
                 bindService(intent, connection, 0);
-                startService(intent);
+                //startService(intent);
                 break;
             case R.id.stop:
                 break;

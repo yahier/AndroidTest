@@ -2,7 +2,6 @@ package com.yahier.androidtest.metarial;
 
 import android.Manifest;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,7 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.MainActivity;
@@ -32,7 +30,6 @@ import com.yahier.androidtest.classload.LoaderAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
-import com.yahier.androidtest.databinding.MaterialMainActBinding;
 import com.yahier.androidtest.databinding.Test1Act;
 import com.yahier.androidtest.databinding.Test2Act;
 import com.yahier.androidtest.databinding.Test3Act;
@@ -70,6 +67,7 @@ import com.yahier.androidtest.view.act.ConstraintLayoutTest;
 import com.yahier.androidtest.view.act.CustomRoungImgAct;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
+import com.yahier.androidtest.view.act.LazyFragmentAct;
 import com.yahier.androidtest.view.act.MotionEventAct;
 import com.yahier.androidtest.view.act.MyLayoutAct;
 import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
@@ -96,7 +94,7 @@ public class MainAct extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.material_main_act);
-        MaterialMainActBinding bind = DataBindingUtil.setContentView(MainAct.this, R.layout.material_main_act);
+        setContentView(R.layout.material_main_act);
         mAct = this;
         mRecyclerView = (RecyclerView) findViewById(R.id.list_view);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -138,8 +136,8 @@ public class MainAct extends BaseActivity {
         });
 
         //引用失败
-        Button btn = bind.tv;
-        btn.setText("yahier的现实");
+        //Button btn = bind.tv;
+        //btn.setText("yahier的现实");
 
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -169,6 +167,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("61", new MainItem("按需加载Fragment", "延迟加载", LazyFragmentAct.class));
         map.put("60", new MainItem("Hook测试", "", ActivityHookTest.class));
         map.put("59", new MainItem("事件总线测试", "", EventActivity.class));
         map.put("58", new MainItem("服务器压力测试", "", ServerStressTestAct.class));

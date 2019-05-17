@@ -12,7 +12,8 @@ public class ListGet {
         ListGet lg = new ListGet();
         //lg.put();
         //lg.get();
-        lg.t();
+        //lg.t();
+        lg.testAddAll();
     }
 
     void put() {
@@ -47,5 +48,29 @@ public class ListGet {
 
     }
 
+
+    void testAddAll() {
+        List<String> data = new ArrayList<>();
+        for (int i = 1; i < 6; i++) {
+            data.add(String.valueOf(i));
+        }
+        data.addAll(getNewData());
+        System.out.println(data.size());
+
+        //以下方式的数据不能执行addAll方法
+        //String[] strs = {"1", "2", "3", "4", "5"};
+        //List<String> data2 = Arrays.asList(strs);
+    }
+
+
+    public List<String> getNewData() {
+        List<String> data = new ArrayList<>();
+        for (int i = 6; i < 11; i++) {
+            data.add(String.valueOf(i));
+        }
+
+
+        return data;
+    }
 
 }

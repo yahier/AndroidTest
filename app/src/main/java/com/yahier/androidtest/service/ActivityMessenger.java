@@ -19,7 +19,7 @@ import com.yahier.androidtest.BaseActivity;
 import com.yahier.androidtest.R;
 
 /**
- * activity发送message给service。service接着又把message发送回来。
+ * 测试Activity和service的互相通信 activity发送message给service。service接着又把message发送回来。
  * Messager的构造函数里，也可以用IBinder.可以用Handler,
  */
 public class ActivityMessenger extends BaseActivity {
@@ -50,7 +50,7 @@ public class ActivityMessenger extends BaseActivity {
     public void sayHello() {
         if (!mBound)
             return;
-        Message msgFromClient = Message.obtain(handler, MessengerService.MSG_SAY_HELLO, 0, 108);
+        Message msgFromClient = Message.obtain(handler, MessengerService.MSG_SAY_HELLO, 0, 1);
         msgFromClient.replyTo = mMessenger;
         //往服务端发送消息
         try {
@@ -91,7 +91,7 @@ public class ActivityMessenger extends BaseActivity {
         public void handleMessage(Message msgFromServer) {
             switch (msgFromServer.what) {
                 case MessengerService.MSG_SAY_HELLO:
-                    btn.setText(btn.getText() + "messenger:" + msgFromServer.arg2);
+                    btn.setText("from messenger:" + msgFromServer.arg2);
                     break;
             }
             super.handleMessage(msgFromServer);

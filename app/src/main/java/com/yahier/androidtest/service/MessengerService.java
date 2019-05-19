@@ -31,6 +31,10 @@ public class MessengerService extends Service {
 
                     try {
                         Message msgToClient2 = Message.obtain(msgfromClient);//返回给客户端的消息
+                        msgToClient2.arg2 = 2;
+                        //Bundle bundle = new Bundle();
+                        //bundle.putInt("value", 100);
+                        //msgToClient2.setData(bundle);
                         msgfromClient.replyTo.send(msgToClient2);
                     } catch (RemoteException e) {
                         e.printStackTrace();

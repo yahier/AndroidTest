@@ -13,11 +13,38 @@ import java.util.Set;
 
 public class MapTest {
     public static void main(String[] args) {
-        testHashMap();
-        testHasTable();
-        testMove();
+        //testHashMap();
+        //testHasTable();
+        //testMove();
+        testKey();
     }
 
+
+    /**
+     * Q:此方法有疑问点，既然两个对象不同，为什么没有出现hash冲突。而是进行了替代。
+     * A：解答:如果对象的hash和equals都相等，那么map会进行替换；如果hash相同而equals不相等，那么会出现hash冲突。
+     */
+    private static void testKey() {
+        Key key1 = new Key("yahier", "soga");
+        Key key2 = new Key("yahier", "soga");
+
+        System.out.println(key1.hashCode());
+        System.out.println(key2.hashCode());
+
+        System.out.println(key1 == key2);
+
+        Map<Key, String> map = new HashMap<>();
+        map.put(key1, "key1");
+        map.put(key2, "key2");
+
+        System.out.println("map size:" + map.size());
+
+        Set<Map.Entry<Key, String>> set = map.entrySet();
+        for (Map.Entry<Key, String> entry : set) {
+            System.out.println("hashMap " + entry.getKey() + ":" + entry.getValue());
+        }
+
+    }
 
     private static void testMove() {
         int a = 2;

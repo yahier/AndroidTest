@@ -82,6 +82,8 @@ public class FutureTaskTest {
         ExecutorService threadPool = Executors.newFixedThreadPool(1);
         Future<Integer> future = threadPool.submit(call);
         int value = 0;
+
+
         try {
             value = future.get(200, TimeUnit.MILLISECONDS);
             System.out.println("value :" + value);

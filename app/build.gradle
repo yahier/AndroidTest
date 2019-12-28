@@ -26,9 +26,9 @@ android {
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
 
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -59,9 +59,9 @@ android {
     }
 
     // dataBinding 加入
-    dataBinding {
-        enabled = true
-    }
+//    dataBinding {
+//        enabled = true
+//    }
 
 }
 
@@ -76,20 +76,20 @@ dependencies {
     //compile project(':java')
 
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     testCompile 'junit:junit:4.12'
     //单元测试的框架
     testCompile "org.robolectric:robolectric:3.0"
 
-    compile 'com.android.support:cardview-v7:25.1.0'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:cardview-v7:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
     //矢量动画
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:28.0.0'
 
     //23.2及以上
 
@@ -104,8 +104,8 @@ dependencies {
     compile 'cn.jiguang.sdk:jcore:1.1.1'
     compile 'com.alibaba:arouter-api:1.2.4'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
-    compile 'com.android.support:palette-v7:25.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:palette-v7:28.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
 
     //第三方的Stream
     compile 'com.annimon:stream:1.1.9'

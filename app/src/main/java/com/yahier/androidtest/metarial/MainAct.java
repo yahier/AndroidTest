@@ -30,12 +30,6 @@ import com.yahier.androidtest.classload.LoaderAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
-import com.yahier.androidtest.databinding.Test1Act;
-import com.yahier.androidtest.databinding.Test2Act;
-import com.yahier.androidtest.databinding.Test3Act;
-import com.yahier.androidtest.databinding.Test4Act;
-import com.yahier.androidtest.databinding.Test5Act;
-import com.yahier.androidtest.databinding.Test6Act;
 import com.yahier.androidtest.download.DownTest;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
@@ -135,9 +129,6 @@ public class MainAct extends BaseActivity {
             }
         });
 
-        //引用失败
-        //Button btn = bind.tv;
-        //btn.setText("yahier的现实");
 
         mRecyclerView.setHasFixedSize(false);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -181,12 +172,12 @@ public class MainAct extends BaseActivity {
         map.put("50", new MainItem("约束性布局", "ConstraintLayout", ConstraintLayoutTest.class));
         map.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
         map.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
-        map.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
-        map.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
-        map.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
-        map.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
-        map.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
-        map.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
+//        map.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));
+//        map.put("46", new MainItem("binding测试", "5:View随model变化 而变化 ", Test5Act.class));
+//        map.put("45", new MainItem("binding测试", "4:绑定多个相同的model ", Test4Act.class));
+//        map.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
+//        map.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
+//        map.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
         map.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         map.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));

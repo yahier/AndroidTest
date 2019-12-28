@@ -70,6 +70,7 @@ public class TouchLinear extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawBitmap(bitmap, left, top, paint);
-        canvas.save(Canvas.ALL_SAVE_FLAG);
+        //canvas.save(Canvas.ALL_SAVE_FLAG);
+        canvas.save();
     }
 }

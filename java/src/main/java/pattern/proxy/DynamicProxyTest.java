@@ -15,7 +15,7 @@ public class DynamicProxyTest {
     static String TAG = "DynamicProxyTest";
 
     public static void main(String[] args) {
-        test2();
+        test1();
     }
 
     static void test1() {
@@ -40,6 +40,7 @@ public class DynamicProxyTest {
                 return result;
             }
         });
+
 
     }
 

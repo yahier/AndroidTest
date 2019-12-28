@@ -66,6 +66,8 @@
             android:theme="@style/logo" />
         <!-- view测试 -->
         <activity
+            android:name=".view.act.MixImgAct" />
+        <activity
             android:name=".viewtest.SwipeRefreshLayoutTest"
             android:label="SwipeRefreshLayout" />
         <activity

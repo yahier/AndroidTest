@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -109,6 +111,7 @@ dependencies {
 
     //第三方的Stream
     compile 'com.annimon:stream:1.1.9'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //以下测试新的构建组件
 
@@ -153,4 +156,7 @@ dependencies {
 //    compile files('libs/commons-beanutils-1.9.3.jar')
 //    compile files('libs/commons-io-2.6.jar')
 //    compile files('libs/commons-lang3-3.8.1.jar')
+}
+repositories {
+    mavenCentral()
 }

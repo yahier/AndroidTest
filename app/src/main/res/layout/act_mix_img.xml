@@ -1,0 +1,48 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/haifei"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/haifei" />
+
+        <ImageView
+            android:id="@+id/wukong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/wukong" />
+
+
+        <ImageView
+            android:id="@+id/imgMixed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnDrawShapeImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="绘制圆形图片" />
+
+        <Button
+            android:id="@+id/btnMix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="融合两个bitmap" />
+
+
+    </LinearLayout>
+</ScrollView>

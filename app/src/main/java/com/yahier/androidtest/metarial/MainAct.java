@@ -62,6 +62,7 @@ import com.yahier.androidtest.view.act.CustomRoungImgAct;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
 import com.yahier.androidtest.view.act.DrawerLayoutActTest;
 import com.yahier.androidtest.view.act.LazyFragmentAct;
+import com.yahier.androidtest.view.act.MixImgAct;
 import com.yahier.androidtest.view.act.MotionEventAct;
 import com.yahier.androidtest.view.act.MyLayoutAct;
 import com.yahier.androidtest.view.act.ParallaxVpTestActivity;
@@ -158,6 +159,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("62", new MainItem("绘制圆形图 和 融合图片", "利用PorterDuffXfermode取得两次绘制的效果 可以是上层交集 并集 取反 各种操作", MixImgAct.class));
         map.put("61", new MainItem("按需加载Fragment", "延迟加载", LazyFragmentAct.class));
         map.put("60", new MainItem("Hook测试", "", ActivityHookTest.class));
         map.put("59", new MainItem("事件总线测试", "", EventActivity.class));

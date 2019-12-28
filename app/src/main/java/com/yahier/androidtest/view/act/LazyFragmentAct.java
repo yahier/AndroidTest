@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.yahier.androidtest.BaseActivity;
@@ -18,6 +19,8 @@ import java.util.List;
  * 如果有1000个题目，需要用Fragment展示，但数据可能每次只有10条。假定数据都是分批来的。
  * 方法1是初始化时定下的fragment就是1000个，滑动过程中改变数据。
  * 方法2是fragment固定，只在滑动中改变数据的内容。
+ *
+ * todo 最好的办法还是分批次生成fragment
  */
 public class LazyFragmentAct extends BaseActivity {
     ViewPager mViewPager;
@@ -71,7 +74,7 @@ public class LazyFragmentAct extends BaseActivity {
         return data;
     }
 
-    public class Adapter extends FragmentPagerAdapter {
+    public class Adapter extends FragmentStatePagerAdapter {
         private List<String> data;
 
         public int getMaxData() {

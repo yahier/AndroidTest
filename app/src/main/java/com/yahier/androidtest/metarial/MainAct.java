@@ -51,6 +51,7 @@ import com.yahier.androidtest.test.ServerStressTestAct;
 import com.yahier.androidtest.test.TestNotificationAct;
 import com.yahier.androidtest.test.WebViewAct;
 import com.yahier.androidtest.test.WindowTest;
+import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
@@ -159,6 +160,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("63", new MainItem("使用 WorkManager 调度任务 ", "使用 WorkManager API 可以轻松地调度即使在应用退出或设备重启时仍应运行的可延迟异步任务", WorkManagerAct.class));
         map.put("62", new MainItem("绘制圆形图 和 融合图片", "利用PorterDuffXfermode取得两次绘制的效果 可以是上层交集 并集 取反 各种操作", MixImgAct.class));
         map.put("61", new MainItem("按需加载Fragment", "延迟加载", LazyFragmentAct.class));
         map.put("60", new MainItem("Hook测试", "", ActivityHookTest.class));

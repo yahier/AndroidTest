@@ -68,6 +68,9 @@
         <activity
             android:name=".view.act.MixImgAct" />
         <activity
+            android:label="WorkManager 调度任务"
+            android:name=".test.WorkManagerAct" />
+        <activity
             android:name=".viewtest.SwipeRefreshLayoutTest"
             android:label="SwipeRefreshLayout" />
         <activity

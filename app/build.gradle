@@ -112,6 +112,7 @@ dependencies {
     //第三方的Stream
     compile 'com.annimon:stream:1.1.9'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'android.arch.work:work-runtime:1.0.1'
 
     //以下测试新的构建组件
 

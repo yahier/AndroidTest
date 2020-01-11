@@ -20,20 +20,30 @@ limitations under the License.
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical"
+    tools:openDrawer="end">
 
-    <include
-        layout="@layout/activity_main"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#E1C0C0"
+        android:text="从 屏幕 左边向右滑动 【用了BottomNavigationView怎么还是 NavigationView的效果呢】" />
 
-    <android.support.design.widget.NavigationView
+    <!--   -->
+    <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#E1C0C0"
+            android:text="bottomView之中" />
+    </android.support.design.widget.BottomNavigationView>
 
 </android.support.v4.widget.DrawerLayout>

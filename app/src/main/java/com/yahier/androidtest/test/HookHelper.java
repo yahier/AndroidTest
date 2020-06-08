@@ -33,7 +33,7 @@ public class HookHelper {
 
         Class iNotiMngClz = Class.forName("android.app.INotificationManager");
         // 第二步：得到我们的动态代理对象
-        Object proxyNotiMng = Proxy.newProxyInstance(context.getClass().getClassLoader(), new
+        Object proxyNotiMananer = Proxy.newProxyInstance(context.getClass().getClassLoader(), new
                 Class[]{iNotiMngClz}, new InvocationHandler() {
 
             @Override
@@ -57,7 +57,7 @@ public class HookHelper {
         // 第三步：偷梁换柱，使用 proxyNotiMng 替换系统的 sService
         Field sServiceField = NotificationManager.class.getDeclaredField("sService");
         sServiceField.setAccessible(true);
-        sServiceField.set(notificationManager, proxyNotiMng);
+        sServiceField.set(notificationManager, proxyNotiMananer);
 
     }
 

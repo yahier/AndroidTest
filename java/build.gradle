@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -8,9 +9,22 @@ dependencies {
     //compile files('libs/commons-collections-3.2.2.jar')
     compile files('libs/commons-collections4-4.2.jar')
     compile 'com.google.guava:guava:26.0-jre'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 //sourceCompatibility = "1.8"
 //targetCompatibility = "1.8"
 sourceCompatibility = rootProject.ext.javaVersion
 targetCompatibility = rootProject.ext.javaVersion
+buildscript {
+    //ext.kotlin_version = '1.0.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+repositories {
+    mavenCentral()
+}

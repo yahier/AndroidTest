@@ -4,8 +4,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,6 +23,7 @@ public class TestNotificationAct extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        Log.e("TestNotificationAct","onCreate");
 
         Button btn1 = (Button) findViewById(R.id.button);
         Button btn2 = (Button) findViewById(R.id.button2);
@@ -44,6 +47,21 @@ public class TestNotificationAct extends BaseActivity {
     }
 
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        SystemClock.sleep(500);
+        Log.e("TestNotificationAct","onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("TestNotificationAct","onResume");
+    }
+
+
+
     void sendNotification(String content) {
         final NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // Notification notify = new Notification.Builder(this).setContentText(content).build();
@@ -57,6 +75,7 @@ public class TestNotificationAct extends BaseActivity {
         n.flags = Notification.FLAG_AUTO_CANCEL;//设置点击后自动消失
         //指定声音
         n.defaults = Notification.DEFAULT_SOUND;
+
         manager.notify(1, n);
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override

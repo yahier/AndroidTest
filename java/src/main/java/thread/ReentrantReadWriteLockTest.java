@@ -76,7 +76,7 @@ public class ReentrantReadWriteLockTest {
         try {
             readLock.lock();
             Log.addPreDate(TAG, "read:锁住了");
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -94,7 +94,7 @@ public class ReentrantReadWriteLockTest {
         try {
             writeLock.lock();
             Log.addPreDate(TAG, "write:锁住了");
-            Thread.sleep(3000);
+            Thread.sleep(5000);
             value = index;
         } catch (InterruptedException e) {
             e.printStackTrace();

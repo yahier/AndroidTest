@@ -1,13 +1,7 @@
 package regex;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import sun.util.resources.cldr.gu.LocaleNames_gu;
 
 public final class MyMatcher {
     public static void main(String[] args) {
@@ -19,6 +13,7 @@ public final class MyMatcher {
 
         boolean result3 = isFormatOfyyyyMMdd("2017-08-11");
         System.out.println("result3:" + result3);
+        isPhone();
     }
 
 
@@ -27,6 +22,12 @@ public final class MyMatcher {
         return str.matches("[-]?[\\d]*");
     }
 
+    public static void isPhone() {
+        String phone = "+8618520137573";
+        //前面是0-1个+，后面是11到13个数字
+        boolean isMatched = phone.matches("[+]{0,1}\\d{11,13}");
+        System.out.println("isPhone isMatched is " + isMatched);
+    }
 
 
     public static boolean isFormatOfyyyyMMdd(String str) {

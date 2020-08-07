@@ -2,7 +2,6 @@ package string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,7 +18,7 @@ public class Ga {
 
 	static void split() {
 		String con = "{yahier is bingo,1989}";
-		Pattern p = Pattern.compile("yahier|[\\d]");
+		Pattern p = Pattern.compile("yahier|1989");
 		Matcher m = p.matcher(con);
 		while (m.find()) {
 			String newCon = m.group();

@@ -1,31 +1,30 @@
 package string;
 
 /**
- * ¼ÆËã100µÄ½×³Ë
+ * æµ‹è¯•BigInteger
  */
 
 import java.math.BigInteger;
 
 public class TestBigInteger {
 
-	public static void main(String[] args) {
-		System.out.println(big(BigInteger.valueOf(100)));
+    public static void main(String[] args) {
+        System.out.println(big(BigInteger.valueOf(100)));
 
-	}
+    }
 
-	/**
-	 * 100µÄ½×³Ë<br>
-	 * »ù´¡Êı¾İÀàĞÍ¶ÔÏó»¯ »ù´¡Êı¾İÀàĞÍ×ª»¯ÎªÏàÓ¦µÄ°ü×°¶ÔÏóÖ®¼äµÄËÄÔòÔËËã<br>
-	 * ¼Ó£ºo.add(Object o1) <br>
-	 * ¼õ£ºo.subtract(Object o1) <br>
-	 * ³Ë£ºo.multiply(Object o1) <br>
-	 * ³ı£ºo.divide(Object o1)
-	 */
-	public static BigInteger big(BigInteger b) {
-		if (b.equals(BigInteger.valueOf(1L))) {
-			return BigInteger.valueOf(1L);
-		} else {
-			return (b.multiply(big(b.subtract(BigInteger.valueOf(1L)))));
-		}
-	}
+    /**
+     * è®¡ç®—ä»1åˆ°bçš„é˜¶ä¹˜
+     * ï¿½Ó£ï¿½o.add(Object o1) <br>
+     * ï¿½ï¿½ï¿½ï¿½o.subtract(Object o1) <br>
+     * ï¿½Ë£ï¿½o.multiply(Object o1) <br>
+     * ï¿½ï¿½ï¿½ï¿½o.divide(Object o1)
+     */
+    private static BigInteger big(BigInteger b) {
+        if (b.equals(BigInteger.valueOf(1L))) {
+            return BigInteger.valueOf(1L);
+        } else {
+            return (b.multiply(big(b.subtract(BigInteger.valueOf(1L)))));
+        }
+    }
 }

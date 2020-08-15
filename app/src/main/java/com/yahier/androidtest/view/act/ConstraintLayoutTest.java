@@ -18,8 +18,9 @@ public class ConstraintLayoutTest extends com.yahier.androidtest.BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.constain_layout1);
+        group1 = findViewById(R.id.group1);
         testAddContentView();
-
+        delayedChangeGroupVisibility();
     }
 
     private void testAddContentView() {
@@ -31,5 +32,15 @@ public class ConstraintLayoutTest extends com.yahier.androidtest.BaseActivity {
         ImageView img = new ImageView(this);
         img.setImageResource(R.drawable.sunset);
         return img;
+    }
+
+
+    View group1;
+
+    private void delayedChangeGroupVisibility() {
+        getWindow().getDecorView().postDelayed(() -> {
+            group1.setVisibility(View.GONE);
+        }, 4000);
+
     }
 }

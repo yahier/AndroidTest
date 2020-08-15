@@ -7,23 +7,55 @@
     android:background="#fff"
     android:orientation="vertical">
 
+    <!-- layout_constraintDimensionRatio 设置宽高比例 需要宽或高为0dp-->
     <Button
         android:id="@+id/button3"
-        android:layout_width="89dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
         android:text="确定"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="飞走"
-        tools:layout_editor_absoluteX="500dp"
-        tools:layout_editor_absoluteY="500dp" />
+        android:layout_height="50dp"
+        android:text="飞走" />
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#e1f0f0"
+        android:text="text1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#e1f0f0"
+        android:text="text2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+
+    <!-- 用group方便的隐藏或者显示多个view-->
+    <android.support.constraint.Group
+        android:id="@+id/group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="tv1,tv2" />
+
 </android.support.constraint.ConstraintLayout>

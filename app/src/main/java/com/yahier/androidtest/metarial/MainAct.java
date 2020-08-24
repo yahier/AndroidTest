@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.WorkerThread;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -75,9 +74,25 @@ import com.yahier.androidtest.view.act.SwipeBackMainActivity;
 import com.yahier.androidtest.view.act.ViewLocationAct;
 import com.yahier.androidtest.viewtest.CanvasTest;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.util.Collection;
 import java.util.Set;
 import java.util.TreeMap;
+
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+//import io.reactivex.Flowable;
+//import io.reactivex.Observable;
+//import io.reactivex.Observer;
+//import io.reactivex.disposables.Disposable;
+//import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by yahier on 16/12/30.
@@ -272,7 +287,99 @@ public class MainAct extends BaseActivity {
 //                                .makeSceneTransitionAnimation(mAct).toBundle());
             }
         });
+
+        Log.e("threadId", "id is " + Thread.currentThread().getId());//1
+        new Thread(() -> {
+            testRxjava();
+        }).start();
+
+        testRxJavaSample2();
     }
 
 
+    /**
+     * 测试rxjava
+     */
+    private void testRxjava() {
+        Log.e("testRxjava", "threadId is " + Thread.currentThread().getId());//172
+        //todo 没有执行，按照理解，不是应该加上dispose()方法 处理吗
+        {
+            Observable<Integer> source = Observable.just(1, 2, 3);
+            source.subscribeOn(Schedulers.newThread()).subscribe(item -> {
+                Log.e("testRxjava-1", "item is " + item);
+            });
+
+        }
+
+        //todo 执行了
+        {
+            Observable<Integer> source = Observable.just(1, 2, 3);
+            source.subscribeOn(AndroidSchedulers.mainThread()).subscribe(item -> {
+                Log.e("testRxjava-2", "item is " + item);
+                Log.e("testRxjava-2", "threadId is " + Thread.currentThread().getId());
+            });
+            //doNext比上面还先执行
+            //调用了soOnNext,下面的onNext就被调用了
+            source.doOnNext(item -> {
+                Log.e("testRxjava-2", "doOnNext is " + item);
+            }).subscribe(new Observer<Integer>() {
+                @Override
+                public void onSubscribe(Disposable d) {
+
+                }
+
+                @Override
+                public void onNext(Integer integer) {
+                    Log.e("testRxjava-3", "doOnNext is " + integer);
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onComplete() {
+                    Log.e("testRxjava-3", "onComplete");
+                    Log.e("onComplete", "threadId is " + Thread.currentThread().getId());
+                }
+            });
+
+        }
+
+    }
+
+    private void testRxJavaSample2() {
+        Flowable.range(0, 10)
+                .subscribe(new Subscriber<Integer>() {
+                    Subscription sub;
+
+                    //当订阅后，会首先调用这个方法，其实就相当于onStart()，
+                    //传入的Subscription s参数可以用于请求数据或者取消订阅
+                    @Override
+                    public void onSubscribe(Subscription s) {
+                        Log.w("TAG", "onsubscribe start");
+                        sub = s;
+                        sub.request(1);
+                        Log.w("TAG", "onsubscribe end");
+                    }
+
+                    @Override
+                    public void onNext(Integer o) {
+                        Log.w("TAG", "onNext--->" + o);
+                        sub.request(1);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.w("TAG", "onComplete");
+                    }
+                });
+
+    }
 }

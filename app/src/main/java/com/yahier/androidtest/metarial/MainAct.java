@@ -55,6 +55,7 @@ import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
+import com.yahier.androidtest.ui.test.RecyclerMoveAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
@@ -193,6 +194,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("65", new MainItem("recyclerView交换位置位置", "", RecyclerMoveAct.class));
         map.put("64", new MainItem("图表显示数据", "坐标系展示数据", ChartAct.class));
         map.put("63", new MainItem("使用 WorkManager 调度任务 ", "使用 WorkManager API 可以轻松地调度即使在应用退出或设备重启时仍应运行的可延迟异步任务", WorkManagerAct.class));
         map.put("62", new MainItem("绘制圆形图 和 融合图片", "利用PorterDuffXfermode取得两次绘制的效果 可以是上层交集 并集 取反 各种操作", MixImgAct.class));
@@ -233,7 +235,7 @@ public class MainAct extends BaseActivity {
         map.put("10", new MainItem("测试广播", "详细解说一下", BroadCastActTest.class));
         map.put("11", new MainItem("测试ConfigChanges", "详细解说一下", ConfigChangesActTest.class));
         map.put("12", new MainItem("测试Handler处理", "详细解说一下", HandlerTest.class));
-        map.put("59", new MainItem("测试通知 类似微博效果", "详细解说一下", TestNotificationAct.class));
+        map.put("13", new MainItem("测试通知 类似微博效果", "详细解说一下", TestNotificationAct.class));
         map.put("14", new MainItem("调通dex的方法", "详细解说一下", LoaderAct.class));
         map.put("15", new MainItem("加载超大图", "详细解说一下", LargeImageViewActivity.class));
         map.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));

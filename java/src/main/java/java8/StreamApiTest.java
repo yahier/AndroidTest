@@ -2,14 +2,18 @@ package java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import pojo.People;
 
 /**
  * Created by yahier on 2018/1/22.
@@ -35,11 +39,12 @@ public class StreamApiTest {
 //        test5();
 //        test6();
 //        test7();
-        test8();
+        // test8();
 //        test9();
 //        test10();
 //        test11();
 //        test12();
+        test13();
     }
 
     static void test1() {
@@ -200,6 +205,22 @@ public class StreamApiTest {
         }
     }
 
+
+    static void test13() {
+        People user1 = new People("zhangsan", "beijing", 10);
+        People user2 = new People("zhangsan", "beijing", 20);
+        People user3 = new People("lisi", "shanghai", 30);
+        List<People> list = new ArrayList<People>();
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+
+        Map<String, List<People>> collect = list.stream().collect(Collectors.groupingBy(People::getName));
+        System.out.println("size1:"+collect.size());
+        System.out.println("size2:"+collect.get("zhangsan").size());
+
+       Collection<List<People>> values = collect.values();
+    }
 
     static void println(String tag, Stream stream) {
         stream.forEach(str -> System.out.println(tag + "," + str));

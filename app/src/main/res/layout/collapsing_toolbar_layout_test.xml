@@ -10,14 +10,18 @@
         android:id="@+id/layout_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--
-         app:expandedTitleMarginStart="10dp" 设置扩张时候(还没有收缩时)title离屏幕左边的距离
-         app:contentScrim="?attr/colorPrimary" 设置当完全CollapsingToolbarLayout折叠(收缩)后的背景颜色
-        -->
+
+        <!--        <RelativeLayout-->
+        <!--            app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--  android:minHeight="40dp" -->
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/ctb"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginBottom="0dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="10dp"
@@ -38,20 +42,31 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="200dp"
                 app:layout_collapseMode="pin"
-                app:title="Toolbar" />
+                app:title="Toolbar">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#123456"
+                    android:text="我是text"
+                    android:textColor="@color/red" />
+
+            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
-        <!--选项卡-->
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:tabIndicatorColor="@color/blue"
-            app:tabMode="scrollable"
-            app:tabSelectedTextColor="@color/black"
-            app:tabTextColor="@android:color/black" />
+
+
+        <!--选项卡   app:layout_scrollFlags="scroll|exitUntilCollapsed" -->
+
+
+        <!--        </RelativeLayout>-->
+        <!--
+         app:expandedTitleMarginStart="10dp" 设置扩张时候(还没有收缩时)title离屏幕左边的距离
+         app:contentScrim="?attr/colorPrimary" 设置当完全CollapsingToolbarLayout折叠(收缩)后的背景颜色
+        -->
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -59,13 +74,15 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#76233098"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="80dp"
+            android:text="我是scrollView中的text"
+            android:textColor="@color/red" />
     </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

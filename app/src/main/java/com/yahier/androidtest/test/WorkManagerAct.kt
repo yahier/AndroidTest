@@ -1,8 +1,10 @@
 package com.yahier.androidtest.test
 
+import android.os.Build
 import android.os.Bundle
 import androidx.work.Constraints
 import androidx.work.OneTimeWorkRequest
+import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.yahier.androidtest.BaseActivity
 import com.yahier.androidtest.R
@@ -31,7 +33,13 @@ class WorkManagerAct : BaseActivity() {
 
         //立即执行 一个需要满足条件的任务
         btnStartWork2.setOnClickListener {
-            val constraints = Constraints.Builder().setRequiresDeviceIdle(true).setRequiresCharging(true).build()
+            if(Build.VERSION.SDK_INT>23){
+//                val constraints = Constraints.Builder().setRequiresDeviceIdle(true).setRequiresCharging(true).build()
+//                val workRequest = OneTimeWorkRequest.Builder(UploadWorker::class.java).setConstraints(constraints).setPeriodStartTime(30,TimeUnit.SECONDS)
+//
+//                WorkManager.getInstance().enqueue(workRequest)
+            }
+
         }
 
 
@@ -43,6 +51,16 @@ class WorkManagerAct : BaseActivity() {
             val workRequest = OneTimeWorkRequest.Builder(UploadWorker::class.java).setInitialDelay(1, TimeUnit.MINUTES).build()
             WorkManager.getInstance().enqueue(workRequest)
         }
+
+    }
+
+
+    /***
+     * 周期性任务 https://developer.android.google.cn/reference/androidx/work/PeriodicWorkRequest?hl=en
+     * 最短仍然需要15分钟的间隔 并且因为dezo mode的缘故，执行施行并不准确
+     */
+    fun testRepeat(){
+        val request = PeriodicWorkRequest.Builder(UploadWorker::class.java,15,TimeUnit.MINUTES).build()
 
     }
 

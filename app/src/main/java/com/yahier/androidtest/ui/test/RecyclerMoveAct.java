@@ -33,9 +33,10 @@ public class RecyclerMoveAct extends BaseActivity implements OnStartDragListener
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        List<String> listOrigin = Arrays.asList("仍然自由自我", "仍然高唱我歌", "走遍千里", "原谅我这一生", "今天只有残留的躯壳");
+        List<String> listOrigin = Arrays.asList("冷雨夜", "光辉岁月", "无尽的轨迹", "长空", "你知道我的迷惘");
         List<CommonItem> listData = CommonItem.getNormalList(listOrigin);
         adapter = new MoveAdapter(listData);
+        adapter.setOnStartDragListener(this);
         recyclerView.setAdapter(adapter);
 
         initDrag();
@@ -97,6 +98,8 @@ public class RecyclerMoveAct extends BaseActivity implements OnStartDragListener
 
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
-        mItemTouchHelper.startDrag(viewHolder);
+        Log.e("口袋测试", "onStartDrag");
+        mItemTouchHelper.startDrag(viewHolder);//拖曳互换 。也可以用其他的操作需要触发这个拖曳（默认是长按）， 测试发现 这里不调用都没关系
+        //mItemTouchHelper.startSwipe(viewHolder);//左滑
     }
 }

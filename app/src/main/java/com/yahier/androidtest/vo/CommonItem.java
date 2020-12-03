@@ -5,6 +5,7 @@ import java.util.List;
 
 public class CommonItem {
     public String name;
+    public int size;
     public int type;
 
     public static final int typeNormal = 1;
@@ -14,6 +15,15 @@ public class CommonItem {
         CommonItem item = new CommonItem();
         item.type = typeNormal;
         item.name = name;
+        item.size = 2;
+        return item;
+    }
+
+    public static CommonItem getNormal(String name,int size) {
+        CommonItem item = new CommonItem();
+        item.type = typeNormal;
+        item.name = name;
+        item.size = size;
         return item;
     }
 
@@ -23,6 +33,7 @@ public class CommonItem {
         item.name = name;
         return item;
     }
+
 
     public static List<CommonItem> getNormalList(List<String> list) {
         List<CommonItem> listData = new ArrayList<>();

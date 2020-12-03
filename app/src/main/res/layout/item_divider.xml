@@ -13,5 +13,11 @@
         android:text="仍然自由自我 仍然高唱我歌"
         android:textSize="18dp" />
 
+    <TextView
+        android:id="@+id/tvSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
 
 </LinearLayout>

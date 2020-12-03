@@ -20,6 +20,10 @@ import android.graphics.Canvas;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
+
+import com.yahier.androidtest.R;
+import com.yahier.androidtest.adapter.MoveAdapter;
 
 
 /**
@@ -42,16 +46,26 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         mAdapter = adapter;
     }
 
+    /**
+     * todo 关键处，这里默认是长按拖动，如果需要修改条件，可以另外调用  mItemTouchHelper.startDrag(viewHolder)
+     *
+     * @return true则可以长按拖动;false就拖不动
+     */
     @Override
     public boolean isLongPressDragEnabled() {
-        return true;
+        return false;
     }
 
+    //向左侧滑动 是否允许
     @Override
     public boolean isItemViewSwipeEnabled() {
-        return true;
+        return false;
     }
 
+
+    /**
+     * 标记拖曳的反向和滑动的方向
+     */
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         // Set movement flags based on the layout manager
@@ -66,11 +80,19 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         }
     }
 
+
+    /**
+     * todo mark关键在这里啊
+     */
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder source, RecyclerView.ViewHolder target) {
-        if (source.getItemViewType() != target.getItemViewType()) {
-            return false;
-        }
+//        if (source.getItemViewType() != target.getItemViewType()) {
+//            return false;
+//        }
+
+//        if(source.getItemViewType()!= CommonItem.typeNormal){
+//            return false;
+//        }
 
         // Notify the adapter of the move
         mAdapter.onItemMove(source.getAdapterPosition(), target.getAdapterPosition());
@@ -98,12 +120,24 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+        Log.e("口袋测试", "onSelectedChanged 1");
         // We only want the active item to change
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
+            //holder不符合
             if (viewHolder instanceof ItemTouchHelperViewHolder) {
                 // Let the view holder know that this item is being moved or dragged
                 ItemTouchHelperViewHolder itemViewHolder = (ItemTouchHelperViewHolder) viewHolder;
-                itemViewHolder.onItemSelected();
+                //todo 设置选中时的高亮颜色
+                int color = viewHolder.itemView.getResources().getColor(R.color.light_yellow);
+                viewHolder.itemView.setBackgroundColor(color);
+
+                //复制拖动的时候 数量设置1
+                if (viewHolder instanceof MoveAdapter.MyViewHolder) {
+                    MoveAdapter.MyViewHolder holderTemp = (MoveAdapter.MyViewHolder) viewHolder;
+                    holderTemp.tvSize.setText(String.valueOf(1));
+                }
+
+                itemViewHolder.onItemSelected(viewHolder.getLayoutPosition());
             }
         }
 
@@ -115,6 +149,10 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         super.clearView(recyclerView, viewHolder);
         onDragListener.onDragFinished();
         viewHolder.itemView.setAlpha(ALPHA_FULL);
+
+        // 恢复透明色
+        int color = viewHolder.itemView.getResources().getColor(R.color.transparent);
+        viewHolder.itemView.setBackgroundColor(color);
 
         if (viewHolder instanceof ItemTouchHelperViewHolder) {
             // Tell the view holder it's time to restore the idle state

@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.util.move_hepler.ItemTouchHelperAdapter;
+import com.yahier.androidtest.util.move_hepler.ItemTouchHelperViewHolder;
+import com.yahier.androidtest.util.move_hepler.OnStartDragListener;
 import com.yahier.androidtest.vo.CommonItem;
 
 import java.util.Collections;
@@ -22,12 +24,12 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
         initDivider();
     }
 
-    public void setListData(List<CommonItem> listData){
+    public void setListData(List<CommonItem> listData) {
         this.listData = listData;
         notifyDataSetChanged();
     }
 
-    public void addListData(List<CommonItem> listData){
+    public void addListData(List<CommonItem> listData) {
         this.listData.addAll(listData);
         notifyDataSetChanged();
     }
@@ -52,6 +54,9 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
         return item.type;
     }
 
+    /**
+     * 当前测试发现一个特性，viewType相同的item才能交换。
+     */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView;
@@ -70,9 +75,33 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.tvName.setText(listData.get(position).name);
+        CommonItem commonItem = listData.get(position);
+        holder.tvName.setText(commonItem.name);
+        holder.tvSize.setText(String.valueOf(commonItem.size));
+
+
+        holder.itemView.setOnLongClickListener(v -> {
+            if (commonItem.type == CommonItem.typeNormal && onStartDragListener != null)
+                onStartDragListener.onStartDrag(holder);
+
+            return true;
+        });
+
     }
 
+    /**
+     * 查看物品的口袋名称
+     */
+    public String getPocketName(int position) {
+        for (int i = position; i >= 0; i--) {
+            CommonItem commonItem = listData.get(i);
+            if (commonItem.type == CommonItem.typeDivider) {
+                return commonItem.name;
+            }
+        }
+
+        return "";
+    }
 
     @Override
     public int getItemCount() {
@@ -86,6 +115,7 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
         return true;
     }
 
+
     @Override
     public void onItemDismiss(int position) {
         listData.remove(position);
@@ -93,12 +123,40 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
     }
 
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName;
+    OnStartDragListener onStartDragListener;
+
+    public void setOnStartDragListener(OnStartDragListener onStartDragListener) {
+        this.onStartDragListener = onStartDragListener;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+        public TextView tvName, tvSize;
 
         MyViewHolder(View view) {
             super(view);
             tvName = view.findViewById(R.id.tvName);
+            tvSize = view.findViewById(R.id.tvSize);
+        }
+
+        @Override
+        public void onItemSelected(int position) {
+            CommonItem sourceItem = listData.get(position);
+            if (sourceItem.size > 1) {
+                //以下是复制品
+                int leftSize = sourceItem.size - 1;
+                CommonItem commonItem1 = CommonItem.getNormal(sourceItem.name, leftSize);
+                listData.add(position, commonItem1);
+
+                sourceItem.size = 1;
+                notifyItemInserted(position);
+
+            }
+
+        }
+
+        @Override
+        public void onItemClear() {
+
         }
     }
 

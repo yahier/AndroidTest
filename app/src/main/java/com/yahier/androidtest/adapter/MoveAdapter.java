@@ -1,6 +1,7 @@
 package com.yahier.androidtest.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,6 +111,7 @@ public class MoveAdapter extends RecyclerView.Adapter<MoveAdapter.MyViewHolder> 
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+        Log.e("口袋测试", "fromPosition" + fromPosition + "  toPosition:" + toPosition);
         Collections.swap(listData, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
         return true;

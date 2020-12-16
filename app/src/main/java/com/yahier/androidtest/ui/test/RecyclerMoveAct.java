@@ -58,11 +58,12 @@ public class RecyclerMoveAct extends BaseActivity implements OnStartDragListener
         callback.setOnDragListener(new SimpleItemTouchHelperCallback.OnDragListener() {
             @Override
             public void onDragFinished() {
-                List<CommonItem> list = adapter.getDataList();
-                for (CommonItem item : list) {
-                    Log.e("onDragFinished", item.name);
-                }
-                adapter.setListData(list);
+                 //多余，不需要重写
+//                List<CommonItem> list = adapter.getDataList();
+//                for (CommonItem item : list) {
+//                    Log.e("onDragFinished", item.name);
+//                }
+//                adapter.setListData(list);
             }
 
             @Override

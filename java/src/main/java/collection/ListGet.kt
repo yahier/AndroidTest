@@ -83,6 +83,7 @@ class ListGet {
         @JvmStatic
         fun main(args: Array<String>) {
             val lg = ListGet()
+            lg.list.add(1,0)
             //lg.put();
             //lg.get();
             //lg.t();

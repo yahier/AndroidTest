@@ -56,6 +56,7 @@
         <activity android:name=".ui.test.RecyclerMoveAct" />
         <!-- binding开始 -->
         <activity android:name=".ui.test.ChartAct" />
+        <activity android:name=".ui.test.SmartRefreshAct" />
         <activity
             android:name=".view.act.DrawableStyleAct"
             android:theme="@style/logo" />

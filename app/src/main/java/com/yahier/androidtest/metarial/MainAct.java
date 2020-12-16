@@ -56,6 +56,7 @@ import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
 import com.yahier.androidtest.ui.test.RecyclerMoveAct;
+import com.yahier.androidtest.ui.test.SmartRefreshAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
@@ -194,6 +195,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("66", new MainItem("SmartRefreshAct测试", "", SmartRefreshAct.class));
         map.put("65", new MainItem("recyclerView交换位置位置", "", RecyclerMoveAct.class));
         map.put("64", new MainItem("图表显示数据", "坐标系展示数据", ChartAct.class));
         map.put("63", new MainItem("使用 WorkManager 调度任务 ", "使用 WorkManager API 可以轻松地调度即使在应用退出或设备重启时仍应运行的可延迟异步任务", WorkManagerAct.class));

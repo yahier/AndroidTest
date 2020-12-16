@@ -10,9 +10,6 @@ import android.widget.TextView;
 import com.yahier.androidtest.R;
 import com.yahier.androidtest.metarial.MainItem;
 
-import java.util.Collection;
-import java.util.List;
-
 /**
  * Created by yahier on 16/12/30.
  */
@@ -67,7 +64,8 @@ public class MainRecycleAdapter extends RecyclerView.Adapter<MainRecycleAdapter.
         holder.lin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClck(position);
+                if (listener != null)
+                    listener.onItemClck(position);
             }
         });
 

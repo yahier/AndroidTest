@@ -1,32 +1,25 @@
 package xml;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-/**
- * 根据(countCode,provinceCode,cityCode)得到城市名
- * 解析区域表   形式是 三层map嵌套 已经完好
- * @author lenovo
- *
- */
 public class SaxParseXml extends DefaultHandler {
 	static HashMap<String, String> cityMap;
 	static Map<String, Map> provinceMap;
 	static Map<String, Map> countryMap;
 
-	String provinceCode = "";// 有的根本没有这个值
+	String provinceCode = "";//
 	String countryCode = "";
 	final static String defaultContryCode = "1";
 
@@ -45,7 +38,7 @@ public class SaxParseXml extends DefaultHandler {
 			countryCode = attributes.getValue(1);
 		}
 
-		// 得到省份Code
+		// 锟矫碉拷省锟斤拷Code
 		if (qName.equals("State")) {
 			cityMap = new HashMap<String, String>();
 			if (attributes.getValue(1) != null)
@@ -57,7 +50,7 @@ public class SaxParseXml extends DefaultHandler {
 
 		if (qName.equals("City")) {
 			// System.out.println(attributes.getValue(0));
-			// System.out.println("城市个数是     " + cityMap.size());
+			// System.out.println("锟斤拷锟叫革拷锟斤拷锟斤拷     " + cityMap.size());
 			cityMap.put(attributes.getValue(1), attributes.getValue(0));
 		}
 
@@ -68,17 +61,14 @@ public class SaxParseXml extends DefaultHandler {
 			throws SAXException {
 		// TODO Auto-generated method stub
 		super.endElement(uri, localName, qName);
-		// 一个省份完了
 		if (qName.equals("State")) {
 			// System.out.println("end   qName is  " + qName);
 			provinceMap.put(provinceCode, cityMap);
-			// 我本来觉得 已经 clear的啊 哦 其实不用 因为本来也要重新得到新的map
 			// cityMap.clear();
 		}
 
-		// 一个国家完了
 		if (qName.equals("CountryRegion")) {
-			// System.out.println("国家有      " + countryCode);
+			// System.out.println("锟斤拷锟斤拷锟斤拷      " + countryCode);
 			countryMap.put(countryCode, provinceMap);
 			// provinceMap.clear();
 		}
@@ -101,10 +91,6 @@ public class SaxParseXml extends DefaultHandler {
 		System.out.println("size  is  " + countryMap.size());
 	}
 
-	/**
-	 *  有可能没有写国家 ， 有可能只填写省份 默认第一站
-	 * @return
-	 */
 	String check(String countryCode, String proviceCode, String CityCode) {
 		if (countryCode.equals(""))
 			countryCode = defaultContryCode;
@@ -115,7 +101,7 @@ public class SaxParseXml extends DefaultHandler {
 			city = proMap.get(CityCode);
 
 		} catch (NullPointerException myNull) {
-			System.out.println("城市判断失误");
+
 		}
 		if (city == null)
 			city = "unKnown";

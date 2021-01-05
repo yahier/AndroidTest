@@ -55,6 +55,7 @@ import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
+import com.yahier.androidtest.ui.test.PropertyAnimaAct;
 import com.yahier.androidtest.ui.test.RecyclerMoveAct;
 import com.yahier.androidtest.ui.test.SmartRefreshAct;
 import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
@@ -62,6 +63,7 @@ import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.util.YahierEventManager;
 import com.yahier.androidtest.view.act.CommonViewTest;
+import com.yahier.androidtest.view.act.ConstraintLayout2Test;
 import com.yahier.androidtest.view.act.ConstraintLayoutTest;
 import com.yahier.androidtest.view.act.CustomRoungImgAct;
 import com.yahier.androidtest.view.act.DrawableStyleAct;
@@ -195,7 +197,9 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
-        map.put("66", new MainItem("SmartRefreshAct测试", "", SmartRefreshAct.class));
+        map.put("68", new MainItem("属性动画1", "", PropertyAnimaAct.class));
+        map.put("67", new MainItem("ConstraintLayout2的测试", "", ConstraintLayout2Test.class));
+        map.put("66", new MainItem("约束性布局", "ConstraintLayout", ConstraintLayoutTest.class));
         map.put("65", new MainItem("recyclerView交换位置位置", "", RecyclerMoveAct.class));
         map.put("64", new MainItem("图表显示数据", "坐标系展示数据", ChartAct.class));
         map.put("63", new MainItem("使用 WorkManager 调度任务 ", "使用 WorkManager API 可以轻松地调度即使在应用退出或设备重启时仍应运行的可延迟异步任务", WorkManagerAct.class));
@@ -211,7 +215,7 @@ public class MainAct extends BaseActivity {
         map.put("53", new MainItem("视频播放", "MediaPlayer配合surfaceView", MediaPlayerTest.class));
         map.put("52", new MainItem("下载安装测试", "下载完成之后，自动安装此app", DownTest.class));
         map.put("51", new MainItem("CollapsingToolbarLayout", "", CollapsingToolbarLayoutTest.class));
-        map.put("50", new MainItem("约束性布局", "ConstraintLayout", ConstraintLayoutTest.class));
+        map.put("50", new MainItem("SmartRefreshAct测试", "", SmartRefreshAct.class));
         map.put("49", new MainItem("状态栏适配变色", "", StatusBarFitColorAct.class));
         map.put("48", new MainItem("link测试", "link", AppLinkTestAct.class));
 //        map.put("47", new MainItem("binding测试", "6:绑定容器 数组", Test6Act.class));

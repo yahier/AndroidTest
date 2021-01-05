@@ -30,6 +30,6 @@ public class PersonBean {
 	}
 
 	public void show(){
-		System.out.println("idÊÇ£º    "+id+"   name ÊÇ "+name+"   ageÊÇ"+age);
+		//System.out.println("idï¿½Ç£ï¿½    "+id+"   name ï¿½ï¿½ "+name+"   ageï¿½ï¿½"+age);
 	}
 }

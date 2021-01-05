@@ -61,11 +61,10 @@
             android:name=".view.act.DrawableStyleAct"
             android:theme="@style/logo" />
         <!-- view测试 -->
+        <activity android:name=".view.act.MixImgAct" />
         <activity
-            android:name=".view.act.MixImgAct" />
-        <activity
-            android:label="WorkManager 调度任务"
-            android:name=".test.WorkManagerAct" />
+            android:name=".test.WorkManagerAct"
+            android:label="WorkManager 调度任务" />
         <activity
             android:name=".viewtest.SwipeRefreshLayoutTest"
             android:label="SwipeRefreshLayout" />
@@ -196,6 +195,8 @@
             android:name=".ui.test.AwardAct"
             android:label="抽奖测试" />
         <activity android:name=".view.act.ConstraintLayoutTest" />
+        <activity android:name=".view.act.ConstraintLayout2Test" />
+        <activity android:name=".ui.test.PropertyAnimaAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"
             android:label="ui线程卡顿监听" />

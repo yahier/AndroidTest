@@ -31,6 +31,20 @@
             </intent-filter>
         </activity>
 
+        <activity-alias
+            android:label="yahier别名"
+            android:name="changeIcon"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:targetActivity=".metarial.MainAct" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
         <!-- material -->
         <activity
             android:name=".metarial.Material1Act"
@@ -197,6 +211,7 @@
         <activity android:name=".view.act.ConstraintLayoutTest" />
         <activity android:name=".view.act.ConstraintLayout2Test" />
         <activity android:name=".ui.test.PropertyAnimaAct" />
+        <activity android:name=".ui.test.MotionLayoutAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"
             android:label="ui线程卡顿监听" />

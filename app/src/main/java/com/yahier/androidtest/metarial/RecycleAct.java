@@ -95,7 +95,7 @@ public class RecycleAct extends BaseActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
 
 
         List<String> datas = new ArrayList<>();
@@ -136,6 +136,7 @@ public class RecycleAct extends BaseActivity {
         datasNew.add("每一秒都期待");
         datasNew.add("东周列国志");
         datasNew.add("网罗门客");
+        datasNew.add("仍然自由");
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffCallBack(mDatas, datasNew), true);
         diffResult.dispatchUpdatesTo(mAdapter);
         mAdapter.setData(datasNew);

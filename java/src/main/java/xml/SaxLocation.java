@@ -35,7 +35,6 @@ public class SaxLocation {
 
 			parser.parse(stream, object);
 			// parseXml.check("1", "11", "1");
-			// parseXml.checkCountryCode("°¢¸»º¹");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -50,7 +49,7 @@ public class SaxLocation {
 	}
 
 	/**
-	 * ½«list×ª³Éarrays
+	 * ï¿½ï¿½list×ªï¿½ï¿½arrays
 	 */
 	static void changeListToStrArray(List list) {
 		String[] objs = (String[]) list.toArray(new String[list.size()]);

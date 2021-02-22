@@ -1,7 +1,9 @@
 package com.yahier.androidtest.metarial;
 
 import android.Manifest;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -55,6 +57,7 @@ import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
+import com.yahier.androidtest.ui.test.MotionLayoutAct;
 import com.yahier.androidtest.ui.test.PropertyAnimaAct;
 import com.yahier.androidtest.ui.test.RecyclerMoveAct;
 import com.yahier.androidtest.ui.test.SmartRefreshAct;
@@ -169,6 +172,21 @@ public class MainAct extends BaseActivity {
         });
     }
 
+
+    //动态改变APP图标
+    private void switchIcon(boolean isChange){
+        String name = "com.yahier.androidtest.changeIcon";
+        PackageManager pm = getPackageManager();
+        //停用当前
+        pm.setComponentEnabledSetting(getComponentName(),
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+        //启用新建
+        pm.setComponentEnabledSetting(new ComponentName(this, name),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+
+    }
+
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -181,6 +199,8 @@ public class MainAct extends BaseActivity {
         super.onStop();
         SystemClock.sleep(500);
         Log.e("MainAct", "onStop");
+
+        switchIcon(true);
     }
 
 
@@ -197,6 +217,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("69", new MainItem("motionLayout", "MotionLayout定义MotionScene和translation让来模拟view的滚动", MotionLayoutAct.class));
         map.put("68", new MainItem("属性动画1", "", PropertyAnimaAct.class));
         map.put("67", new MainItem("ConstraintLayout2的测试", "", ConstraintLayout2Test.class));
         map.put("66", new MainItem("约束性布局", "ConstraintLayout", ConstraintLayoutTest.class));
@@ -247,7 +268,7 @@ public class MainAct extends BaseActivity {
         map.put("16", new MainItem("自定义ViewPager显示卷图", "详细解说一下", ParallaxVpTestActivity.class));
         map.put("17", new MainItem("glide加载图片 测试", "详细解说一下", GlideTestAct.class));
         map.put("18", new MainItem("material小特性", "translationZ  elevation", Material1Act.class));
-        map.put("19", new MainItem("recycle", "详细解说一下", RecycleAct.class));
+        map.put("19", new MainItem("recycle", "DiffUtil处理数据切换的滑动 StaggeredGridLayoutManager搞定瀑布流", RecycleAct.class));
         map.put("20", new MainItem("cardview", "详细解说一下", CardViewAct.class));
         map.put("21", new MainItem("service", "测试service的启动停止和生命周期", ServiceActivity.class));
         map.put("22", new MainItem("ContentProvider", "详细解说一下", TestCPActivity.class));

@@ -1,5 +1,9 @@
 package xml;
 
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,18 +13,13 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
 public class ParseZiwei extends DefaultHandler {
 
-	// 省份名称列表 。 怎么加入好呢 你觉得
 	static List<String> provinceNameList;
 	static List<String> provinceCodeList;
 
-	final static String defaultContryCode = "BHS"; // BEL比利时 state为空
-	final static String defaultContryName = "中国";
+	final static String defaultContryCode = "BHS";
+	final static String defaultContryName = "province";
 	boolean isIn = false;
 	StringBuffer sb = new StringBuffer();
 	String key = "tinsoeng";
@@ -73,7 +72,6 @@ public class ParseZiwei extends DefaultHandler {
 	public void endDocument() throws SAXException {
 		// TODO Auto-generated method stub
 		super.endDocument();
-		// System.out.println("文档结束了");
 		showList();
 
 	}

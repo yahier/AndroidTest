@@ -15,12 +15,11 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class GetCitys extends DefaultHandler {
 
-	// 城市名称列表 。 怎么加入好呢 你觉得
 	static List<String> cityNameList;
 	static List<String> cityCodeList;
 
 	final static String defaultprovinceCode = "44";
-	final static String defaultprovinceName = "广东";
+	final static String defaultprovinceName = "锟姐东";
 	boolean isIn = false;
 
 	@Override
@@ -46,7 +45,7 @@ public class GetCitys extends DefaultHandler {
 			// System.out.println("isIn is  "+isIn);
 		}
 
-		// 得到省份Code
+		// 锟矫碉拷省锟斤拷Code
 		if (qName.equals("City") && isIn) {
 			System.out.println(attributes.getValue(0) + "  yahier");
 			cityNameList.add(attributes.getValue(0));
@@ -60,12 +59,10 @@ public class GetCitys extends DefaultHandler {
 			throws SAXException {
 		// TODO Auto-generated method stub
 		super.endElement(uri, localName, qName);
-		// 一个省份完了
 		if (qName.equals("State")) {
 
 		}
 
-		// 一个国家完了
 		if (qName.equals("CountryRegion")) {
 
 		}
@@ -108,7 +105,6 @@ public class GetCitys extends DefaultHandler {
 				return;
 			parser.parse(stream, parseXml);
 		    //parseXml.check("1", "11", "1");
-			// parseXml.checkCountryCode("阿富汗");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

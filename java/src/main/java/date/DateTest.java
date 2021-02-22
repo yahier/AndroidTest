@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Random;
 
 public class DateTest {
     public static void main(String[] args) {
@@ -15,25 +14,34 @@ public class DateTest {
     }
 
     static void test() {
-        String pattern = "yyyy-MM-dd";
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(-1003086828933L);
-        Date date = calendar.getTime();
-        SimpleDateFormat format = new SimpleDateFormat(pattern,Locale.CHINESE);
-        // SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
-        System.out.printf("date:" + format.format(date));
+        SimpleDateFormat format;
+        String dateFormat;
+        {
+            String pattern = "yyyy-MM-dd";
+            Calendar calendar = Calendar.getInstance();
+            Date date = calendar.getTime();
+            format = new SimpleDateFormat(pattern, Locale.CHINESE);
+            dateFormat = format.format(date);
+            System.err.println("日期是:" + dateFormat);//2021-01-07
+        }
 
-        String timeMillis = String.valueOf(System.currentTimeMillis());
-        String last5 = timeMillis.substring(timeMillis.length() - 5);
-        System.out.printf("last5:" + last5);
 
-        int value = 100 + new Random().nextInt(900);
-        System.out.printf("value:" + value);
+        //将格式化日期转成时间戳
+        try {
+            Date newDate = format.parse(dateFormat);
+            String pattern2 = "yyyy-MM-dd HH:mm:ss";
+            SimpleDateFormat format2 = new SimpleDateFormat(pattern2, Locale.CHINESE);
+            String dateFormat2 = format2.format(newDate);
+            System.err.println("新日期是:" + dateFormat2);//2021-01-07 00:00:00
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     static void sa() {
         String pattern = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern,Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.getDefault());
         Date d = new Date();
         String date_s = sdf.format(d);
         System.out.println(date_s);

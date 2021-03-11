@@ -200,7 +200,7 @@ public class MainAct extends BaseActivity {
         SystemClock.sleep(500);
         Log.e("MainAct", "onStop");
 
-        switchIcon(true);
+        //switchIcon(true);
     }
 
 

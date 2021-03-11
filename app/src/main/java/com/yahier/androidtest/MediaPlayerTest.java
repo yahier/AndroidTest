@@ -2,7 +2,6 @@ package com.yahier.androidtest;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -16,6 +15,11 @@ import java.io.IOException;
 /**
  * Created by yahier on 2018/6/22.
  * 视频播放 测试
+ * 参考 https://developer.android.google.cn/guide/topics/media/mediaplayer?hl=zh_cn#java
+ *
+ * 建立工具类 map<VideoUrl,LocalFilePath)
+ * 没有key的，则下载，下载完成将key,value记录下来。直接进入，或者随机播放
+ * 有key,如果对应的value已经不存在；则删除这一对key-value,执行下载。直接进入，或者随机播放
  */
 
 public class MediaPlayerTest extends BaseActivity {
@@ -24,7 +28,7 @@ public class MediaPlayerTest extends BaseActivity {
     private SurfaceHolder holder;
     private MediaPlayer player;//媒体播放器
     private Button btnStart;
-    public static final String path = "sdcard/360/1529656917065904.mp4";
+    public static final String path = "sdcard/test_10.mp4";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,21 +37,12 @@ public class MediaPlayerTest extends BaseActivity {
 
         surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
         holder = surfaceView.getHolder();
-        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        //holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         btnStart = (Button) findViewById(R.id.btnStart);
         btnStart.setOnClickListener(v -> {
             play();
         });
-
-
-        String path = Environment.getExternalStorageDirectory().getPath();
-        Log.e(TAG, "path:" + path);
-
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("yahier");
-        buffer.delete(0,5);
-        Log.e("buffer",buffer.toString());
     }
 
 
@@ -88,4 +83,15 @@ public class MediaPlayerTest extends BaseActivity {
             e.printStackTrace();
         }
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (player != null) {
+            player.release();
+            player = null;
+        }
+    }
+
 }

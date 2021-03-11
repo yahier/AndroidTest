@@ -48,8 +48,8 @@ public class Reflect_T {
 			IllegalAccessException, InvocationTargetException,
 			InstantiationException {
 		Class c = Class.forName("core.InVokeMain");
-		Method m = c.getDeclaredMethod("go", null);
+		Method m = c.getDeclaredMethod("go", (Class<?>) null);
 		m.setAccessible(true);
-		m.invoke(c.newInstance(), null);
+		m.invoke(c.newInstance(), (Object) null);
 	}
 }

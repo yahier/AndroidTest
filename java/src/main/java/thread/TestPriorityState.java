@@ -6,8 +6,8 @@ package thread;
 public class TestPriorityState {
 
     public static void main(String[] args) {
-        testState();
-        //testPriority();
+        //testState();
+        testPriority();
     }
 
     /**

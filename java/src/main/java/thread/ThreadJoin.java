@@ -16,7 +16,7 @@ public class ThreadJoin {
                 for (int i = 0; i < 5; i++) {
                     System.out.println("1 i:" + i);
                     try {
-                        TimeUnit.SECONDS.sleep(1);
+                        TimeUnit.SECONDS.sleep(1000);
                     } catch(InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -31,11 +31,11 @@ public class ThreadJoin {
                 for (int i = 0; i < 5; i++) {
                     System.out.println("2 i:" + i);
                     try {
-                        TimeUnit.SECONDS.sleep(1);
+                        TimeUnit.SECONDS.sleep(1000);
                     } catch(InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (i == 2) {
+                    if (i == 1) {
                         try {
                             thread1.join();//阻塞当前的thread2线程，等thread1执行完了。再继续执行当前thread2
                         } catch(InterruptedException e) {

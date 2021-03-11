@@ -1,15 +1,14 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
 
 
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="500px" />
+        android:layout_height="match_parent" />
 
     <Button
         android:id="@+id/btnStart"
@@ -17,9 +16,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"
+        android:background="#33333333"
         android:padding="@dimen/padding_medium"
         android:text="播放"
         tools:context=".MainActivity" />
 
 
-</LinearLayout>
+</FrameLayout>

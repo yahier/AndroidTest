@@ -8,7 +8,7 @@
     <SurfaceView
         android:id="@+id/surfaceView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="500dp" />
 
     <Button
         android:id="@+id/btnStart"
@@ -21,6 +21,7 @@
         android:background="#33333333"
         android:padding="@dimen/padding_medium"
         android:text="播放"
+        android:textColor="@color/white"
         tools:context=".MainActivity" />
 
 

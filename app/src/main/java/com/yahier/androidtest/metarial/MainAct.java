@@ -34,6 +34,7 @@ import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.download.DownTest;
+import com.yahier.androidtest.download.DownloadManagerTestAct;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -217,6 +218,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("70", new MainItem("DownloadManager的使用", "Android官方的下载工具类", DownloadManagerTestAct.class));
         map.put("69", new MainItem("motionLayout", "MotionLayout定义MotionScene和translation让来模拟view的滚动", MotionLayoutAct.class));
         map.put("68", new MainItem("属性动画1", "", PropertyAnimaAct.class));
         map.put("67", new MainItem("ConstraintLayout2的测试", "", ConstraintLayout2Test.class));

@@ -212,6 +212,7 @@
         <activity android:name=".view.act.ConstraintLayout2Test" />
         <activity android:name=".ui.test.PropertyAnimaAct" />
         <activity android:name=".ui.test.MotionLayoutAct" />
+        <activity android:name=".download.DownloadManagerTestAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"
             android:label="ui线程卡顿监听" />
@@ -223,6 +224,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".download.DownManageReceiver">
+            <intent-filter>
+                <action android:name="DownloadManager.ACTION_DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
 

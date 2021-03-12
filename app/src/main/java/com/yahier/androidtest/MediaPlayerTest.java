@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
  * Created by yahier on 2018/6/22.
  * 视频播放 测试
  * 参考 https://developer.android.google.cn/guide/topics/media/mediaplayer?hl=zh_cn#java
- *
+ * <p>
  * 建立工具类 map<VideoUrl,LocalFilePath)
  * 没有key的，则下载，下载完成将key,value记录下来。直接进入，或者随机播放
  * 有key,如果对应的value已经不存在；则删除这一对key-value,执行下载。直接进入，或者随机播放
@@ -78,12 +79,31 @@ public class MediaPlayerTest extends BaseActivity {
                 }
             });
 
+            player.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+                @Override
+                public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+                    btnStart.setText("width is " + width + " height is " + height);
+                    refreshSurfaceView(width,height);
+                }
+            });
+
             player.prepareAsync();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
+    /**
+     * 比较视频的宽高比 和 屏幕的宽高比。然后撑满屏幕的宽度或者高度
+     */
+    private void refreshSurfaceView(int width,int height){
+        ViewGroup.LayoutParams params = surfaceView.getLayoutParams();
+        params.width = width;
+        params.height = height;
+        surfaceView.setLayoutParams(params);
+
+    }
 
     @Override
     protected void onStop() {

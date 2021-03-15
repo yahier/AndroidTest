@@ -14,10 +14,10 @@ import java.util.stream.IntStream;
 public class RandomTest {
 
     public static void main(String[] args) {
-        //test1();
+        test1();
         //test2();
         //test3();
-        test4();
+        //test4();
     }
 
     /**
@@ -31,6 +31,11 @@ public class RandomTest {
 
         Log.e("test1", random1.nextInt() + " " + random2.nextInt() + " " + random3.nextInt() + " " + random4.nextInt());
         Log.e("test1", random1.nextInt(100) + " " + random2.nextInt(100) + " " + random3.nextInt(100) + " " + random4.nextInt(100));
+
+        for(int i=0;i<10;i++){
+            boolean randomBoolean = new Random().nextBoolean();
+            Log.e("random","test1 is "+randomBoolean);
+        }
 
     }
 

@@ -52,16 +52,16 @@ public class Test {
 //        }
 
         //调用方法1
-        Method m1 = c.getDeclaredMethod("v", null);
+        Method m1 = c.getDeclaredMethod("v", (Class<?>) null);
         m1.setAccessible(true);
         int value = (int) m1.invoke(o);
         System.out.println("value:" + value);
 
         //调用方法2.加上了参数
-        Method m2 = c.getDeclaredMethod("add", new Class<?>[]{int.class, int.class});
-        m2.setAccessible(true);
-        int value2 = (int) m2.invoke(o, 5, 6);
-        System.out.println("value2:" + value2);
+        //Method m2 = c.getDeclaredMethod("add", new Class<?>[]{int.class, int.class});
+        //m2.setAccessible(true);
+        //int value2 = (int) m2.invoke(o, 5, 6);
+        //System.out.println("value2:" + value2);
 
     }
 

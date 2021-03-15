@@ -15,6 +15,26 @@
         android:text="开始下载"
         tools:context=".MainActivity" />
 
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/padding_medium"
+        android:text="开始播放"
+        tools:context=".MainActivity" />
+
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="结果显示"
+        android:minHeight="50dp"
+        android:textColor="#555"
+        android:textSize="18dp" />
 
 
 </LinearLayout>

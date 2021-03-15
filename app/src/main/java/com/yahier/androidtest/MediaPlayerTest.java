@@ -29,7 +29,7 @@ public class MediaPlayerTest extends BaseActivity {
     private SurfaceHolder holder;
     private MediaPlayer player;//媒体播放器
     private Button btnStart;
-    public static final String path = "sdcard/test_10.mp4";
+    private String path = "sdcard/test_10.mp4";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +48,11 @@ public class MediaPlayerTest extends BaseActivity {
 
 
     private void play() {
+        String intentPath = getIntent().getStringExtra("videoPath");
+        if (intentPath != null) {
+            path = intentPath;
+        }
+
         File file = new File(path);
         if (!file.exists()) {
             Toast.makeText(this, "文件路径不存在", Toast.LENGTH_LONG).show();
@@ -83,7 +88,7 @@ public class MediaPlayerTest extends BaseActivity {
                 @Override
                 public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
                     btnStart.setText("width is " + width + " height is " + height);
-                    refreshSurfaceView(width,height);
+                    refreshSurfaceView(width, height);
                 }
             });
 
@@ -97,7 +102,7 @@ public class MediaPlayerTest extends BaseActivity {
     /**
      * 比较视频的宽高比 和 屏幕的宽高比。然后撑满屏幕的宽度或者高度
      */
-    private void refreshSurfaceView(int width,int height){
+    private void refreshSurfaceView(int width, int height) {
         ViewGroup.LayoutParams params = surfaceView.getLayoutParams();
         params.width = width;
         params.height = height;

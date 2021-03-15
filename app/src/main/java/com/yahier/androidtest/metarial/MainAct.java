@@ -1,8 +1,10 @@
 package com.yahier.androidtest.metarial;
 
 import android.Manifest;
+import android.app.DownloadManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -33,6 +35,7 @@ import com.yahier.androidtest.classload.LoaderAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
 import com.yahier.androidtest.data.LogTest;
+import com.yahier.androidtest.download.DownManageReceiver;
 import com.yahier.androidtest.download.DownTest;
 import com.yahier.androidtest.download.DownloadManagerTestAct;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
@@ -165,17 +168,31 @@ public class MainAct extends BaseActivity {
         show();
         otherTest();
 
-        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         ActivityCompat.requestPermissions(this, permissions, 99);
 
         YahierEventManager.getInstance().add(event -> {
             Log.d("事件接收了", "" + event.getType());
         });
+
+
+        //下载完成的回调 这个回调
+        appDownReceiver = new DownManageReceiver();
+        registerReceiver(appDownReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
     }
 
 
+    private DownManageReceiver appDownReceiver;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(appDownReceiver);
+    }
+
     //动态改变APP图标
-    private void switchIcon(boolean isChange){
+    private void switchIcon(boolean isChange) {
         String name = "com.yahier.androidtest.changeIcon";
         PackageManager pm = getPackageManager();
         //停用当前
@@ -318,6 +335,9 @@ public class MainAct extends BaseActivity {
 //                                .makeSceneTransitionAnimation(mAct).toBundle());
             }
         });
+
+
+
 
         Log.e("threadId", "id is " + Thread.currentThread().getId());//1
         new Thread(() -> {

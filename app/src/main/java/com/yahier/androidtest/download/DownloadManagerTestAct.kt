@@ -21,6 +21,7 @@ import java.io.File
 /**
  * 参考 https://developer.android.google.cn/reference/android/app/DownloadManager?hl=en
  * 自带断点续传，同一个文件下载种不再次启动下载。
+ * downloadManager的下载是基于系统的，即使app退出，下载仍然进行
  *
  *
  */
@@ -29,14 +30,13 @@ class DownloadManagerTestAct : BaseActivity() {
     final val TAG = "DownloadManagerTestAct";
 
     var fileUrl = "http://192.168.8.48:8080/static/test_10s.mp4" //a file on my server
-    //var fileUrl2 = "http://192.168.8.48:8080/static/refund_finish.mp3" //a file on my server
+    //var fileUrl2 = "http://192.168.8.48:8080/static/refund_finish.mp3"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_download)
         //init()
-
         check()
     }
 
@@ -90,9 +90,10 @@ class DownloadManagerTestAct : BaseActivity() {
     private fun startDownload() {
         val request = DownloadManager.Request(Uri.parse(fileUrl))
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI)//不用设置了，默认所有网络都允许下载
-
         //需要在manifest种android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
+        //request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
 
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, getFileName())
 

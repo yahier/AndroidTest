@@ -18,6 +18,8 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
     <application
+        android:appComponentFactory="yahier"
+        tools:replace="android:appComponentFactory"
         android:name=".App"
         android:icon="@drawable/wukong"
         android:label="@string/app_name"
@@ -215,6 +217,7 @@
         <activity android:name=".view.act.ConstraintLayout2Test" />
         <activity android:name=".ui.test.PropertyAnimaAct" />
         <activity android:name=".ui.test.MotionLayoutAct" />
+        <activity android:name=".view.act.BottomDrawerAct" />
         <activity android:name=".download.DownloadManagerTestAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"

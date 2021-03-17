@@ -69,6 +69,7 @@ import com.yahier.androidtest.ui.test.StatusBarFitColorAct;
 import com.yahier.androidtest.util.ApacheCommonTestAct;
 import com.yahier.androidtest.util.ArrayMapSparseArrayUtil;
 import com.yahier.androidtest.util.YahierEventManager;
+import com.yahier.androidtest.view.act.BottomDrawerAct;
 import com.yahier.androidtest.view.act.CommonViewTest;
 import com.yahier.androidtest.view.act.ConstraintLayout2Test;
 import com.yahier.androidtest.view.act.ConstraintLayoutTest;
@@ -235,6 +236,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("71", new MainItem("CoordinatorLayout的底部抽屉效果", "底部拖动", BottomDrawerAct.class));
         map.put("70", new MainItem("DownloadManager的使用", "Android官方的下载工具类", DownloadManagerTestAct.class));
         map.put("69", new MainItem("motionLayout", "MotionLayout定义MotionScene和translation让来模拟view的滚动", MotionLayoutAct.class));
         map.put("68", new MainItem("属性动画1", "", PropertyAnimaAct.class));

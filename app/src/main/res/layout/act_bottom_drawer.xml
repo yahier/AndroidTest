@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp">
+
+            <LinearLayout
+                android:id="@+id/imgContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <!-- peekHeight是不会隐藏的高度-->
+        <RelativeLayout
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="125dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+            <FrameLayout
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="#55ff0044"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/viewHand"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:background="#E5E5E5" />
+
+
+                <LinearLayout
+                    android:id="@+id/horizontalView"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#5500ff44"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

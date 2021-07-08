@@ -14,7 +14,11 @@
     <color name="bg">#ddd</color>
     <color name="transparent">#00000000</color>
     <color name="light_yellow">#44FFFF00</color>
-    
-    
+
+    <color name="default_color_fff5f0">#fff5f0</color>
+    <color name="default_color_fffceb">#fffceb</color>
+    <color name="default_color_f0fff5">#f0fff5</color>
+    <color name="default_color_f0feff">#f0feff</color>
+    <color name="default_color_faf5fe">#faf5fe</color>
 
 </resources>

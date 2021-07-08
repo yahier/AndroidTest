@@ -61,6 +61,7 @@ import com.yahier.androidtest.test.WindowTest;
 import com.yahier.androidtest.test.WorkManagerAct;
 import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
+import com.yahier.androidtest.ui.test.GifTestAct;
 import com.yahier.androidtest.ui.test.MotionLayoutAct;
 import com.yahier.androidtest.ui.test.PropertyAnimaAct;
 import com.yahier.androidtest.ui.test.RecyclerMoveAct;
@@ -236,6 +237,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("72", new MainItem("Gif图测试", "gif图测试", GifTestAct.class));
         map.put("71", new MainItem("CoordinatorLayout的底部抽屉效果", "底部拖动", BottomDrawerAct.class));
         map.put("70", new MainItem("DownloadManager的使用", "Android官方的下载工具类", DownloadManagerTestAct.class));
         map.put("69", new MainItem("motionLayout", "MotionLayout定义MotionScene和translation让来模拟view的滚动", MotionLayoutAct.class));

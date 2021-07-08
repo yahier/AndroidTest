@@ -4,6 +4,7 @@ import android.app.Application;
 import android.util.Log;
 
 import com.squareup.leakcanary.LeakCanary;
+import com.yahier.androidtest.util.FrescoUtil;
 import com.yahier.androidtest.util.LifeCycleUtil;
 
 import java.util.HashSet;
@@ -30,6 +31,8 @@ public class MyApp extends Application {
         LeakCanary.install(this);
         registerActivityLifecycleCallbacks(LifeCycleUtil.getInstant());
         ExecutorService service = Executors.newCachedThreadPool();
+
+        FrescoUtil.getInstance().init(this, "bingo_fresco_cache");
     }
 
     public static MyApp getContext() {

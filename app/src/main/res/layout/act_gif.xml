@@ -1,0 +1,86 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/imgGif"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1c0c0" />
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/imgGif2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1c0c0" />
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/imgGif3"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1c0c0" />
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/imgGif4"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1c0c0" />
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/imgGif5"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1c0c0" />
+
+        <com.yahier.androidtest.widget.MImageView
+            android:id="@+id/img6"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+

@@ -11,20 +11,20 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
     <!-- android.permission.DOWNLOAD_WITHOUT_NOTIFICATION -->
 
     <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> -->
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> -->
     <application
-        android:appComponentFactory="yahier"
-        tools:replace="android:appComponentFactory"
         android:name=".App"
+        android:appComponentFactory="yahier"
         android:icon="@drawable/wukong"
         android:label="@string/app_name"
         android:persistent="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:appComponentFactory">
         <activity
             android:name=".metarial.MainAct"
             android:label="yahier测试"
@@ -37,12 +37,12 @@
         </activity>
 
         <activity-alias
-            android:label="yahier别名"
             android:name="changeIcon"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_launcher"
-            android:targetActivity=".metarial.MainAct" >
+            android:label="yahier别名"
+            android:targetActivity=".metarial.MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -218,6 +218,11 @@
         <activity android:name=".ui.test.PropertyAnimaAct" />
         <activity android:name=".ui.test.MotionLayoutAct" />
         <activity android:name=".view.act.BottomDrawerAct" />
+        <activity
+            android:name=".ui.test.GifTestAct"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait" />
+
         <activity android:name=".download.DownloadManagerTestAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"

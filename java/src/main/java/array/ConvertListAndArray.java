@@ -40,6 +40,11 @@ public class ConvertListAndArray {
 
         }
 
+        {
+            //运行错误
+           //Integer[] integers = (Integer[]) list.toArray();
+           //System.out.println("listToArray4:" + Arrays.toString(integers));
+        }
 
     }
 

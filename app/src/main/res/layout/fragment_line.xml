@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewFloat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/horizontalScrollView"
+        android:layout_alignParentRight="true">
+
+        <view
+            android:id="@+id/line_view_float"
+            class="com.yahier.androidtest.widget.chart.LineView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp" />
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/line_button"
+        android:layout_alignParentRight="true">
+
+        <view
+            android:id="@+id/line_view"
+            class="com.yahier.androidtest.widget.chart.LineView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp" />
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/line_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Random" />
+
+</RelativeLayout>

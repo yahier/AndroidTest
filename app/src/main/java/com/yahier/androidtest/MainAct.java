@@ -1,4 +1,4 @@
-package com.yahier.androidtest.metarial;
+package com.yahier.androidtest;
 
 import android.Manifest;
 import android.app.DownloadManager;
@@ -20,10 +20,6 @@ import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
 
-import com.yahier.androidtest.BaseActivity;
-import com.yahier.androidtest.MainActivity;
-import com.yahier.androidtest.MediaPlayerTest;
-import com.yahier.androidtest.R;
 import com.yahier.androidtest.activity.ActivityHookTest;
 import com.yahier.androidtest.activity.EventActivity;
 import com.yahier.androidtest.activity.MonitorUiBlockActivity;
@@ -31,6 +27,7 @@ import com.yahier.androidtest.adapter.MainRecycleAdapter;
 import com.yahier.androidtest.bitmap.ChooseImgTestAct;
 import com.yahier.androidtest.bitmap.LargeImageViewActivity;
 import com.yahier.androidtest.bitmap.ViewToBitmapAct;
+import com.yahier.androidtest.chart.MainChartActivity;
 import com.yahier.androidtest.classload.LoaderAct;
 import com.yahier.androidtest.common.ReflectTest;
 import com.yahier.androidtest.content.provider.TestCPActivity;
@@ -38,6 +35,12 @@ import com.yahier.androidtest.data.LogTest;
 import com.yahier.androidtest.download.DownManageReceiver;
 import com.yahier.androidtest.download.DownTest;
 import com.yahier.androidtest.download.DownloadManagerTestAct;
+import com.yahier.androidtest.metarial.CardViewAct;
+import com.yahier.androidtest.metarial.CollapsingToolbarLayoutTest;
+import com.yahier.androidtest.metarial.MainItem;
+import com.yahier.androidtest.metarial.Material1Act;
+import com.yahier.androidtest.metarial.RecycleAct;
+import com.yahier.androidtest.metarial.VectorSVGAct;
 import com.yahier.androidtest.multipleThreads.OperateUiThreadAct;
 import com.yahier.androidtest.multipleThreads.SynchonizedTest;
 import com.yahier.androidtest.multipleThreads.TestHandlerThreadAct;
@@ -237,6 +240,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("73", new MainItem("图表统计图功能", "树状图 线条图", MainChartActivity.class));
         map.put("72", new MainItem("Gif图测试", "gif图测试", GifTestAct.class));
         map.put("71", new MainItem("CoordinatorLayout的底部抽屉效果", "底部拖动", BottomDrawerAct.class));
         map.put("70", new MainItem("DownloadManager的使用", "Android官方的下载工具类", DownloadManagerTestAct.class));
@@ -268,7 +272,6 @@ public class MainAct extends BaseActivity {
 //        map.put("44", new MainItem("binding测试", "3:静态方法调用.运算符操作数据 ", Test3Act.class));
 //        map.put("43", new MainItem("binding测试", "2:事件绑定 ", Test2Act.class));
 //        map.put("42", new MainItem("binding测试", "1:测试数据绑定 ", Test1Act.class));
-        map.put("41", new MainItem("临时测试", "临时测试 ", MainActivity.class));
         map.put("40", new MainItem("java upper", "lambda测试 ", JavaUpperAct.class));
         map.put("39", new MainItem("WebView总结", "android与js的相互调用测试 ", WebViewAct.class));
         map.put("38", new MainItem("显示圆形图", "", CustomRoungImgAct.class));

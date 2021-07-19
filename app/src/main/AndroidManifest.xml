@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
-            android:name=".metarial.MainAct"
+            android:name=".MainAct"
             android:label="yahier测试"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -42,7 +42,7 @@
             android:exported="true"
             android:icon="@drawable/ic_launcher"
             android:label="yahier别名"
-            android:targetActivity=".metarial.MainAct">
+            android:targetActivity=".MainAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -110,9 +110,6 @@
                 <data android:host="www.baidu.com" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="MainActivity" />
         <activity
             android:name=".viewtest.CanvasTest"
             android:label="CanvasTest" />
@@ -222,6 +219,9 @@
             android:name=".ui.test.GifTestAct"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".chart.MainChartActivity"
+            android:label="图表统计" />
 
         <activity android:name=".download.DownloadManagerTestAct" />
         <activity

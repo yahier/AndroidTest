@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class IsAllChinese {
     public static void main(String[] args) {
-        testStrDelete();
-        //System.out.println(nameIsChinese("序号"));
+        String value = removeRedundantLineTag("123\n4\n\n56\n\n");
+        System.out.println("value:" + value + ":");
     }
 
     static boolean nameIsChinese(String name) {
@@ -27,25 +27,18 @@ public class IsAllChinese {
     }
 
 
-    static void testStrDelete() {
-        String origin = "a\n\n\nb\nc\n";
-        System.out.println("origin:");
-        System.out.println(origin);
-        System.out.println("end");
-
-
+    /**
+     * 去除多余的换行符 1.文本前后的换行符都去掉 2.当文本中的换行符有连续大于2个，就只保留2个
+     */
+    static String removeRedundantLineTag(String origin) {
+        if (origin == null) {
+            return null;
+        }
+        origin = origin.trim();
+        //中间内容部分，两个以上的换行都替换成2个
         Pattern pattern = Pattern.compile("[\\n]{2,}");
         Matcher matcher = pattern.matcher(origin);
-        String old = matcher.replaceAll("\n");
-        if (old.endsWith("\n")) {
-            int indexEndChangeLine = old.lastIndexOf("\n");
-            old = old.substring(0, indexEndChangeLine);
-        }
-        System.out.println("old:");
-        System.out.println(old);
-        System.out.println("end");
-
-
+        return matcher.replaceAll("\n\n");
     }
 
 }

@@ -17,11 +17,11 @@ import pojo.Book;
 public class HashSetTest {
     public static void main(String[] args) {
         //test();
-        //test2();
+        test2();
         //test3();
         //test4_List_delete();
         //test5_Set_Delete();
-        test5();
+        //test5();
     }
 
 
@@ -60,15 +60,22 @@ public class HashSetTest {
     }
 
     static void test2() {
-        Set<Book> set = new HashSet<>();
         Book book1 = new Book("九阴真经", "黄裳");
         Book book2 = new Book("九阴真经", "黄裳");
         List<Book> list = new ArrayList<>();
         list.add(book1);
         list.add(book2);
-        System.err.println("test2 list size:" + list.size());//打印 1
-        set.addAll(list);
-        System.err.println("test2 list size:" + set.size());//打印 1
+        System.err.println("test2 list size:" + list.size());//打印 2
+
+        Set<Book> set = new HashSet<>(list);
+        List<Book> list1 = new ArrayList<>();
+        Book book3 = new Book("九阴真经", "黄裳1");
+        Book book4 = new Book("九阴真经1", "黄裳1");
+        list1.add(book3);
+        list1.add(book4);
+
+        set.addAll(list1);
+        System.err.println("test2 set size:" + set.size());//打印 1
     }
 
     static void test3() {
@@ -106,7 +113,7 @@ public class HashSetTest {
 
     static void test5_Set_Delete() {
         Book book1 = new Book("九阴真经", "黄裳");
-        Book book2 = new Book("九阴", "黄裳");
+        Book book2 = new Book("九阴真经", "黄裳");
         Set<Book> set = new HashSet<>();
         set.add(book1);
         set.add(book2);

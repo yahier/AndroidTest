@@ -66,6 +66,7 @@ import com.yahier.androidtest.ui.test.AwardAct;
 import com.yahier.androidtest.ui.test.ChartAct;
 import com.yahier.androidtest.ui.test.GifTestAct;
 import com.yahier.androidtest.ui.test.MotionLayoutAct;
+import com.yahier.androidtest.ui.test.MyScrollViewAct;
 import com.yahier.androidtest.ui.test.PropertyAnimaAct;
 import com.yahier.androidtest.ui.test.RecyclerMoveAct;
 import com.yahier.androidtest.ui.test.SmartRefreshAct;
@@ -240,6 +241,7 @@ public class MainAct extends BaseActivity {
      */
     private void setData() {
         map = new TreeMap<>((o1, o2) -> Integer.parseInt(o2) - Integer.parseInt(o1));
+        map.put("74", new MainItem("用scroller实现滑动", "", MyScrollViewAct.class));
         map.put("73", new MainItem("图表统计图功能", "树状图 线条图", MainChartActivity.class));
         map.put("72", new MainItem("Gif图测试", "gif图测试", GifTestAct.class));
         map.put("71", new MainItem("CoordinatorLayout的底部抽屉效果", "底部拖动", BottomDrawerAct.class));

@@ -26,7 +26,7 @@ public class ConvertListAndArray {
             list.toArray(intArray);
             System.out.println("listToArray1:" + Arrays.toString(intArray));
 
-            Integer[] intArray2 = new Integer[1];
+            Integer[] intArray2 = new Integer[0];
             //todo 这里长度不同，传参的数组不会得到复制
             list.toArray(intArray2);
             System.out.println("listToArray2:" + Arrays.toString(intArray2));

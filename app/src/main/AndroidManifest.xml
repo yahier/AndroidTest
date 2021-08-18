@@ -222,7 +222,9 @@
         <activity
             android:name=".chart.MainChartActivity"
             android:label="图表统计" />
-
+        <activity
+            android:name=".ui.test.MyScrollViewAct"
+            android:label="图表统计" />
         <activity android:name=".download.DownloadManagerTestAct" />
         <activity
             android:name=".activity.MonitorUiBlockActivity"

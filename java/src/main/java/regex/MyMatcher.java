@@ -100,7 +100,8 @@ public final class MyMatcher {
         String con = "a1b2";
         Pattern p = Pattern.compile("[\\d]");
         Matcher m = p.matcher(con);
-        System.out.println(m.replaceFirst("...."));
+        System.out.println(m.
+                replaceFirst("...."));
 
     }
 

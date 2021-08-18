@@ -13,11 +13,13 @@ public class Core {
         //test1();
         //testOX();
 
-        String value = saveTwoDecimal(12.000);
-        System.out.println("value:" + value);
+//        String value = saveTwoDecimal(12.000);
+//        System.out.println("value:" + value);
+//
+//        double a = 0.95;
+//        System.out.println("value:" + (int) a);
 
-        double a = 0.95;
-        System.out.println("value:" + (int) a);
+        test333();
 
     }
 
@@ -29,6 +31,12 @@ public class Core {
     private static void testOX() {
         String value = Integer.toHexString(14);
         System.out.println("value:" + value);
+    }
+
+    private static void test333(){
+        String s1 = "[\"storeCouponSelected\"]";
+        String s2 = s1.replace("\\","");
+        System.out.println("s2:"+s2);
     }
 
     /**
